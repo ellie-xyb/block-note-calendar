@@ -10,14 +10,15 @@ function Taskbar() {
     width: '300px',
     overflowX: 'hidden',
     overflowY: 'scroll',
+    position: 'relative',
+    zIndex: 0,
   }
   
   return (
     <div style={taskbarStyle}>
       <Calendar></Calendar>
       <Thetab></Thetab>
-    </div>
-  );
+    </div>);
 }
 
 export default Taskbar;

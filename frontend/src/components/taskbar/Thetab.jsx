@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Tasks from './Tasks';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,10 +55,10 @@ export default function Thetab() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Tasks
+        <Tasks></Tasks>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        History Tasks
+        <Tasks></Tasks>
       </TabPanel>
     </Box>
   );
