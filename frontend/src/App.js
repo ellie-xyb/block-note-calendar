@@ -2,12 +2,32 @@ import logo from './logo.svg';
 import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
+import Calendar from './components/taskbar/Calendar';
 
 function App() {
+  const mainContentStyle = {
+    display: 'flex',
+    position: 'relative',
+    width: '100%',
+    boxSizing: 'border-box',
+  };
+
+  const noteCalendarStyle = {
+    flex: '1 1 auto',
+    position: 'relative',
+    overflow: 'scroll',
+    height: '90vh',
+  }
+
   return (
     <div className="App">
       <Topbar></Topbar>
-      <Taskbar></Taskbar>
+      <div style={mainContentStyle}>
+        <Taskbar></Taskbar>
+        <div style={noteCalendarStyle}>
+          <Calendar></Calendar>
+        </div>
+      </div>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

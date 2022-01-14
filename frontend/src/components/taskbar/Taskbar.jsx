@@ -7,18 +7,19 @@ function Taskbar() {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     color: '#282C34',
-    width: '300px',
-    overflowX: 'hidden',
-    overflowY: 'scroll',
+    width: '350px',
+    overflow: 'scroll',
     position: 'relative',
-    zIndex: 0,
+    zIndex: '0',
+    height: '90vh',
   }
   
   return (
     <div style={taskbarStyle}>
       <Calendar></Calendar>
       <Thetab></Thetab>
-    </div>);
+    </div>
+  );
 }
 
 export default Taskbar;
