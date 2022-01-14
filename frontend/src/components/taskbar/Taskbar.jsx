@@ -1,10 +1,12 @@
+import Calendar from './Calendar';
+
 function Taskbar() {
     const taskbarStyle = {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#FFFFFF',
         color: '#282C34',
-        width: '256px',
+        width: '300px',
         overflowX: 'hidden',
         overflowY: 'scroll',
       };
@@ -16,7 +18,7 @@ function Taskbar() {
     //   }
   return (
     <div style={taskbarStyle}>
-        <p>coming soon</p>
+        <Calendar></Calendar>
         <p>Task</p>
         <p>History</p>            
     </div>

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Topbar from './components/Topbar';
-import Taskbar from './components/Taskbar';
+import Taskbar from './components/taskbar/Taskbar';
 
 function App() {
   return (
