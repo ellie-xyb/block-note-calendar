@@ -1,26 +1,21 @@
 import Calendar from './Calendar';
+import Thetab from './Thetab';
 
 function Taskbar() {
-    const taskbarStyle = {
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#FFFFFF',
-        color: '#282C34',
-        width: '300px',
-        overflowX: 'hidden',
-        overflowY: 'scroll',
-      };
-
-    //   const linkStyle = {
-    //       paddingLeft: '15px',
-    //       color: 'white',
-    //       textDecoration: 'none',
-    //   }
+  const taskbarStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#FFFFFF',
+    color: '#282C34',
+    width: '300px',
+    overflowX: 'hidden',
+    overflowY: 'scroll',
+  }
+  
   return (
     <div style={taskbarStyle}>
-        <Calendar></Calendar>
-        <p>Task</p>
-        <p>History</p>            
+      <Calendar></Calendar>
+      <Thetab></Thetab>
     </div>
   );
 }
