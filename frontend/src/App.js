@@ -3,6 +3,7 @@ import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
 import Calendar from './components/taskbar/Calendar';
+import NoteCalendar from './components/notecalendar/NoteCalendar';
 
 function App() {
   const mainContentStyle = {
@@ -25,7 +26,7 @@ function App() {
       <div style={mainContentStyle}>
         <Taskbar></Taskbar>
         <div style={noteCalendarStyle}>
-          <Calendar></Calendar>
+          <NoteCalendar></NoteCalendar>
         </div>
       </div>
       {/* <header className="App-header">
