@@ -45,7 +45,7 @@ export default function AddNewTask() {
         onClick={handleClickOpen}
         startIcon={<ControlPointIcon />}
       >
-        Create a task
+        Create task
       </Button>
       <Dialog
         open={open}
