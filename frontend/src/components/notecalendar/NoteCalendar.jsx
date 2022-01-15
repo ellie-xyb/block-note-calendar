@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { red } from '@mui/material/colors';
 
 const columns = [
   { id: 'time', label: '', width: 40, first: true  },
@@ -52,37 +53,41 @@ const rows =[
 const firstRowStyle = {
     paddingTop: '40px',
     paddingBottom: '5px',
-    paddingLeft: '18px',
-    fontSize: '0.5em',
+    paddingLeft: '17px',
+    fontSize: '0.8em',
     border: 'none',
     textAlign: 'center',
+    color: '#3E5060',
 };
 
 const secondRowStyle = {
-    fontSize: '1.2em', 
+    fontSize: '1.4em', 
     top: 69, 
-    paddingTop: '5px', 
+    paddingTop: '2px', 
+    paddingBottom: '10px',
     border: 'none',
     textAlign: 'center',
+    color: '#3E5060',
 };
 
 const thirdRowStyle = { 
-    fontSize: '0,3em',  
-    top: 114, 
-    padding: 0, 
-    paddingBottom: '20px',
+    fontSize: '0.72em',  
+    top: 105, 
+    padding: '5px', 
+    paddingLeft: '15px',
     border: 'none',
     borderBottom: '0.5px solid #E0E3E7',
     textAlign: 'left',
+    color: '#3E5060',
 };    
 
 export default function NoteCalendar() {
   return (
     <Paper 
     sx={{ 
-        width: '99%', 
+        width: '98%', 
         overflow: 'hidden', 
-        paddingLeft: '12px',
+        paddingLeft: '20px',
         }}>
       <TableContainer sx={{ height: '90vh' }}>
         <Table stickyHeader aria-label="sticky table">
@@ -127,11 +132,13 @@ export default function NoteCalendar() {
                       return (
                         <TableCell 
                           key={column.id} 
-                          align={column.first ? 'center' : 'left'} 
-                         width={column.width} 
+                          align={column.first ? 'right' : 'left'} 
+                          width={column.width} 
                           overFlow='hidden'
                           style={{
-                            borderRight: '0.5px solid #E0E3E7',
+                            borderLeft: column.first ? 'none' : '0.5px solid #E0E3E7',
+                            fontSize: column.first ? '0.7em' : '1em',
+                            color: column.first ? '#6F7E8C' : '1em',
                           }}
                         >
                           {value}
