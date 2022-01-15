@@ -1,7 +1,7 @@
-import Calendar from './Calendar';
+import DemoCalendar from './Calendar';
 import Thetab from './Thetab';
 
-function Taskbar() {
+export default function Taskbar() {
   const taskbarStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -10,16 +10,14 @@ function Taskbar() {
     width: '350px',
     overflow: 'scroll',
     position: 'relative',
-    zIndex: '0',
+    zIndex: 0,
     height: '90vh',
-  }
-  
+  };
+
   return (
     <div style={taskbarStyle}>
-      <Calendar></Calendar>
+      <DemoCalendar></DemoCalendar>
       <Thetab></Thetab>
     </div>
   );
 }
-
-export default Taskbar;
