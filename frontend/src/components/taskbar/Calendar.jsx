@@ -34,7 +34,7 @@ const CustomPickersDay = styled(PickersDay, {
 }));
 
 
-export default function DemoCalendar() {
+export default function DemoCalendar(props) {
   const [value, setValue] = React.useState(new Date());
 
   const renderWeekPickerDay = (date, selectedDates, pickersDayProps) => {
@@ -68,6 +68,7 @@ export default function DemoCalendar() {
         value={value}
         onChange={(newValue) => {
           setValue(newValue);
+          props.setPickedDate(newValue);
         }}
         renderDay={renderWeekPickerDay}
         renderInput={(params) => <TextField {...params} />}
