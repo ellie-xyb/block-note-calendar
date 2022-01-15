@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DemoCalendar from './Calendar';
 import Thetab from './Thetab';
+import AddNewTask from './AddNewTask';
 
 export default function Taskbar(props) {
   const taskbarStyle = {
@@ -8,16 +9,16 @@ export default function Taskbar(props) {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     color: '#282C34',
-    width: '350px',
+    width: '380px',
     overflow: 'scroll',
     position: 'relative',
     zIndex: 0,
-    height: '90vh',
   };
 
   return (
     <div style={taskbarStyle}>
       <DemoCalendar setPickedDate={props.setPickedDate}></DemoCalendar>
+      <AddNewTask></AddNewTask>
       <Thetab></Thetab>
     </div>
   );
