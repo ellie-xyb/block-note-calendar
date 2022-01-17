@@ -45,7 +45,14 @@ function App() {
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
-          <NoteCalendar pickedDate={pickedDate}></NoteCalendar>
+          <NoteCalendar 
+            pickedDate={pickedDate}
+            open={open}
+            setOpen={setOpen}
+            handleClickOpen={handleClickOpen}
+            handleClose={handleClose}
+          >
+          </NoteCalendar>
         </div>
       </div>
       {/* <header className="App-header">

@@ -8,10 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
-
-function aTest(){
-    console.log('hi');
-}
+import NewTaskDialog from '../taskbar/AddTaskDialog';
 
 function createData(id, time) {
     return { id, time };
@@ -151,7 +148,7 @@ export default function NoteCalendar(props) {
                         const value = row[column.id];
                         return (
                         <TableCell 
-                            onClick={aTest}
+                            onClick={props.handleClickOpen}
                             key={column.id} 
                             align={column.first ? 'right' : 'left'} 
                             width={column.width} 
@@ -172,6 +169,7 @@ export default function NoteCalendar(props) {
             </TableBody>
         </Table>
         </TableContainer>
+        <NewTaskDialog open={props.open} handleClose={props.handleClose} />
     </Paper>
   );
 }
