@@ -3,8 +3,7 @@ import DemoCalendar from './Calendar';
 import Thetab from './Thetab';
 import AddNewTask from './AddNewTask';
 
-export default function Taskbar(props) {
-  const taskbarStyle = {
+const taskbarStyle = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
@@ -14,15 +13,13 @@ export default function Taskbar(props) {
     position: 'relative',
     zIndex: 0,
   };
-  
+
+export default function Taskbar(props) {
   return (
     <div style={taskbarStyle}>
       <DemoCalendar setPickedDate={props.setPickedDate} />
-      <AddNewTask
-        handleClickOpen={props.handleClickOpen}
-      >
-      </AddNewTask>
-      <Thetab></Thetab>
+      <AddNewTask handleClickOpen={props.handleClickOpen} />
+      <Thetab />
     </div>
   );
 }

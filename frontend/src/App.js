@@ -22,6 +22,7 @@ function App() {
     display: 'flex',
     position: 'relative',
     width: '100%',
+    height: '90vh',
     boxSizing: 'border-box',
   };
 
