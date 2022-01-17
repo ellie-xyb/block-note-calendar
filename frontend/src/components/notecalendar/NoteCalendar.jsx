@@ -7,8 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import endOfWeek from 'date-fns/endOfWeek';
-import isWithinInterval from 'date-fns/isWithinInterval';
 import startOfWeek from 'date-fns/startOfWeek';
+
+function aTest(){
+    console.log('hi');
+}
 
 function createData(id, time) {
     return { id, time };
@@ -148,6 +151,7 @@ export default function NoteCalendar(props) {
                         const value = row[column.id];
                         return (
                         <TableCell 
+                            onClick={aTest}
                             key={column.id} 
                             align={column.first ? 'right' : 'left'} 
                             width={column.width} 
