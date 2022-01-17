@@ -8,6 +8,15 @@ import NoteCalendar from './components/notecalendar/NoteCalendar';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  }; 
 
   const mainContentStyle = {
     display: 'flex',
@@ -27,7 +36,14 @@ function App() {
     <div className="App">
       <Topbar></Topbar>
       <div style={mainContentStyle}>
-        <Taskbar setPickedDate={setPickedDate}></Taskbar>
+        <Taskbar 
+          setPickedDate={setPickedDate}
+          open={open}
+          setOpen={setOpen}
+          handleClickOpen={handleClickOpen}
+          handleClose={handleClose}
+        >
+        </Taskbar>
         <div style={noteCalendarStyle}>
           <NoteCalendar pickedDate={pickedDate}></NoteCalendar>
         </div>
