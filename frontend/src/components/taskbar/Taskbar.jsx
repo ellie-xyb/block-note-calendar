@@ -17,12 +17,9 @@ export default function Taskbar(props) {
   
   return (
     <div style={taskbarStyle}>
-      <DemoCalendar setPickedDate={props.setPickedDate}></DemoCalendar>
+      <DemoCalendar setPickedDate={props.setPickedDate} />
       <AddNewTask
-        open={props.open}
-        setOpen={props.setOpen}
         handleClickOpen={props.handleClickOpen}
-        handleClose={props.handleClose}
       >
       </AddNewTask>
       <Thetab></Thetab>

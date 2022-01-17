@@ -169,7 +169,6 @@ export default function NoteCalendar(props) {
             </TableBody>
         </Table>
         </TableContainer>
-        <NewTaskDialog open={props.open} handleClose={props.handleClose} />
     </Paper>
   );
 }

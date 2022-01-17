@@ -4,7 +4,7 @@ import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
 import NoteCalendar from './components/notecalendar/NoteCalendar';
-
+import NewTaskDialog from './components/taskbar/AddTaskDialog';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
@@ -38,23 +38,18 @@ function App() {
       <div style={mainContentStyle}>
         <Taskbar 
           setPickedDate={setPickedDate}
-          open={open}
-          setOpen={setOpen}
           handleClickOpen={handleClickOpen}
-          handleClose={handleClose}
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
           <NoteCalendar 
             pickedDate={pickedDate}
-            open={open}
-            setOpen={setOpen}
             handleClickOpen={handleClickOpen}
-            handleClose={handleClose}
           >
           </NoteCalendar>
         </div>
       </div>
+      <NewTaskDialog open={open} handleClose={handleClose} />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

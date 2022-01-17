@@ -20,7 +20,6 @@ export default function AddNewTask(props) {
       >
         Create task
       </Button>
-      <NewTaskDialog open={props.open} handleClose={props.handleClose}/>
     </div>
   );
 }
