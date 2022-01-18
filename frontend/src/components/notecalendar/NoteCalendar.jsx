@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
+import TaskChip from './TaskChip';
 
 function createData(id, time) {
     return { id, time };
@@ -165,6 +166,7 @@ export default function NoteCalendar(props) {
                             }}
                         >
                             {value}
+                            {/* <TaskChip taskChipData={props.taskChipData} handleDeleteTaskChip={props.handleDeleteTaskChip} /> */}
                         </TableCell>
                         );
                     })}
