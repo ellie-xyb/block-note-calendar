@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
-import NoteCalendar from './components/notecalendar/NoteCalendar';
+import NoteCalendar from './components/notecalendar/NoteCalendar.jsx';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
+import TaskChip from './components/notecalendar/TaskChip';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
@@ -62,6 +63,7 @@ function App() {
         </div>
       </div>
       <NewTaskDialog open={open} handleClose={handleClose} />
+      <TaskChip taskChipData={taskChipData} handleDeleteTaskChip={handleDeleteTaskChip} />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
