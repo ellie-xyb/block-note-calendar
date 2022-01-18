@@ -6,22 +6,42 @@ export default function Tasks() {
   return (
     <Box
       component="form"
-      sx={{ 
-        '& > :not(style)': { p: 1, width: '43%' },
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '42%' },
       }}
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Task 1" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 2" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 3" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 4" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 5" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 6" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 7" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 8" variant="outlined" />
-      <TextField id="outlined-basic" label="Task 9" variant="outlined" />
-      <TextField id="outlined-basic" label="+" variant="outlined" />
+      <div>
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="coming soon..."
+          variant="filled"
+          size="small"
+        />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="gym"
+          variant="filled"
+          size="small"
+        />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="coding"
+          variant="filled"
+          size="small"
+        />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="shopping"
+          variant="filled"
+          size="small"
+        />
+      </div>    
     </Box>
   );
 }

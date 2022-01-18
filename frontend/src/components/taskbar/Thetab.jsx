@@ -2,8 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Tasks from './Tasks';
@@ -62,11 +62,15 @@ export default function Thetab(props) {
           aria-label="basic tabs example"
         >
           <Tab label="Task" {...a11yProps(0)} />
-          <Tab label="History" {...a11yProps(1)} sx={{mr: 7}} />
-          <Fab color="primary" aria-label="add" size="small">
-            <AddIcon onClick={props.handleClickOpen} />
-          </Fab>
-        </Tabs>
+          <Tab label="History" {...a11yProps(1)} sx={{mr: 8}} />
+          <IconButton 
+            color="secondary" 
+            aria-label="create task"
+            sx={{width: '45px', height: '45px'}}
+            >
+            <AddIcon onClick={props.handleClickOpen} size='large' />
+          </IconButton>       
+        </Tabs>  
       </Box>
       <TabPanel value={value} index={0}>
         <Tasks></Tasks>
