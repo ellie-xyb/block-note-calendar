@@ -2,6 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Tasks from './Tasks';
@@ -48,10 +50,22 @@ export default function Thetab() {
 
   return (
     <Box sx={{ width: '100%', height: '300px' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+      <Box 
+        sx={{ 
+          borderBottom: 1, 
+          borderColor: 'divider',
+          }}
+        >
+        <Tabs 
+          value={value} 
+          onChange={handleChange} 
+          aria-label="basic tabs example"
+        >
           <Tab label="Task" {...a11yProps(0)} />
-          <Tab label="History" {...a11yProps(1)} />
+          <Tab label="History" {...a11yProps(1)} sx={{mr: 7}} />
+          <Fab color="primary" aria-label="add" size="small">
+            <AddIcon />
+          </Fab>
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
