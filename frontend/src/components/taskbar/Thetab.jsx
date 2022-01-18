@@ -41,7 +41,7 @@ function a11yProps(index) {
   };
 }
 
-export default function Thetab() {
+export default function Thetab(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -64,7 +64,7 @@ export default function Thetab() {
           <Tab label="Task" {...a11yProps(0)} />
           <Tab label="History" {...a11yProps(1)} sx={{mr: 7}} />
           <Fab color="primary" aria-label="add" size="small">
-            <AddIcon />
+            <AddIcon onClick={props.handleClickOpen} />
           </Fab>
         </Tabs>
       </Box>
