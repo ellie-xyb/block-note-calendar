@@ -9,6 +9,16 @@ import NewTaskDialog from './components/taskbar/AddTaskDialog';
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(false);
+  const [taskChipData, setTaskChipData] = React.useState([
+    {id: 0, title: 'gym', datetime: '10:00am'},
+    {id: 1, title: 'coding', datetime: '12:00am'},
+    {id: 2, title: 'cooking', datetime: '5:00pm'},
+    {id: 3, title: 'movie', datetime: '9:00am'},
+  ]);
+
+  const handleDeleteTaskChip = (taskChipToDelete) => () => {
+    setTaskChipData((chips) => chips.filter((chip) => chip.id != taskChipToDelete.id));
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,6 +56,7 @@ function App() {
           <NoteCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
+            taskChipData={taskChipData}
           >
           </NoteCalendar>
         </div>
