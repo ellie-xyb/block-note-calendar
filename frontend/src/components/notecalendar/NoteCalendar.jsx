@@ -10,6 +10,8 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 import TaskChip from './TaskChip';
 
+import ReactCursorPosition from 'react-cursor-position';
+
 function createData(id, time) {
     return { id, time };
   }
@@ -159,7 +161,7 @@ export default function NoteCalendar(props) {
                             // onClick={
                             //     function(e){
                             //         console.log(e);
-                            //       }
+                            //     }
                             // }
                             key={column.id} 
                             align={column.first ? 'right' : 'left'} 
@@ -178,7 +180,7 @@ export default function NoteCalendar(props) {
                     </TableRow>
                 );
                 })}
-            </TableBody>
+            </TableBody> 
         </Table>
         </TableContainer>
     </Paper>
