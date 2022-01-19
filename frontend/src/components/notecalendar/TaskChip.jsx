@@ -8,19 +8,28 @@ const ListItem = styled('li')(({ theme }) => ({
   margin: theme.spacing(0.5),
 }));
 
+const chipListDivStyle = {
+    width: '100px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    listStyle: 'none',
+    zIndex: 10,
+    cursor: 'pointer',
+    p: 0.5,
+    m: 0,
+    zIndex: 5,
+    position: 'relative',
+    top: '0px',
+    left: '80px',
+};
+
 export default function TaskChip(props) {
 
   return (
-    <Paper
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        flexWrap: 'wrap',
-        listStyle: 'none',
-        p: 0.5,
-        m: 0,
-      }}
+    <div
+      style={chipListDivStyle} 
       component="ul"
     >
       {props.taskChipData.map((data) => {
@@ -36,6 +45,6 @@ export default function TaskChip(props) {
           </ListItem>
         );
       })}
-    </Paper>
+    </div>
   );
 }

@@ -107,7 +107,13 @@ export default function NoteCalendar(props) {
         overflow: 'hidden', 
         paddingLeft: '20px',
         }}>    
-        <TableContainer sx={{ height: '90vh' }}>
+        <TableContainer sx={{ 
+          height: '90vh', 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          zIndex: 0 
+        }}>
         <Table stickyHeader aria-label="sticky table">
             <TableHead>
             <TableRow>
@@ -150,11 +156,11 @@ export default function NoteCalendar(props) {
                         return (
                         <TableCell 
                             // onClick={props.handleClickOpen}
-                            onClick={
-                                function(e){
-                                    console.log(e);
-                                  }
-                            }
+                            // onClick={
+                            //     function(e){
+                            //         console.log(e);
+                            //       }
+                            // }
                             key={column.id} 
                             align={column.first ? 'right' : 'left'} 
                             width={column.width} 
@@ -162,11 +168,10 @@ export default function NoteCalendar(props) {
                             style={{
                             borderLeft: column.first ? 'none' : '0.5px solid #E0E3E7',
                             fontSize: column.first ? '0.7em' : '1em',
-                            color: column.first ? '#6F7E8C' : '1em',
+                            color: column.first ? '#6F7E8C' : '#77838E',
                             }}
                         >
                             {value}
-                            {/* <TaskChip taskChipData={props.taskChipData} handleDeleteTaskChip={props.handleDeleteTaskChip} /> */}
                         </TableCell>
                         );
                     })}

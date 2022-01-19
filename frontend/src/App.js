@@ -5,16 +5,16 @@ import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
 import NoteCalendar from './components/notecalendar/NoteCalendar.jsx';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
-// import TaskChip from './components/notecalendar/TaskChip';
+import TaskChip from './components/notecalendar/TaskChip';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(false);
   const [taskChipData, setTaskChipData] = React.useState([
     {id: 0, title: 'gym', datetime: '10:00am'},
-    // {id: 1, title: 'coding', datetime: '12:00am'},
-    // {id: 2, title: 'cooking', datetime: '5:00pm'},
-    // {id: 3, title: 'movie', datetime: '9:00am'},
+    {id: 1, title: 'coding', datetime: '12:00am'},
+    {id: 2, title: 'cooking', datetime: '5:00pm'},
+    {id: 3, title: 'movie', datetime: '9:00am'},
   ]);
 
   const handleDeleteTaskChip = (taskChipToDelete) => () => {
@@ -54,12 +54,10 @@ function App() {
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
+          <TaskChip taskChipData={taskChipData} handleDeleteTaskChip={handleDeleteTaskChip} />
           <NoteCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
-            taskChipData={taskChipData}
-            taskChipData={taskChipData} 
-            handleDeleteTaskChip={handleDeleteTaskChip}
           >
           </NoteCalendar>
         </div>
