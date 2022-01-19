@@ -21,7 +21,7 @@ const chipListDivStyle = {
     m: 0,
     zIndex: 5,
     position: 'relative',
-    top: '0px',
+    top: '150px',
     left: '80px',
 };
 
@@ -40,6 +40,7 @@ export default function TaskChip(props) {
             <Chip
               icon={icon}
               label={data.title}
+              color='info'
               onDelete={props.handleDeleteTaskChip(data)}
             />
           </ListItem>
