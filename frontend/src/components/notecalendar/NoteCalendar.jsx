@@ -10,8 +10,6 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 import TaskChip from './TaskChip';
 
-import ReactCursorPosition from 'react-cursor-position';
-
 function createData(id, time) {
     return { id, time };
   }

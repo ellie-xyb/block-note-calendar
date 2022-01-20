@@ -10,6 +10,7 @@ const ListItem = styled('li')(({ theme }) => ({
 
 const chipListDivStyle = {
     width: '100px',
+    // height: '90vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
