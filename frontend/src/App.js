@@ -3,12 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
-import NoteCalendar from './components/notecalendar/NoteCalendar.jsx';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
-import TaskChip from './components/notecalendar/TaskChip';
 import ReactCursorPosition from 'react-cursor-position';
-import OverlayDiv from './components/notecalendar/OverlayDiv';
-import CalendarHeader from './components/notecalendar/CalendarHeader';
+import BgCalendar from './components/notecalendar/BgCalendar.jsx';
+import OverlayCalendar from './components/notecalendar/OverlayCalendar';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
@@ -57,16 +55,11 @@ function App() {
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
-          <CalendarHeader 
+          <OverlayCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
           />
-          <NoteCalendar>
-            pickedDate={pickedDate}
-            handleClickOpen={handleClickOpen}
-          >
-          </NoteCalendar>
-          <OverlayDiv />
+          <BgCalendar />
         </div>  
       </div>
       <NewTaskDialog open={open} handleClose={handleClose} />

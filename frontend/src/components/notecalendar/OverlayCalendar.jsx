@@ -40,7 +40,38 @@ const thirdRowStyle = {
     color: '#3E5060',
 };    
 
-export default function CalendarHeader(props) {
+function createData(id, time) {
+    return { id, time };
+  }
+
+const rows =[
+    createData(0, '6AM'),
+    createData(1, '7AM'),
+    createData(2, '8AM'),
+    createData(3, '9AM'),
+    createData(4, '10AM'),
+    createData(5, '11AM'),
+    createData(6, '12PM'),
+    createData(7, '1PM'),
+    createData(8, '2PM'),
+    createData(9, '3PM'),
+    createData(10, '4PM'),
+    createData(11, '5PM'),
+    createData(12, '6PM'),
+    createData(13, '7PM'),
+    createData(14, '8PM'),
+    createData(15, '9PM'),
+    createData(16, '10PM'),
+    createData(17, '11PM'),
+    createData(18, '12AM'),
+    createData(19, '1AM'),
+    createData(20, '2AM'),
+    createData(21, '3AM'),
+    createData(22, '4AM'),
+    createData(23, '5AM'),
+];
+
+export default function OverlayCalendar(props) {
     const thePickedDate = props.pickedDate ? props.pickedDate : new Date();
     const start = startOfWeek(thePickedDate);
     const end = endOfWeek(thePickedDate);
@@ -72,15 +103,17 @@ export default function CalendarHeader(props) {
     <>    
         <TableContainer sx={{ 
           width: '100%',
+          height: '100%',
           position: 'sticky', 
           top: 0, 
           left: 0, 
           buttom: 0,
           right: 0,
-          zIndex: 200, 
+          zIndex: 100, 
+          opacity: 1,
         }}> 
-        <Table stickyHeader aria-label="sticky table" sx={{ height: '142px' }}>
-            <TableHead>
+        <Table stickyHeader aria-label="sticky table">
+            <TableHead sx={{ height: '100px' }}>
             <TableRow>
                 <TableCell style={{ border: 'none' }}></TableCell>
                 <TableCell style={firstRowStyle}>SUN</TableCell>
@@ -122,8 +155,7 @@ export default function CalendarHeader(props) {
                         style={{
                         width: column.width,
                         minWidth: column.minWidth,
-                        height: '1px',
-                        padding: '0 16px 0 16px',
+                        height: '720px',
                         borderLeft: column.first ? 'none' : '0.5px solid #E0E3E7',
                         fontSize: column.first ? '0.7em' : '1em',
                         color: column.first ? '#6F7E8C' : '#77838E',
@@ -134,7 +166,7 @@ export default function CalendarHeader(props) {
                     );
                 })}
                 </TableRow>
-            </TableBody>    
+            </TableBody> 
         </Table>
         </TableContainer>
     </>
