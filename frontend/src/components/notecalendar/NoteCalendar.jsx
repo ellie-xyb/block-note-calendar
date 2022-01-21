@@ -8,7 +8,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
-import OverlayDiv from './OverlayDiv';
 
 function createData(id, time) {
     return { id, time };
@@ -102,22 +101,15 @@ export default function NoteCalendar(props) {
       
     return (
     <>    
-    <Paper 
-    sx={{ 
-        width: '100%', 
-        overflow: 'hidden', 
-        height: '100%',
-        maxHeight: '100%',
-        position: 'absolute', 
-        top: 0, 
-        left: 0, 
-        buttom: 0,
-        right: 0,
-        }}>    
         <TableContainer sx={{ 
-          height: '100%', 
-          zIndex: 0 
-        }}>
+          width: '100%',
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          buttom: 0,
+          right: 0,
+          zIndex: 10, 
+        }}> 
         <Table stickyHeader aria-label="sticky table">
             <TableHead>
             <TableRow>
@@ -159,7 +151,7 @@ export default function NoteCalendar(props) {
                         const value = row[column.id];
                         return (
                         <TableCell 
-                            // onClick={props.handleClickOpen}
+                            onClick={props.handleClickOpen}
                             // onClick={
                             //     function(e){
                             //         console.log(e);
@@ -171,6 +163,7 @@ export default function NoteCalendar(props) {
                             style={{
                             width: column.width,
                             minWidth: column.minWidth,
+                            height: '30px',
                             borderLeft: column.first ? 'none' : '0.5px solid #E0E3E7',
                             fontSize: column.first ? '0.7em' : '1em',
                             color: column.first ? '#6F7E8C' : '#77838E',
@@ -187,8 +180,6 @@ export default function NoteCalendar(props) {
             </TableBody>    
         </Table>
         </TableContainer>
-    </Paper>
-    <OverlayDiv />
     </>
   );
 }

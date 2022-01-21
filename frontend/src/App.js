@@ -7,6 +7,7 @@ import NoteCalendar from './components/notecalendar/NoteCalendar.jsx';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
 import TaskChip from './components/notecalendar/TaskChip';
 import ReactCursorPosition from 'react-cursor-position';
+import OverlayDiv from './components/notecalendar/OverlayDiv';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
@@ -55,12 +56,12 @@ function App() {
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
-          {/* <TaskChip taskChipData={taskChipData} handleDeleteTaskChip={handleDeleteTaskChip} /> */}
           <NoteCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
           >
           </NoteCalendar>
+          <OverlayDiv />
         </div>
       </div>
       <NewTaskDialog open={open} handleClose={handleClose} />
