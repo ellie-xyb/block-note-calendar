@@ -10,13 +10,13 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 const columns = [
-    { id: '1', label: '', width: '145px', minWidth: '35px' },
-    { id: '2', label: '', width: '145px', minWidth: '35px' },
-    { id: '3', label: '', width: '145px', minWidth: '35px' },
-    { id: '4', label: '', width: '145px', minWidth: '35px' },
-    { id: '5', label: '', width: '145px', minWidth: '35px' },
-    { id: '6', label: '', width: '145px', minWidth: '35px' },
-    { id: '7', label: '', width: '145px', minWidth: '35px' },
+    { id: '1', label: '', width: '120px', minWidth: '35px' },
+    { id: '2', label: '', width: '120px', minWidth: '35px' },
+    { id: '3', label: '', width: '120px', minWidth: '35px' },
+    { id: '4', label: '', width: '120px', minWidth: '35px' },
+    { id: '5', label: '', width: '120px', minWidth: '35px' },
+    { id: '6', label: '', width: '120px', minWidth: '35px' },
+    { id: '7', label: '', width: '120px', minWidth: '35px' },
 ];
 
 const rows = [
@@ -55,6 +55,8 @@ export default function BgCalendar() {
             buttom: 0,
             right: 0,
             zIndex: 10, 
+            height: '90vh',
+            width: 'calc(100% - 65px)',
         }}> 
         <Table stickyHeader aria-label="sticky table">
             <TableHead>  
@@ -63,7 +65,7 @@ export default function BgCalendar() {
                     colSpan={8} 
                     style={{
                         height: '120px',
-                        maxHeight: '120px',
+                        padding: 0,
                     }}
                 >
                 </TableCell>
@@ -72,7 +74,7 @@ export default function BgCalendar() {
             <TableBody>
             {rows.map((row) => {
                 return (
-                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                    <TableRow role="checkbox" tabIndex={-1} key={row.id}>
                     {columns.map((column) => {
                         return (
                         <TableCell 
@@ -86,11 +88,11 @@ export default function BgCalendar() {
                             style={{
                             width: column.width,
                             minWidth: column.minWidth,
-                            height: '30px',
+                            height: '40px',
                             borderRight: '0.5px solid #E0E3E7',
                             fontSize: '1em',
                             color: '#77838E',
-                            margin: 0,
+                            padding: 0,
                             }}
                         >
                         </TableCell>

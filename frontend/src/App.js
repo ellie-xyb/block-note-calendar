@@ -33,29 +33,17 @@ function App() {
 
   const mainContentStyle = {
     display: 'flex',
-    position: 'relative',
     width: '100%',
     height: '90vh',
     boxSizing: 'border-box',
   };
 
   const insideMainCalendarStyle = {
-    flex: '1 1 0',
+    flex: '1 0 0',
     display: 'flex',
     position: 'relative',
-    height: '90vh',
+    height: '100%',
     overFlow: 'scroll',
-  };
-
-  const timeTableStyle = {
-    height: '90vh',
-    width: '100px',
-    // position: 'relative',
-    // top: 0, 
-    // left: 0, 
-    // buttom: 0,
-    // right: 0,
-    // zIndex: 100, 
   };
 
   return (
@@ -68,7 +56,7 @@ function App() {
         >
         </Taskbar>
         <div style={insideMainCalendarStyle}>
-          <TimeTable style={timeTableStyle} />
+          <TimeTable />
           <BgCalendar />
           {/* <OverlayCalendar 
             pickedDate={pickedDate}

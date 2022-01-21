@@ -41,6 +41,34 @@ export default function Tasks() {
           variant="filled"
           size="small"
         />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="coming soon..."
+          variant="filled"
+          size="small"
+        />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="gym"
+          variant="filled"
+          size="small"
+        />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="coding"
+          variant="filled"
+          size="small"
+        />
+        <TextField
+          label="0"
+          id="filled-size-small"
+          defaultValue="shopping"
+          variant="filled"
+          size="small"
+        />
       </div>    
     </Box>
   );

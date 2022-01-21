@@ -1,13 +1,11 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import endOfWeek from 'date-fns/endOfWeek';
-import startOfWeek from 'date-fns/startOfWeek';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
 
 const column = { key: 'time', label: 'GMT+09' };
 
@@ -44,7 +42,17 @@ const rows =[
 
 export default function TimeTable() {    
     return (  
-        <TableContainer sx={{ width: '65px', padding: 0 }}> 
+        <TableContainer 
+          sx={{ 
+            width: '65px', 
+            padding: 0,
+            position: 'relative', 
+            top: 0, 
+            left: 0, 
+            buttom: 0,
+            right: 0,
+            height: '90vh',
+          }}> 
         <Table stickyHeader aria-label="sticky table">
             <TableHead>  
             <TableRow>
@@ -57,8 +65,7 @@ export default function TimeTable() {
                     borderBottom: '0.5px solid #E0E3E7',
                     color: '#3E5060',
                     padding: 0,
-                    display: 'flex',
-                    alignItems: 'flex-end',
+                    verticalAlign: 'bottom',
                   }}
                 >
                   {column.label}

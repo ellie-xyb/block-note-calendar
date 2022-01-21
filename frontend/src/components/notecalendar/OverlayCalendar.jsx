@@ -97,7 +97,6 @@ export default function OverlayCalendar(props) {
                     <TableCell 
                         key={column.id} 
                         align={column.first ? 'right' : 'left'} 
-                        overFlow='hidden'
                         style={{
                         width: column.width,
                         minWidth: column.minWidth,
