@@ -90,7 +90,7 @@ export default function NoteCalendar(props) {
     const dates = getDatesBetween(start, end).map( date => date.getDate());
     
     const columns = [
-        { id: 'time', label: '', width: 40, first: true },
+        { id: 'time', label: '', minWidth: 40, first: true },
         { id: 'sun', label: dates[0], width: 145  },
         { id: 'mon', label: dates[1], width: 145  },
         { id: 'tue', label: dates[2], width: 145  },
@@ -103,15 +103,18 @@ export default function NoteCalendar(props) {
     return (
     <Paper 
     sx={{ 
-        width: '98%', 
+        width: '100%', 
         overflow: 'hidden', 
-        paddingLeft: '20px',
+        height: '100%',
+        maxHeight: '100%',
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        buttom: 0,
+        right: 0,
         }}>    
         <TableContainer sx={{ 
-          height: '90vh', 
-          position: 'absolute', 
-          top: 0, 
-          left: 0, 
+          height: '100%', 
           zIndex: 0 
         }}>
         <Table stickyHeader aria-label="sticky table">

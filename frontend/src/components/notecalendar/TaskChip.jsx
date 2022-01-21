@@ -10,7 +10,6 @@ const ListItem = styled('li')(({ theme }) => ({
 
 const chipListDivStyle = {
     width: '100px',
-    // height: '90vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -20,10 +19,9 @@ const chipListDivStyle = {
     cursor: 'pointer',
     p: 0.5,
     m: 0,
-    zIndex: 5,
     position: 'relative',
-    top: '150px',
-    left: '80px',
+    top: '800px',
+    left: '300px',
 };
 
 export default function TaskChip(props) {

@@ -55,7 +55,7 @@ function App() {
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
-          <TaskChip taskChipData={taskChipData} handleDeleteTaskChip={handleDeleteTaskChip} />
+          {/* <TaskChip taskChipData={taskChipData} handleDeleteTaskChip={handleDeleteTaskChip} /> */}
           <NoteCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
