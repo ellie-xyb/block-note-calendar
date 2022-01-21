@@ -39,23 +39,23 @@ function App() {
     boxSizing: 'border-box',
   };
 
-  const noteCalendarStyle = {
+  const insideMainCalendarStyle = {
     flex: '1 1 0',
+    display: 'flex',
     position: 'relative',
-    overflow: 'scroll',
     height: '90vh',
+    overFlow: 'scroll',
   };
 
   const timeTableStyle = {
-    overflow: 'scroll',
     height: '90vh',
-    width: '45px',
-    position: 'relative',
-    top: 0, 
-    left: 0, 
-    buttom: 0,
-    right: 0,
-    zIndex: 100, 
+    width: '100px',
+    // position: 'relative',
+    // top: 0, 
+    // left: 0, 
+    // buttom: 0,
+    // right: 0,
+    // zIndex: 100, 
   };
 
   return (
@@ -67,13 +67,13 @@ function App() {
           handleClickOpen={handleClickOpen}
         >
         </Taskbar>
-        <TimeTable style={timeTableStyle} />
-        <div style={noteCalendarStyle}>
-          <OverlayCalendar 
+        <div style={insideMainCalendarStyle}>
+          <TimeTable style={timeTableStyle} />
+          <BgCalendar />
+          {/* <OverlayCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
-          />
-          <BgCalendar />
+          /> */}
         </div>  
       </div>
       <NewTaskDialog open={open} handleClose={handleClose} />

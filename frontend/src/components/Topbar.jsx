@@ -3,7 +3,7 @@ function Topbar() {
         backgroundColor: '#282c34',
         color: '#61dafb',
         position: 'sticky',
-        zIndex: 1,
+        zIndex: 200,
         top: 0,
         left: 0,
         width: '100%',

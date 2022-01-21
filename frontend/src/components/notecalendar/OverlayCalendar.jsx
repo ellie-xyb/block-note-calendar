@@ -10,35 +10,24 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 const firstRowStyle = {
-    paddingTop: '40px',
-    paddingBottom: '5px',
+    // paddingTop: '40px',
+    // paddingBottom: '5px',
     paddingLeft: '17px',
-    fontSize: '0.8em',
+    // fontSize: '0.8em',
     border: 'none',
     textAlign: 'center',
     color: '#3E5060',
 };
 
 const secondRowStyle = {
-    fontSize: '1.4em', 
+    // fontSize: '1.4em', 
     top: 69, 
-    paddingTop: '2px', 
-    paddingBottom: '10px',
+    // paddingTop: '2px', 
+    // paddingBottom: '10px',
     border: 'none',
     textAlign: 'center',
     color: '#3E5060',
 };
-
-const thirdRowStyle = { 
-    fontSize: '0.72em',  
-    top: 105, 
-    padding: '5px', 
-    paddingLeft: '15px',
-    border: 'none',
-    borderBottom: '0.5px solid #E0E3E7',
-    textAlign: 'left',
-    color: '#3E5060',
-};    
 
 export default function OverlayCalendar(props) {
     const thePickedDate = props.pickedDate ? props.pickedDate : new Date();
@@ -58,7 +47,6 @@ export default function OverlayCalendar(props) {
     const dates = getDatesBetween(start, end).map( date => date.getDate());
     
     const columns = [
-        { id: 'time', label: '', width: '35px', minWidth: '35px', first: true },
         { id: 'sun', label: dates[0], width: '145px', minWidth: '35px' },
         { id: 'mon', label: dates[1], width: '145px', minWidth: '35px' },
         { id: 'tue', label: dates[2], width: '145px', minWidth: '35px' },
@@ -74,16 +62,15 @@ export default function OverlayCalendar(props) {
           height: '100%',
           position: 'sticky', 
           top: 0, 
-          left: 0, 
+          left: '50px', 
           buttom: 0,
           right: 0,
           zIndex: 100, 
           opacity: 1,
         }}> 
         <Table stickyHeader aria-label="sticky table">
-            <TableHead sx={{ height: '100px' }}>
+            <TableHead sx={{ height: '120px',  maxHeight: '120px'}}>
             <TableRow>
-                <TableCell style={{ border: 'none' }}></TableCell>
                 <TableCell style={firstRowStyle}>SUN</TableCell>
                 <TableCell style={firstRowStyle}>MON</TableCell>
                 <TableCell style={firstRowStyle}>TUE</TableCell>
@@ -101,15 +88,6 @@ export default function OverlayCalendar(props) {
                     {column.label}
                 </TableCell>
                 ))}
-            </TableRow>
-            <TableRow>
-                <TableCell 
-                    style={thirdRowStyle} 
-                    colSpan={8} 
-                    align='left'
-                >
-                    GMT+09
-                </TableCell>
             </TableRow>
             </TableHead>
             <TableBody>

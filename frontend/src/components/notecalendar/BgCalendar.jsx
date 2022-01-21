@@ -10,14 +10,13 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 const columns = [
-    { id: '1', label: '', width: '35px', minWidth: '35px', first: true },
+    { id: '1', label: '', width: '145px', minWidth: '35px' },
     { id: '2', label: '', width: '145px', minWidth: '35px' },
     { id: '3', label: '', width: '145px', minWidth: '35px' },
     { id: '4', label: '', width: '145px', minWidth: '35px' },
     { id: '5', label: '', width: '145px', minWidth: '35px' },
     { id: '6', label: '', width: '145px', minWidth: '35px' },
     { id: '7', label: '', width: '145px', minWidth: '35px' },
-    { id: '8', label: '', width: '145px', minWidth: '35px' },
 ];
 
 const rows = [
@@ -50,10 +49,9 @@ const rows = [
 export default function BgCalendar() {    
     return (
         <TableContainer sx={{ 
-            width: '100%',
             position: 'absolute', 
             top: 0, 
-            left: 0, 
+            left: '65px', 
             buttom: 0,
             right: 0,
             zIndex: 10, 
@@ -64,7 +62,8 @@ export default function BgCalendar() {
                 <TableCell 
                     colSpan={8} 
                     style={{
-                        height: '100px',
+                        height: '120px',
+                        maxHeight: '120px',
                     }}
                 >
                 </TableCell>
@@ -88,9 +87,9 @@ export default function BgCalendar() {
                             width: column.width,
                             minWidth: column.minWidth,
                             height: '30px',
-                            borderLeft: column.first ? 'none' : '0.5px solid #E0E3E7',
-                            fontSize: column.first ? '0.7em' : '1em',
-                            color: column.first ? '#6F7E8C' : '#77838E',
+                            borderRight: '0.5px solid #E0E3E7',
+                            fontSize: '1em',
+                            color: '#77838E',
                             margin: 0,
                             }}
                         >
