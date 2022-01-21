@@ -49,15 +49,14 @@ const rows = [
 
 export default function BgCalendar() {    
     return (
-    <>    
         <TableContainer sx={{ 
-          width: '100%',
-          position: 'absolute', 
-          top: 0, 
-          left: 0, 
-          buttom: 0,
-          right: 0,
-          zIndex: 10, 
+            width: '100%',
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            buttom: 0,
+            right: 0,
+            zIndex: 10, 
         }}> 
         <Table stickyHeader aria-label="sticky table">
             <TableHead>  
@@ -104,6 +103,5 @@ export default function BgCalendar() {
             </TableBody>    
         </Table>
         </TableContainer>
-    </>
-  );
+    );
 }

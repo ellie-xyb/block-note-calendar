@@ -6,6 +6,7 @@ import Taskbar from './components/taskbar/Taskbar';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
 import ReactCursorPosition from 'react-cursor-position';
 import BgCalendar from './components/notecalendar/BgCalendar.jsx';
+import TimeTable from './components/notecalendar/TimeTable.jsx';
 import OverlayCalendar from './components/notecalendar/OverlayCalendar';
 
 function App() {
@@ -45,6 +46,18 @@ function App() {
     height: '90vh',
   };
 
+  const timeTableStyle = {
+    overflow: 'scroll',
+    height: '90vh',
+    width: '45px',
+    position: 'relative',
+    top: 0, 
+    left: 0, 
+    buttom: 0,
+    right: 0,
+    zIndex: 100, 
+  };
+
   return (
     <div className="App">
       <Topbar></Topbar>
@@ -54,6 +67,7 @@ function App() {
           handleClickOpen={handleClickOpen}
         >
         </Taskbar>
+        <TimeTable style={timeTableStyle} />
         <div style={noteCalendarStyle}>
           <OverlayCalendar 
             pickedDate={pickedDate}
