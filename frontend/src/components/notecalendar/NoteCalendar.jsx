@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
-import TaskChip from './TaskChip';
+import OverlayDiv from './OverlayDiv';
 
 function createData(id, time) {
     return { id, time };
@@ -90,17 +90,18 @@ export default function NoteCalendar(props) {
     const dates = getDatesBetween(start, end).map( date => date.getDate());
     
     const columns = [
-        { id: 'time', label: '', minWidth: 40, first: true },
-        { id: 'sun', label: dates[0], width: 145  },
-        { id: 'mon', label: dates[1], width: 145  },
-        { id: 'tue', label: dates[2], width: 145  },
-        { id: 'wed', label: dates[3], width: 145  },
-        { id: 'thu', label: dates[4], width: 145  },
-        { id: 'fri', label: dates[5], width: 145  },
-        { id: 'sat', label: dates[6], width: 145  },
+        { id: 'time', label: '', width: '35px', minWidth: '35px', first: true },
+        { id: 'sun', label: dates[0], width: '145px', minWidth: '35px' },
+        { id: 'mon', label: dates[1], width: '145px', minWidth: '35px' },
+        { id: 'tue', label: dates[2], width: '145px', minWidth: '35px' },
+        { id: 'wed', label: dates[3], width: '145px', minWidth: '35px' },
+        { id: 'thu', label: dates[4], width: '145px', minWidth: '35px' },
+        { id: 'fri', label: dates[5], width: '145px', minWidth: '35px' },
+        { id: 'sat', label: dates[6], width: '145px', minWidth: '35px' },
     ];
       
     return (
+    <>    
     <Paper 
     sx={{ 
         width: '100%', 
@@ -166,12 +167,14 @@ export default function NoteCalendar(props) {
                             // }
                             key={column.id} 
                             align={column.first ? 'right' : 'left'} 
-                            width={column.width} 
                             overFlow='hidden'
                             style={{
+                            width: column.width,
+                            minWidth: column.minWidth,
                             borderLeft: column.first ? 'none' : '0.5px solid #E0E3E7',
                             fontSize: column.first ? '0.7em' : '1em',
                             color: column.first ? '#6F7E8C' : '#77838E',
+                            margin: 0,
                             }}
                         >
                             {value}
@@ -181,9 +184,11 @@ export default function NoteCalendar(props) {
                     </TableRow>
                 );
                 })}
-            </TableBody> 
+            </TableBody>    
         </Table>
         </TableContainer>
     </Paper>
+    <OverlayDiv />
+    </>
   );
 }
