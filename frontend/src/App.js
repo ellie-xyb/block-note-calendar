@@ -8,6 +8,7 @@ import NewTaskDialog from './components/taskbar/AddTaskDialog';
 import TaskChip from './components/notecalendar/TaskChip';
 import ReactCursorPosition from 'react-cursor-position';
 import OverlayDiv from './components/notecalendar/OverlayDiv';
+import CalendarHeader from './components/notecalendar/CalendarHeader';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
@@ -40,11 +41,11 @@ function App() {
   };
 
   const noteCalendarStyle = {
-    flex: '1 1 auto',
+    flex: '1 1 0',
     position: 'relative',
     overflow: 'scroll',
     height: '90vh',
-  }
+  };
 
   return (
     <div className="App">
@@ -56,13 +57,17 @@ function App() {
         >
         </Taskbar>
         <div style={noteCalendarStyle}>
-          <NoteCalendar 
+          <CalendarHeader 
+            pickedDate={pickedDate}
+            handleClickOpen={handleClickOpen}
+          />
+          <NoteCalendar>
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}
           >
           </NoteCalendar>
           <OverlayDiv />
-        </div>
+        </div>  
       </div>
       <NewTaskDialog open={open} handleClose={handleClose} />
       {/* <header className="App-header">

@@ -27,7 +27,7 @@ export default function OverlayDiv() {
         <TableContainer sx={{ 
           opacity: 0.6,
           backgroundColor: 'red',
-          zIndex: 100,
+          zIndex: 50,
           position: 'absolute', 
           top: 0, 
           left: 0, 
@@ -48,7 +48,7 @@ export default function OverlayDiv() {
             </TableRow> 
             </TableHead>    
             <TableBody>
-                <TableRow hover style={{}}>
+                <TableRow hover>
                 {columns.map((column) => {
                     return (
                     <TableCell 
