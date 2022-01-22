@@ -42,7 +42,10 @@ const rows =[
 
 export default function TimeTable() {    
     return (  
-        <TableContainer> 
+        <TableContainer
+        style={{
+          zIndex: 800,
+        }}>  
         <Table>
             <TableHead>  
             <TableRow>

@@ -5,9 +5,10 @@ import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
 import ReactCursorPosition from 'react-cursor-position';
-import BgCalendar from './components/notecalendar/BgCalendar.jsx';
-import TimeTable from './components/notecalendar/TimeTable.jsx';
-import OverlayCalendar from './components/notecalendar/OverlayCalendar';
+import BgCalendar from './components/notecalendar/BgCalendar';
+import TimeTable from './components/notecalendar/TimeTable';
+// import OverlayCalendar from './components/notecalendar/OverlayCalendar';
+import OverlayDivs from './components/notecalendar/OverlayDivs';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
@@ -42,17 +43,28 @@ function App() {
     maxHeight: '90vh',
     width: 'calc(100% - 380px)',
     overflow: 'scroll',
+    position: 'relative',
   };
 
   const TimeTableStyle = {
-    float: 'left', 
     width: '65px',
+    position: 'absolute',
+    left: 0,
   };
 
-  const BgCalendarStyle = {
-    float: 'left', 
+  const CalendarStyle = {
+    position: 'absolute',
+    left: '65px',
     maxWidth: 'calc(100% - 65px)',
     minWidth: 'calc(100% - 65px)',
+  };
+
+  const OverlayDivsStyle = {
+    minWidth: '525px',
+    width: 'calc(100% - 65px)',
+    position: 'absolute',
+    top: 0,
+    left: '65px',
   };
 
   return (
@@ -66,7 +78,8 @@ function App() {
         </Taskbar>
         <div style={insideMainCalendarStyle}>
           <div style={TimeTableStyle}><TimeTable /></div>
-          <div style={BgCalendarStyle}><BgCalendar /></div>
+          <div style={CalendarStyle}><BgCalendar /></div>
+          <div style={OverlayDivsStyle}><OverlayDivs /></div>
           {/* <OverlayCalendar 
             pickedDate={pickedDate}
             handleClickOpen={handleClickOpen}

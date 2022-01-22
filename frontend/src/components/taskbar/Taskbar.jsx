@@ -7,6 +7,7 @@ const taskbarStyle = {
     backgroundColor: '#FFFFFF',
     color: '#282C34',
     width: '380px',
+    minWidth: '380px',
     overflow: 'scroll',
     zIndex: 0,
   };

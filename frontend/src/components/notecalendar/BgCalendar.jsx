@@ -48,7 +48,14 @@ const rows = [
 
 export default function BgCalendar() {    
     return (
-        <TableContainer> 
+        <TableContainer 
+        style={{
+          zIndex: 200,
+          minWidth: '525px',
+          maxWidth: '100%',
+          padding: 0,
+          margin: 0,
+        }}> 
         <Table>
             <TableHead>  
             <TableRow>
