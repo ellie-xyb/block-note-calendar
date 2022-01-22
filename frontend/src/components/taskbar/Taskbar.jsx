@@ -4,13 +4,10 @@ import Thetab from './Thetab';
 import AddNewTask from './AddNewTask';
 
 const taskbarStyle = {
-    display: 'flex',
-    flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     color: '#282C34',
     width: '380px',
     overflow: 'scroll',
-    position: 'relative',
     zIndex: 0,
   };
 

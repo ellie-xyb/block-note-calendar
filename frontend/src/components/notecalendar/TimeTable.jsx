@@ -42,30 +42,20 @@ const rows =[
 
 export default function TimeTable() {    
     return (  
-        <TableContainer 
-          sx={{ 
-            width: '65px', 
-            padding: 0,
-            position: 'relative', 
-            top: 0, 
-            left: 0, 
-            buttom: 0,
-            right: 0,
-            height: '90vh',
-          }}> 
-        <Table stickyHeader aria-label="sticky table">
+        <TableContainer> 
+        <Table>
             <TableHead>  
             <TableRow>
                 <TableCell 
                   style={{
-                    height: '120px',
+                    height: '110px',
                     textAlign: 'left',
                     fontSize: '0.72em',  
                     border: 'none',
-                    borderBottom: '0.5px solid #E0E3E7',
                     color: '#3E5060',
                     padding: 0,
                     verticalAlign: 'bottom',
+                    paddingBottom: '10px',
                   }}
                 >
                   {column.label}
@@ -80,8 +70,9 @@ export default function TimeTable() {
                         <TableCell 
                             key={column.key} 
                             style={{
-                            height: '40px',
-                            borderRight: '0.5px solid #E0E3E7',
+                            height: '55px',
+                            borderBottom: '0.5px solid white',
+                            borderRight: '0.5px solid white',
                             fontSize: '0.7em',
                             color: '#6F7E8C',
                             padding: 0,

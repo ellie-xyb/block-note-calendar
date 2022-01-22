@@ -10,13 +10,13 @@ import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
 const columns = [
-    { id: '1', label: '', width: '120px', minWidth: '35px' },
-    { id: '2', label: '', width: '120px', minWidth: '35px' },
-    { id: '3', label: '', width: '120px', minWidth: '35px' },
-    { id: '4', label: '', width: '120px', minWidth: '35px' },
-    { id: '5', label: '', width: '120px', minWidth: '35px' },
-    { id: '6', label: '', width: '120px', minWidth: '35px' },
-    { id: '7', label: '', width: '120px', minWidth: '35px' },
+    { id: '1', label: '', width: '120px', minWidth: '75px', first: 'true' },
+    { id: '2', label: '', width: '120px', minWidth: '75px' },
+    { id: '3', label: '', width: '120px', minWidth: '75px' },
+    { id: '4', label: '', width: '120px', minWidth: '75px' },
+    { id: '5', label: '', width: '120px', minWidth: '75px' },
+    { id: '6', label: '', width: '120px', minWidth: '75px' },
+    { id: '7', label: '', width: '120px', minWidth: '75px' },
 ];
 
 const rows = [
@@ -48,17 +48,8 @@ const rows = [
 
 export default function BgCalendar() {    
     return (
-        <TableContainer sx={{ 
-            position: 'absolute', 
-            top: 0, 
-            left: '65px', 
-            buttom: 0,
-            right: 0,
-            zIndex: 10, 
-            height: '90vh',
-            width: 'calc(100% - 65px)',
-        }}> 
-        <Table stickyHeader aria-label="sticky table">
+        <TableContainer> 
+        <Table>
             <TableHead>  
             <TableRow>
                 <TableCell 
@@ -88,8 +79,10 @@ export default function BgCalendar() {
                             style={{
                             width: column.width,
                             minWidth: column.minWidth,
-                            height: '40px',
+                            height: '55px',
+                            borderBottom: '0.5px solid #E0E3E7',
                             borderRight: '0.5px solid #E0E3E7',
+                            borderLeft: column.first ? '0.5px solid #E0E3E7' : 'none',
                             fontSize: '1em',
                             color: '#77838E',
                             padding: 0,
