@@ -63,16 +63,31 @@ export default function Overlaydivs(props) {
 
     const dates = getDatesBetween(start, end).map( date => date.getDate() );
     
+    const columns = [
+        { id: 'sun', dayNumber: dates[0], dayName: 'SUN' },
+        { id: 'mon', dayNumber: dates[1], dayName: 'MON' },
+        { id: 'tue', dayNumber: dates[2], dayName: 'TUE' },
+        { id: 'wed', dayNumber: dates[3], dayName: 'WED' },
+        { id: 'thu', dayNumber: dates[4], dayName: 'THU' },
+        { id: 'fri', dayNumber: dates[5], dayName: 'FRI' },
+        { id: 'sat', dayNumber: dates[6], dayName: 'SAT' },
+    ];
+
     return (  
         <div style={{
             height: '1465px',
             zIndex: 400,
             width: '100%',
             minWidth: '525px',
+            display: 'flex',
         }}>
-            <LongEachDayDiv>
-                <LongDivHeader dayName='SUN' dayNumber='23' />
-            </LongEachDayDiv>    
+            {columns.map((column) => {
+                return (
+                    <LongEachDayDiv>
+                        <LongDivHeader dayName={column.dayName} dayNumber={column.dayNumber} />
+                    </LongEachDayDiv>  
+                );
+            })}        
         </div>
-    )    
+    );    
 }
