@@ -62,7 +62,7 @@ export default function Thetab(props) {
           aria-label="basic tabs example"
         >
           <Tab label="Task" {...a11yProps(0)} />
-          <Tab label="History" {...a11yProps(1)} sx={{mr: 8}} />
+          <Tab label="History" {...a11yProps(1)} sx={{mr: 16}} />
           <IconButton 
             color="secondary" 
             aria-label="create task"
