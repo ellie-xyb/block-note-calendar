@@ -7,7 +7,6 @@ import NewTaskDialog from './components/taskbar/AddTaskDialog';
 import ReactCursorPosition from 'react-cursor-position';
 import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
-// import OverlayCalendar from './components/notecalendar/OverlayCalendar';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
 
 function App() {
@@ -79,10 +78,14 @@ function App() {
         <div style={insideMainCalendarStyle}>
           <div style={TimeTableStyle}><TimeTable /></div>
           <div style={CalendarStyle}><BgCalendar /></div>
-          <div style={OverlayDivsStyle}><OverlayDivs /></div>
+          <div style={OverlayDivsStyle}>
+            <OverlayDivs 
+              pickedDate={pickedDate}
+              handleClickOpen={handleClickOpen}
+            />
+          </div>
           {/* <OverlayCalendar 
-            pickedDate={pickedDate}
-            handleClickOpen={handleClickOpen}
+            
           /> */}
         </div>  
       </div>
