@@ -2,8 +2,6 @@ import * as React from 'react';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 
-// color: '#3E5060',
-
 const LongEachDayDiv = (props) => {
     return (
         <div style={{
@@ -13,6 +11,10 @@ const LongEachDayDiv = (props) => {
             opacity: '0.2',
         }}
         onClick = {props.onClick}
+        onMouseDown = {props.onMouseDown}
+        onMouseUp = {props.onMouseUp}
+        onMouseMove = {props.onMouseMove}
+
         >
             {props.children}
         </div>
@@ -77,11 +79,18 @@ export default function Overlaydivs(props) {
         { id: '6', date: dates[6], dayName: 'SAT' },
     ];
 
-    const [columnDate, setColumnDate] = React.useState('');
+    const [startDate, setStartDate] = React.useState('');
+    const [endDate, setEndDate] = React.useState('');
+
 
     // might have a async problem later 
-    const handleClickOnOverlay = (date) => {
-        setColumnDate(date);
+    const handleClickStartDate = (date) => {
+        setStartDate(date);
+        console.log(date);
+    };
+
+    const handleClickEndDate = (date) => {
+        setEndDate(date);
         console.log(date);
     };
 
@@ -95,7 +104,10 @@ export default function Overlaydivs(props) {
         }}>
             {columns.map((column) => {
                 return (
-                    <LongEachDayDiv onClick={() => handleClickOnOverlay(column.date)} >
+                    <LongEachDayDiv 
+                        onMouseDown={() => handleClickStartDate(column.date)} 
+                        onMouseUp={() => handleClickEndDate(column.date)} 
+                    >
                         <LongDivHeader 
                             dayName={column.dayName} 
                             dayNumber={column.date.getDate()}
