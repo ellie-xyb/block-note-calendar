@@ -51,6 +51,20 @@ const LongDivHeader = (props) => {
     )
 };
 
+const useMouseMove = () => {
+    const [state, setState] =  React.useState({x: 0, y: 0});
+    
+    const handleMouseMove = e => {
+        setState(state => ({...state, x: e.offsetX, y: e.offsetY}));
+        console.log(`x: ${e.offsetX}, y: ${e.offsetY}`);
+    };
+    return {
+        x: state.x,
+        y: state.y,
+        handleMouseMove,
+    }
+};
+
 export default function Overlaydivs(props) {
     const thePickedDate = props.pickedDate ? props.pickedDate : new Date();
     const start = startOfWeek(thePickedDate);
@@ -81,7 +95,7 @@ export default function Overlaydivs(props) {
 
     const [startDate, setStartDate] = React.useState('');
     const [endDate, setEndDate] = React.useState('');
-
+    const {x, y, handleMouseMove} = useMouseMove();
 
     // might have a async problem later 
     const handleClickStartDate = (date) => {
@@ -95,7 +109,9 @@ export default function Overlaydivs(props) {
     };
 
     return (  
-        <div style={{
+        <div 
+          onMouseDown={handleMouseMove}
+          style={{
             height: '1465px',
             zIndex: 400,
             width: '100%',
