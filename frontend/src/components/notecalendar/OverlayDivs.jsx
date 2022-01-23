@@ -64,24 +64,25 @@ export default function Overlaydivs(props) {
         return dates;
     };
 
-    const dates = getDatesBetween(start, end).map( date => date.getDate() );
-    
+    // const dates = getDatesBetween(start, end).map( date => date.getDate() );
+    const dates = getDatesBetween(start, end);
+
     const columns = [
-        { id: '0', dayNumber: dates[0], dayName: 'SUN' },
-        { id: '1', dayNumber: dates[1], dayName: 'MON' },
-        { id: '2', dayNumber: dates[2], dayName: 'TUE' },
-        { id: '3', dayNumber: dates[3], dayName: 'WED' },
-        { id: '4', dayNumber: dates[4], dayName: 'THU' },
-        { id: '5', dayNumber: dates[5], dayName: 'FRI' },
-        { id: '6', dayNumber: dates[6], dayName: 'SAT' },
+        { id: '0', date: dates[0], dayName: 'SUN' },
+        { id: '1', date: dates[1], dayName: 'MON' },
+        { id: '2', date: dates[2], dayName: 'TUE' },
+        { id: '3', date: dates[3], dayName: 'WED' },
+        { id: '4', date: dates[4], dayName: 'THU' },
+        { id: '5', date: dates[5], dayName: 'FRI' },
+        { id: '6', date: dates[6], dayName: 'SAT' },
     ];
 
-    const [columnID, setColumnID] = React.useState('');
+    const [columnDate, setColumnDate] = React.useState('');
 
     // might have a async problem later 
-    const handleClickOnOverlay = (id) => {
-        setColumnID(id);
-        // console.log(id);
+    const handleClickOnOverlay = (date) => {
+        setColumnDate(date);
+        console.log(date);
     };
 
     return (  
@@ -94,10 +95,10 @@ export default function Overlaydivs(props) {
         }}>
             {columns.map((column) => {
                 return (
-                    <LongEachDayDiv onClick={() => handleClickOnOverlay(column.id)} >
+                    <LongEachDayDiv onClick={() => handleClickOnOverlay(column.date)} >
                         <LongDivHeader 
                             dayName={column.dayName} 
-                            dayNumber={column.dayNumber}
+                            dayNumber={column.date.getDate()}
                         />
                     </LongEachDayDiv>  
                 );
