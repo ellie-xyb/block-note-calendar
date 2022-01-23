@@ -9,8 +9,11 @@ const LongEachDayDiv = (props) => {
         <div style={{
             width: 'calc(100% / 7)',
             height: '1465px',
-            // backgroundColor: 'blue',
-        }}>
+            backgroundColor: 'pink',
+            opacity: '0.2',
+        }}
+        onClick = {props.onClick}
+        >
             {props.children}
         </div>
     )
@@ -64,14 +67,22 @@ export default function Overlaydivs(props) {
     const dates = getDatesBetween(start, end).map( date => date.getDate() );
     
     const columns = [
-        { id: 'sun', dayNumber: dates[0], dayName: 'SUN' },
-        { id: 'mon', dayNumber: dates[1], dayName: 'MON' },
-        { id: 'tue', dayNumber: dates[2], dayName: 'TUE' },
-        { id: 'wed', dayNumber: dates[3], dayName: 'WED' },
-        { id: 'thu', dayNumber: dates[4], dayName: 'THU' },
-        { id: 'fri', dayNumber: dates[5], dayName: 'FRI' },
-        { id: 'sat', dayNumber: dates[6], dayName: 'SAT' },
+        { id: '0', dayNumber: dates[0], dayName: 'SUN' },
+        { id: '1', dayNumber: dates[1], dayName: 'MON' },
+        { id: '2', dayNumber: dates[2], dayName: 'TUE' },
+        { id: '3', dayNumber: dates[3], dayName: 'WED' },
+        { id: '4', dayNumber: dates[4], dayName: 'THU' },
+        { id: '5', dayNumber: dates[5], dayName: 'FRI' },
+        { id: '6', dayNumber: dates[6], dayName: 'SAT' },
     ];
+
+    const [columnID, setColumnID] = React.useState('');
+
+    // might have a async problem later 
+    const handleClickOnOverlay = (id) => {
+        setColumnID(id);
+        // console.log(id);
+    };
 
     return (  
         <div style={{
@@ -83,8 +94,11 @@ export default function Overlaydivs(props) {
         }}>
             {columns.map((column) => {
                 return (
-                    <LongEachDayDiv>
-                        <LongDivHeader dayName={column.dayName} dayNumber={column.dayNumber} />
+                    <LongEachDayDiv onClick={() => handleClickOnOverlay(column.id)} >
+                        <LongDivHeader 
+                            dayName={column.dayName} 
+                            dayNumber={column.dayNumber}
+                        />
                     </LongEachDayDiv>  
                 );
             })}        
