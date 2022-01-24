@@ -59,7 +59,7 @@ const useMouseMove = () => {
         let x = e.clientX - rect.left;
         let y = e.clientY - rect.top;
         setState(state => ({...state, x: x, y: y}));
-        console.log(`x: ${x}, y: ${y}`);
+        // console.log(`x: ${x}, y: ${y}`);
     };
     return {
         x: state.x,
@@ -98,22 +98,26 @@ export default function Overlaydivs(props) {
 
     const [startDate, setStartDate] = React.useState('');
     const [endDate, setEndDate] = React.useState('');
-    const {x, y, handleMouseMove} = useMouseMove();
+    const {x: mouseDownX, y: mouseDownY, handleMouseMove: handleMouseDown} = useMouseMove();
+    const {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
 
     // might have a async problem later 
     const handleClickStartDate = (date) => {
         setStartDate(date);
-        console.log(date);
+        // console.log(date);
     };
 
     const handleClickEndDate = (date) => {
         setEndDate(date);
-        console.log(date);
+        // console.log(date);
     };
+
+    console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
 
     return (  
         <div 
-          onMouseDown={handleMouseMove}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
           style={{
             height: '1465px',
             zIndex: 400,
