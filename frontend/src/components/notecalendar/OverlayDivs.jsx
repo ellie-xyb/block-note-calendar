@@ -55,8 +55,11 @@ const useMouseMove = () => {
     const [state, setState] =  React.useState({x: 0, y: 0});
     
     const handleMouseMove = e => {
-        setState(state => ({...state, x: e.offsetX, y: e.offsetY}));
-        console.log(`x: ${e.offsetX}, y: ${e.offsetY}`);
+        let rect = e.currentTarget.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        setState(state => ({...state, x: x, y: y}));
+        console.log(`x: ${x}, y: ${y}`);
     };
     return {
         x: state.x,
