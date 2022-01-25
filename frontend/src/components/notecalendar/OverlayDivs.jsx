@@ -102,18 +102,15 @@ export default function Overlaydivs(props) {
     // might have a async problem later 
     const handleClickStartDate = (date) => {
         setStartDate(date);
-        // console.log(date); 
+        console.log(`NEW--------------start date: ${date}`); 
     };
 
     const handleClickEndDate = (date) => {
         setEndDate(date);
-        // console.log(date);
+        console.log(`end date: ${date}`);
     };
 
     const fromYGetTime = (downY, upY) => {
-        if (downY > 947) {
-
-        }
         let start = Math.ceil((downY - 120.500) / 56);
         let end = Math.ceil((upY - 120.500) / 56);
         return {satrtTime: start, endTime: end};
@@ -124,7 +121,7 @@ export default function Overlaydivs(props) {
     React.useEffect(() => {
         console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
         console.log(fromYGetTime(mouseDownY , mouseUpY));
-    }, [handleMouseUp]);
+    }, [mouseUpY]);
 
     return (  
         <div 
