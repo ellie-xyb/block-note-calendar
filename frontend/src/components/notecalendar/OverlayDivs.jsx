@@ -1,6 +1,7 @@
 import * as React from 'react';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
+import {TimeRows} from "./TimeRows";
 
 const LongEachDayDiv = (props) => {
     return (
@@ -102,25 +103,27 @@ export default function Overlaydivs(props) {
     // might have a async problem later 
     const handleClickStartDate = (date) => {
         setStartDate(date);
-        console.log(`NEW--------------start date: ${date}`); 
+        // console.log(`Start--------------start date: ${date}`); 
     };
 
     const handleClickEndDate = (date) => {
         setEndDate(date);
-        console.log(`end date: ${date}`);
+        // console.log(`end date: ${date}`);
     };
 
     const fromYGetTime = (downY, upY) => {
-        let start = Math.ceil((downY - 120.500) / 56);
-        let end = Math.ceil((upY - 120.500) / 56);
-        return {satrtTime: start, endTime: end};
+        let start = Math.max(Math.ceil((downY - 120.500) / 56), 1);
+        let end = Math.max(Math.ceil((upY - 120.500) / 56), 1);
+        let startTime = TimeRows[start - 1].time;
+        let endTime = TimeRows[end - 1].time;
+        return {startTime, endTime};
     };
 
     let {x: mouseDownX, y: mouseDownY, handleMouseMove: handleMouseDown} = useMouseMove();
     let {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
     React.useEffect(() => {
-        console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
-        console.log(fromYGetTime(mouseDownY , mouseUpY));
+        // console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
+        fromYGetTime(mouseDownY , mouseUpY);
     }, [mouseUpY]);
 
     return (  
