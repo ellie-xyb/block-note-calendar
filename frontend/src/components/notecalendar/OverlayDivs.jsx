@@ -98,13 +98,11 @@ export default function Overlaydivs(props) {
 
     const [startDate, setStartDate] = React.useState('');
     const [endDate, setEndDate] = React.useState('');
-    const {x: mouseDownX, y: mouseDownY, handleMouseMove: handleMouseDown} = useMouseMove();
-    const {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
-
+    
     // might have a async problem later 
     const handleClickStartDate = (date) => {
         setStartDate(date);
-        // console.log(date);
+        // console.log(date); 
     };
 
     const handleClickEndDate = (date) => {
@@ -112,7 +110,21 @@ export default function Overlaydivs(props) {
         // console.log(date);
     };
 
-    console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
+    const fromYGetTime = (downY, upY) => {
+        if (downY > 947) {
+
+        }
+        let start = Math.ceil((downY - 120.500) / 56);
+        let end = Math.ceil((upY - 120.500) / 56);
+        return {satrtTime: start, endTime: end};
+    };
+
+    let {x: mouseDownX, y: mouseDownY, handleMouseMove: handleMouseDown} = useMouseMove();
+    let {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
+    React.useEffect(() => {
+        console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
+        console.log(fromYGetTime(mouseDownY , mouseUpY));
+    }, [handleMouseUp]);
 
     return (  
         <div 
