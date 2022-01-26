@@ -5,11 +5,14 @@ import Box from '@mui/material/Box';
 // import TaskDateTimePicker from './TaskDateTimePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import TimePicker from '@mui/lab/TimePicker';
 
 export default function TaskForm() {
-  const [value, setValue] = React.useState(new Date());
+  const [date, setDate] = React.useState(new Date());
+  const [startTime, setStartTime] = React.useState(new Date());
+  const [endTime, setEndTime] = React.useState(new Date());
+
   return (
     <Box
       component="form"
@@ -29,23 +32,59 @@ export default function TaskForm() {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
             //   label="Choose a day"
-              value={value}
+              value={date}
               minDate={new Date('2022-01-01')}
               onChange={(newValue) => {
-                setValue(newValue);
+                setDate(newValue);
               }}
             //   renderInput={(params) => <TextField {...params} />}
               renderInput={({ inputRef, inputProps, InputProps }) => (
                 <Box sx={{ 
-                    width: '45%', 
                     display: 'flex', 
                     alignItems: 'center', 
                     }}>
                   {InputProps?.endAdornment}
-                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '8px' }} />
+                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
                 </Box>
               )}
             />
+
+            <TimePicker
+              label="Start at"
+              value={startTime}
+              onChange={(newValue) => {
+               setStartTime(newValue);
+              }}
+            // renderInput={(params) => <TextField {...params} />}
+              renderInput={({ inputRef, inputProps, InputProps }) => (
+                <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    }}>
+                  {InputProps?.endAdornment}
+                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
+                </Box>
+               )}  
+            />
+
+            <TimePicker
+              label="End at"
+              value={endTime}
+              onChange={(newValue) => {
+               setEndTime(newValue);
+              }}
+            // renderInput={(params) => <TextField {...params} />}
+              renderInput={({ inputRef, inputProps, InputProps }) => (
+                <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    }}>     
+                  {InputProps?.endAdornment}
+                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
+                </Box>
+               )}  
+            />
+
           </LocalizationProvider>
           <TextField
             label="Add description"
