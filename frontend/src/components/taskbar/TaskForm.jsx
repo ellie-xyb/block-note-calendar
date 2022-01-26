@@ -29,6 +29,7 @@ export default function TaskForm() {
             fullWidth
             variant="standard"
           />
+
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
             //   label="Choose a day"
@@ -42,60 +43,62 @@ export default function TaskForm() {
                 <Box sx={{ 
                     display: 'flex', 
                     alignItems: 'center', 
-                    justifyContent: 'flex-start',
-                    marginLeft: '0px',
                     marginTop: '10px',
-                    marginBottom: '15px',
+                    marginBottom: '25px',
+                    marginLeft: '5px',
                     }}>
                   {InputProps?.endAdornment}
-                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
+                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px', width: '81.5%', height: '22px' }} />   
                 </Box>
               )}
             />
+            <Box sx={{
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'space-around',
+              marginBottom: '8px',
+              }}>
 
-            <TimePicker
-              label="Start at"
-              value={startTime}
-              onChange={(newValue) => {
-               setStartTime(newValue);
-              }}
-            // renderInput={(params) => <TextField {...params} />}
-              renderInput={({ inputRef, inputProps, InputProps }) => (
-                <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'flex-start',
-                    margin: '8px',
-                    }}>
-                  From:
-                  {InputProps?.endAdornment}
-                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
-                </Box>
-               )}  
-            />
+                <TimePicker
+                label="Start at"
+                value={startTime}
+                onChange={(newValue) => {
+                setStartTime(newValue);
+                }}
+                // renderInput={(params) => <TextField {...params} />}
+                renderInput={({ inputRef, inputProps, InputProps }) => (
+                    <Box sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        }}>
+                    <small>From</small>
+                    {InputProps?.endAdornment}
+                    <input ref={inputRef} {...inputProps} style={{ marginLeft: '10px', width: '100px' }} />   
+                    </Box>
+                )}  
+                />
 
-            <TimePicker
-              label="End at"
-              value={endTime}
-              onChange={(newValue) => {
-               setEndTime(newValue);
-              }}
-            // renderInput={(params) => <TextField {...params} />}
-              renderInput={({ inputRef, inputProps, InputProps }) => (
-                <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'flex-start',
-                    margin: '8px',
-                    }}>     
-                  To: 
-                  {InputProps?.endAdornment}
-                  <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
-                </Box>
-               )}  
-            />
-
+                <TimePicker
+                label="End at"
+                value={endTime}
+                onChange={(newValue) => {
+                setEndTime(newValue);
+                }}
+                // renderInput={(params) => <TextField {...params} />}
+                renderInput={({ inputRef, inputProps, InputProps }) => (
+                    <Box sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        }}>     
+                    <small>To</small>
+                    {InputProps?.endAdornment}
+                    <input ref={inputRef} {...inputProps} style={{ marginLeft: '10px', width: '100px' }} />   
+                    </Box>
+                )}  
+                />  
+            </Box>    
           </LocalizationProvider>
+
           <TextField
             label="Add description"
             variant="filled"
