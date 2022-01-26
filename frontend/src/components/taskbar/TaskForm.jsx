@@ -42,6 +42,10 @@ export default function TaskForm() {
                 <Box sx={{ 
                     display: 'flex', 
                     alignItems: 'center', 
+                    justifyContent: 'flex-start',
+                    marginLeft: '0px',
+                    marginTop: '10px',
+                    marginBottom: '15px',
                     }}>
                   {InputProps?.endAdornment}
                   <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
@@ -60,7 +64,10 @@ export default function TaskForm() {
                 <Box sx={{ 
                     display: 'flex', 
                     alignItems: 'center', 
+                    justifyContent: 'flex-start',
+                    margin: '8px',
                     }}>
+                  From:
                   {InputProps?.endAdornment}
                   <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
                 </Box>
@@ -78,7 +85,10 @@ export default function TaskForm() {
                 <Box sx={{ 
                     display: 'flex', 
                     alignItems: 'center', 
+                    justifyContent: 'flex-start',
+                    margin: '8px',
                     }}>     
+                  To: 
                   {InputProps?.endAdornment}
                   <input ref={inputRef} {...inputProps} style={{ marginLeft: '15px' }} />   
                 </Box>
