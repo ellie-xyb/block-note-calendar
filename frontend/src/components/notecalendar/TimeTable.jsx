@@ -38,7 +38,7 @@ export default function TimeTable() {
             </TableHead>
             <TableBody>
             {rows.map((row) => {
-                const value = row.time;
+                const value = row.timeTitle;
                 return (
                     <TableRow key={row.id}>
                         <TableCell 

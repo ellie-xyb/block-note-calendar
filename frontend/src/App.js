@@ -12,6 +12,11 @@ import OverlayDivs from './components/notecalendar/OverlayDivs';
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(false);
+
+  const [startDate, setStartDate] = React.useState(new Date());
+  const [startTime, setStartTime] = React.useState(new Date());
+  const [endTime, setEndTime] = React.useState(new Date());
+
   const [taskChipData, setTaskChipData] = React.useState([
     {id: 0, title: 'gym', datetime: '10:00am'},
     {id: 1, title: 'coding', datetime: '12:00am'},
@@ -89,7 +94,12 @@ function App() {
           /> */}
         </div>  
       </div>
-      <NewTaskDialog open={open} handleClose={handleClose} />
+      <NewTaskDialog 
+        open={open} 
+        handleClose={handleClose} 
+        startDate={startDate}
+
+      />
       {/* <header className="App-header">
 
         <img src={logo} className="App-logo" alt="logo" />

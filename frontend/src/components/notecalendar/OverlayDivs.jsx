@@ -97,18 +97,18 @@ export default function Overlaydivs(props) {
         { id: '6', date: dates[6], dayName: 'SAT' },
     ];
 
-    const [startDate, setStartDate] = React.useState('');
-    const [endDate, setEndDate] = React.useState('');
+    const [startDate, setStartDate] = React.useState(new Date());
+    const [endDate, setEndDate] = React.useState(new Date());
     
     // might have a async problem later 
     const handleClickStartDate = (date) => {
         setStartDate(date);
-        // console.log(`Start--------------start date: ${date}`); 
+        console.log(`Start--------------start date: ${date}`); 
     };
 
     const handleClickEndDate = (date) => {
         setEndDate(date);
-        // console.log(`end date: ${date}`);
+        console.log(`end date: ${date}`);
     };
 
     const fromYGetTime = (downY, upY) => {
@@ -123,8 +123,13 @@ export default function Overlaydivs(props) {
     let {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
     React.useEffect(() => {
         // console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
-        fromYGetTime(mouseDownY , mouseUpY);
-    }, [mouseUpY]);
+        const {startT, endT} = fromYGetTime(mouseDownY , mouseUpY);
+        console.log("DATE", startDate)
+        // startDate.setHours(startT);
+        // setStartDate(startDate.toDateString());
+        console.log(fromYGetTime(mouseDownY , mouseUpY));
+        // console.log(startDate.toDateString());
+    }, [endDate]);
 
     return (  
         <div 

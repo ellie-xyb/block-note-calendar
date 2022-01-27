@@ -68,7 +68,10 @@ export default function Thetab(props) {
             aria-label="create task"
             sx={{width: '45px', height: '45px'}}
             >
-            <AddIcon onClick={props.handleClickOpen} size='large' />
+            <AddIcon 
+              onClick={props.handleClickOpen} 
+              size='large' 
+            />
           </IconButton>       
         </Tabs>  
       </Box>
