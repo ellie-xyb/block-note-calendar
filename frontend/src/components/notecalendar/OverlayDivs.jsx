@@ -96,8 +96,6 @@ export default function Overlaydivs(props) {
 
     const [startDate, setStartDate] = React.useState(new Date());
     const [endDate, setEndDate] = React.useState(new Date());
-    const [startDateTime, setStartDateTime] = React.useState(new Date());;
-    // const [endDateTime, setEndDateTime] = React.useState(new Date());;
 
     const handleClickOnStartDate = (date) => {
         setStartDate(date);
@@ -128,13 +126,10 @@ export default function Overlaydivs(props) {
     React.useEffect(() => {
         const {startTime, endTime} = fromYGetTime(mouseDownY , mouseUpY);
         const newStartDateTime = newTaskDatetime(startDate, startTime);
-        setStartDateTime(newStartDateTime);
-        // setEndDate(newEndDateTime);
-        // console.log(newStartDateTime);
-        console.log(`h1: ${newStartDateTime}`);
-        console.log(`h2: ${startDateTime}`);
-        // console.log(newEndDateTime);
-    }, [mouseUpY]);
+        const newEndDateTime = newTaskDatetime(startDate, endTime);
+        console.log(`Start: ${newStartDateTime}`);
+        console.log(`End: ${newEndDateTime}`);
+    }, [mouseUpX, mouseUpY]);
 
     return (  
         <div 
