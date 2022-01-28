@@ -32,7 +32,7 @@ export default function TaskForm(props) {
               value={props.selectDateTime.start}
               minDate={new Date('2022-01-01')}
               onChange={(newValue) => {
-                props.setSelectDateTime({start: newValue});
+                props.setSelectDateTime({...props.selectDateTime, start: newValue});
               }}
             //   renderInput={(params) => <TextField {...params} />}
               renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -59,7 +59,7 @@ export default function TaskForm(props) {
                 label="Start at"
                 value={props.selectDateTime.start}
                 onChange={(newValue) => {
-                    props.setSelectDateTime({start: newValue});
+                    props.setSelectDateTime({...props.selectDateTime, start: newValue});
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -78,7 +78,7 @@ export default function TaskForm(props) {
                 label="End at"
                 value={props.selectDateTime.end}
                 onChange={(newValue) => {
-                    props.setSelectDateTime({start: newValue});
+                    props.setSelectDateTime({...props.selectDateTime, end: newValue});
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
