@@ -13,22 +13,17 @@ function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
-  // const [selection, setSelection] = React.useState({
-  //   start: new Date(),
-  //   end: new Date(),
-  // });
-  // const [showForm, setShowForm] = React.useState(false);
-
-  // const [startDate, setStartDate] = React.useState(new Date());
-  // const [startTime, setStartTime] = React.useState(new Date());
-  // const [endTime, setEndTime] = React.useState(new Date());
-
   const [taskChipData, setTaskChipData] = React.useState([
     {id: 0, title: 'gym', datetime: '10:00am'},
     {id: 1, title: 'coding', datetime: '12:00am'},
     {id: 2, title: 'cooking', datetime: '5:00pm'},
     {id: 3, title: 'movie', datetime: '9:00am'},
   ]);
+
+  const [selectDateTime, setSelectDateTime] = React.useState({
+    start: new Date(),
+    end: new Date(),
+  });
 
   const handleDeleteTaskChip = (taskChipToDelete) => () => {
     setTaskChipData((chips) => chips.filter((chip) => chip.id != taskChipToDelete.id));
@@ -99,6 +94,8 @@ function App() {
       </div>
       <NewTaskDialog 
         dialogOpen={dialogOpen} 
+        selectDateTime={selectDateTime}
+        setSelectDateTime={setSelectDateTime}
         handleDialogClose={handleDialogClose} 
       />
       {/* <header className="App-header">

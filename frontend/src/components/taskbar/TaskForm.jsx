@@ -8,11 +8,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
 
-export default function TaskForm() {
-  const [startDate, setStartDate] = React.useState(new Date());
-  const [startTime, setStartTime] = React.useState(new Date());
-  const [endTime, setEndTime] = React.useState(new Date());
-
+export default function TaskForm(props) {
   return (
     <Box
       component="form"
@@ -33,10 +29,10 @@ export default function TaskForm() {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
             //   label="Choose a day"
-              value={startDate}
+              value={props.selectDateTime.start}
               minDate={new Date('2022-01-01')}
               onChange={(newValue) => {
-                setStartDate(newValue);
+                props.setSelectDateTime({start: newValue});
               }}
             //   renderInput={(params) => <TextField {...params} />}
               renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -61,9 +57,9 @@ export default function TaskForm() {
 
                 <TimePicker
                 label="Start at"
-                value={startTime}
+                value={props.selectDateTime.start}
                 onChange={(newValue) => {
-                setStartTime(newValue);
+                    props.setSelectDateTime({start: newValue});
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -80,9 +76,9 @@ export default function TaskForm() {
 
                 <TimePicker
                 label="End at"
-                value={endTime}
+                value={props.selectDateTime.end}
                 onChange={(newValue) => {
-                setEndTime(newValue);
+                    props.setSelectDateTime({end: newValue});
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (

@@ -31,7 +31,10 @@ export default function NewTaskDialog(props) {
                 Create task
             </DialogTitle>
             <DialogContent>
-                <TaskForm/>
+                <TaskForm 
+                    selectDateTime={props.selectDateTime} 
+                    setSelectDateTime={props.setSelectDateTime}
+                />
             </DialogContent>
             <DialogActions>
                 <Button onClick={props.handleDialogClose}>Cancel</Button>
