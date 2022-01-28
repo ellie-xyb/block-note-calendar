@@ -25,7 +25,6 @@ const LongEachDayDiv = (props) => {
 const LongDivHeader = (props) => {
     return (
     <div style={{
-        // backgroundColor: 'red',
         width: 'calc(100% / 7)',
         height: '120px',
         position: 'absolute',
@@ -60,7 +59,6 @@ const useMouseMove = () => {
         let x = e.clientX - rect.left;
         let y = e.clientY - rect.top;
         setState(state => ({...state, x: x, y: y}));
-        // console.log(`x: ${x}, y: ${y}`);
     };
     return {
         x: state.x,
@@ -84,7 +82,6 @@ export default function Overlaydivs(props) {
         return dates;
     };
 
-    // const dates = getDatesBetween(start, end).map( date => date.getDate() );
     const dates = getDatesBetween(start, end);
 
     const columns = [
@@ -99,16 +96,15 @@ export default function Overlaydivs(props) {
 
     const [startDate, setStartDate] = React.useState(new Date());
     const [endDate, setEndDate] = React.useState(new Date());
-    
-    // might have a async problem later 
-    const handleClickStartDate = (date) => {
+
+    const handleClickOnStartDate = (date) => {
         setStartDate(date);
-        console.log(`Start--------------start date: ${date}`); 
+        // console.log(`Start date: ${date}`);
     };
 
-    const handleClickEndDate = (date) => {
+    const handleClickOnEndDate = (date) => {
         setEndDate(date);
-        console.log(`end date: ${date}`);
+        // console.log(`End date: ${date}`);
     };
 
     const fromYGetTime = (downY, upY) => {
@@ -119,17 +115,23 @@ export default function Overlaydivs(props) {
         return {startTime, endTime};
     };
 
+    const newTaskDatetime = (taskDate, startHours) => {
+        taskDate.setHours( taskDate.getHours() + startHours );
+        return taskDate;
+    };
+
     let {x: mouseDownX, y: mouseDownY, handleMouseMove: handleMouseDown} = useMouseMove();
     let {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
     React.useEffect(() => {
         // console.log(`downX: ${mouseDownX}, downY: ${mouseDownY}, upX: ${mouseUpX}, upY: ${mouseUpY}`);
-        const {startT, endT} = fromYGetTime(mouseDownY , mouseUpY);
-        console.log("DATE", startDate)
-        // startDate.setHours(startT);
-        // setStartDate(startDate.toDateString());
-        console.log(fromYGetTime(mouseDownY , mouseUpY));
-        // console.log(startDate.toDateString());
-    }, [endDate]);
+        const {startTime, endTime} = fromYGetTime(mouseDownY , mouseUpY);
+        const newStartDate = newTaskDatetime(startDate, startTime);
+        // const newEndDate = newTaskDatetime(startDate, endTime);
+        setStartDate(newStartDate);
+        // setEndDate(newEndDate);
+        console.log(startDate);
+        // console.log(endDate);
+    }, [mouseUpY]);
 
     return (  
         <div 
@@ -145,8 +147,8 @@ export default function Overlaydivs(props) {
             {columns.map((column) => {
                 return (
                     <LongEachDayDiv 
-                        onMouseDown={() => handleClickStartDate(column.date)} 
-                        onMouseUp={() => handleClickEndDate(column.date)} 
+                        onMouseDown={() => handleClickOnStartDate(column.date)} 
+                        onMouseUp={() => handleClickOnEndDate(column.date)} 
                     >
                         <LongDivHeader 
                             dayName={column.dayName} 

@@ -13,6 +13,11 @@ function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(false);
 
+  // const [selection, setSelection] = React.useState({
+  //   start: new Date(),
+  //   end: new Date(),
+  // });
+  // const [showForm, setShowForm] = React.useState(false);
   const [startDate, setStartDate] = React.useState(new Date());
   const [startTime, setStartTime] = React.useState(new Date());
   const [endTime, setEndTime] = React.useState(new Date());
