@@ -11,7 +11,7 @@ import OverlayDivs from './components/notecalendar/OverlayDivs';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
-  const [open, setOpen] = React.useState(false);
+  const [dialogOpen, setDialogOpen] = React.useState(false);
 
   // const [selection, setSelection] = React.useState({
   //   start: new Date(),
@@ -33,12 +33,12 @@ function App() {
     setTaskChipData((chips) => chips.filter((chip) => chip.id != taskChipToDelete.id));
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
   }; 
 
   const mainContentStyle = {
@@ -82,7 +82,7 @@ function App() {
       <div style={mainContentStyle}>
         <Taskbar 
           setPickedDate={setPickedDate}
-          handleClickOpen={handleClickOpen}
+          handleDialogOpen={handleDialogOpen}
         >
         </Taskbar>
         <div style={insideMainCalendarStyle}>
@@ -91,7 +91,7 @@ function App() {
           <div style={OverlayDivsStyle}>
             <OverlayDivs 
               pickedDate={pickedDate}
-              handleClickOpen={handleClickOpen}
+              handleDialogOpen={handleDialogOpen}
             />
           </div>
           {/* <OverlayCalendar 
@@ -100,10 +100,8 @@ function App() {
         </div>  
       </div>
       <NewTaskDialog 
-        open={open} 
-        handleClose={handleClose} 
-        startDate={startDate}
-
+        dialogOpen={dialogOpen} 
+        handleDialogClose={handleDialogClose} 
       />
       {/* <header className="App-header">
 

@@ -76,7 +76,7 @@ export default function BgCalendar() {
                     {columns.map((column) => {
                         return (
                         <TableCell 
-                            // onClick={props.handleClickOpen}
+                            // onClick={props.handleDialogOpen}
                             // onClick={
                             //     function(e){
                             //         console.log(e);

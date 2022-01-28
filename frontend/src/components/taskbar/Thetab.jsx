@@ -69,7 +69,7 @@ export default function Thetab(props) {
             sx={{width: '45px', height: '45px'}}
             >
             <AddIcon 
-              onClick={props.handleClickOpen} 
+              onClick={props.handleDialogOpen} 
               size='large' 
             />
           </IconButton>       

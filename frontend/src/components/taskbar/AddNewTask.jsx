@@ -21,7 +21,7 @@ export default function AddNewTask(props) {
     <div style = {createBtnStyle}>
       <Button 
         variant="outlined" 
-        onClick={props.handleClickOpen}
+        onClick={props.handleDialogOpen}
         startIcon={<ControlPointIcon />}
       >
         Create task

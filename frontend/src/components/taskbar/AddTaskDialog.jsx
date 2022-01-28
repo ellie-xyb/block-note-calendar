@@ -22,8 +22,8 @@ function PaperComponent(props) {
 export default function NewTaskDialog(props) {
     return (
         <Dialog
-            open={props.open}
-            onClose={props.handleClose}
+            open={props.dialogOpen}
+            onClose={props.handleDialogClose}
             PaperComponent={PaperComponent}
             aria-labelledby="draggable-dialog-title"
             >
@@ -31,11 +31,11 @@ export default function NewTaskDialog(props) {
                 Create task
             </DialogTitle>
             <DialogContent>
-                <TaskForm />
+                <TaskForm/>
             </DialogContent>
             <DialogActions>
-                <Button onClick={props.handleClose}>Cancel</Button>
-                <Button onClick={props.handleClose}>Save</Button>
+                <Button onClick={props.handleDialogClose}>Cancel</Button>
+                <Button onClick={props.handleDialogClose}>Save</Button>
             </DialogActions>
         </Dialog>
     );    
