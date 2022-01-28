@@ -18,9 +18,10 @@ function App() {
   //   end: new Date(),
   // });
   // const [showForm, setShowForm] = React.useState(false);
-  const [startDate, setStartDate] = React.useState(new Date());
-  const [startTime, setStartTime] = React.useState(new Date());
-  const [endTime, setEndTime] = React.useState(new Date());
+
+  // const [startDate, setStartDate] = React.useState(new Date());
+  // const [startTime, setStartTime] = React.useState(new Date());
+  // const [endTime, setEndTime] = React.useState(new Date());
 
   const [taskChipData, setTaskChipData] = React.useState([
     {id: 0, title: 'gym', datetime: '10:00am'},
@@ -94,9 +95,6 @@ function App() {
               handleDialogOpen={handleDialogOpen}
             />
           </div>
-          {/* <OverlayCalendar 
-            
-          /> */}
         </div>  
       </div>
       <NewTaskDialog 

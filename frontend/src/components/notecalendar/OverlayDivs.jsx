@@ -99,12 +99,10 @@ export default function Overlaydivs(props) {
 
     const handleClickOnStartDate = (date) => {
         setStartDate(date);
-        // console.log(`Start date: ${date}`);
     };
 
     const handleClickOnEndDate = (date) => {
         setEndDate(date);
-        // console.log(`End date: ${date}`);
     };
 
     const fromYGetTime = (downY, upY) => {
@@ -129,6 +127,7 @@ export default function Overlaydivs(props) {
         const newEndDateTime = newTaskDatetime(startDate, endTime);
         console.log(`Start: ${newStartDateTime}`);
         console.log(`End: ${newEndDateTime}`);
+        props.handleDialogOpen();
     }, [mouseUpX, mouseUpY]);
 
     return (  

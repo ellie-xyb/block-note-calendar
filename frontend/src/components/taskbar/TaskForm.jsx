@@ -8,10 +8,10 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
 
-export default function TaskForm(props) {
-//   const [startDate, setStartDate] = React.useState(new Date());
-//   const [startTime, setStartTime] = React.useState(new Date());
-//   const [endTime, setEndTime] = React.useState(new Date());
+export default function TaskForm() {
+  const [startDate, setStartDate] = React.useState(new Date());
+  const [startTime, setStartTime] = React.useState(new Date());
+  const [endTime, setEndTime] = React.useState(new Date());
 
   return (
     <Box
@@ -33,10 +33,10 @@ export default function TaskForm(props) {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DesktopDatePicker
             //   label="Choose a day"
-              value={props.startDate}
+              value={startDate}
               minDate={new Date('2022-01-01')}
               onChange={(newValue) => {
-                props.setStartDate(newValue);
+                setStartDate(newValue);
               }}
             //   renderInput={(params) => <TextField {...params} />}
               renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -61,9 +61,9 @@ export default function TaskForm(props) {
 
                 <TimePicker
                 label="Start at"
-                value={props.startTime}
+                value={startTime}
                 onChange={(newValue) => {
-                props.setStartTime(newValue);
+                setStartTime(newValue);
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -80,9 +80,9 @@ export default function TaskForm(props) {
 
                 <TimePicker
                 label="End at"
-                value={props.endTime}
+                value={endTime}
                 onChange={(newValue) => {
-                props.setEndTime(newValue);
+                setEndTime(newValue);
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
