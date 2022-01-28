@@ -78,7 +78,7 @@ export default function TaskForm(props) {
                 label="End at"
                 value={props.selectDateTime.end}
                 onChange={(newValue) => {
-                    props.setSelectDateTime({end: newValue});
+                    props.setSelectDateTime({start: newValue});
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (

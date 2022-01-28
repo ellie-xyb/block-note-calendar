@@ -121,7 +121,15 @@ export default function Overlaydivs(props) {
 
     let {x: mouseDownX, y: mouseDownY, handleMouseMove: handleMouseDown} = useMouseMove();
     let {x: mouseUpX, y: mouseUpY, handleMouseMove: handleMouseUp} = useMouseMove();
+    
+    const [firstRender, setFirstRender] = React.useState(true);
+
     React.useEffect(() => {
+        if (firstRender) {
+            setFirstRender(false);
+            return;
+        }
+        
         const {startTime, endTime} = fromYGetTime(mouseDownY , mouseUpY);
         const newStartDateTime = newTaskDatetime(startDate, startTime);
         const newEndDateTime = newTaskDatetime(startDate, endTime);
