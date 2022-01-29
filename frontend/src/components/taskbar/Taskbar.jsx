@@ -20,6 +20,7 @@ export default function Taskbar(props) {
       <Thetab 
         handleDialogOpen={props.handleDialogOpen}
         setSelectDateTime={props.setSelectDateTime}
+        taskChipData={props.taskChipData}
       />
     </div>
   );

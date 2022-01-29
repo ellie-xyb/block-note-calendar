@@ -1,75 +1,44 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 
-export default function Tasks() {
+export default function Tasks(props) {
   return (
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '42%' },
+        '& .MuiTextField-root': { width: '100%' },
+        flexGrow: 1,
       }}
       noValidate
       autoComplete="off"
     >
-      <div>
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="coming soon..."
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="gym"
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="coding"
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="shopping"
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="coming soon..."
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="gym"
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="coding"
-          variant="filled"
-          size="small"
-        />
-        <TextField
-          label="0"
-          id="filled-size-small"
-          defaultValue="shopping"
-          variant="filled"
-          size="small"
-        />
-      </div>    
+
+      <Grid container spacing={{ xs: 2 }}>
+        <Grid item xs={6}>
+          <TextField
+            label="0"
+            id="filled-size-small"
+            defaultValue="+"
+            variant="filled"
+            size="small"
+          />
+        </Grid>  
+        {props.taskChipData
+          .map((taskChip) => 
+            <Grid item xs={6} key={taskChip.id}>
+              <TextField
+                label="0"
+                id="filled-size-small"
+                defaultValue={taskChip.title}
+                variant="filled"
+                size="small"
+             />
+            </Grid> 
+          )
+        }
+      </Grid>
     </Box>
   );
 }

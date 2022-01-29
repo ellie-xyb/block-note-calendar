@@ -14,10 +14,18 @@ function App() {
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
   const [taskChipData, setTaskChipData] = React.useState([
-    {id: 0, title: 'gym', datetime: '10:00am'},
-    {id: 1, title: 'coding', datetime: '12:00am'},
-    {id: 2, title: 'cooking', datetime: '5:00pm'},
-    {id: 3, title: 'movie', datetime: '9:00am'},
+    {id: 0, title: 'gym', content: ''},
+    {id: 1, title: 'coding', content: ''},
+    {id: 2, title: 'cooking', content: ''},
+    {id: 3, title: 'movie', content: ''},
+  ]);
+
+  const [cells, setCells] = React.useState([
+    {id: 0, taskId: 0, datetime: new Date('2022-02-01T08:00:00+0900')},
+    {id: 1, taskId: 1, datetime: new Date('2022-01-29T06:00:00+0900')},
+    {id: 2, taskId: 2, datetime: new Date('2022-02-02T09:00:00+0900')},
+    {id: 3, taskId: 3, datetime: new Date('2022-02-03T10:00:00+0900')},
+    {id: 4, taskId: 3, datetime: new Date('2022-02-04T10:00:00+0900')},
   ]);
 
   const [selectDateTime, setSelectDateTime] = React.useState({
@@ -80,6 +88,7 @@ function App() {
           setPickedDate={setPickedDate}
           handleDialogOpen={handleDialogOpen}
           setSelectDateTime={setSelectDateTime}
+          taskChipData={taskChipData}
         >
         </Taskbar>
         <div style={insideMainCalendarStyle}>

@@ -42,10 +42,10 @@ function a11yProps(index) {
 }
 
 export default function Thetab(props) {
-  const [value, setValue] = React.useState(0);
+  const [tabValue, setTabValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTabValue(newValue);
   };
 
   return (
@@ -57,7 +57,7 @@ export default function Thetab(props) {
           }}
         >
         <Tabs 
-          value={value} 
+          value={tabValue} 
           onChange={handleChange} 
           aria-label="basic tabs example"
         >
@@ -78,11 +78,11 @@ export default function Thetab(props) {
           </IconButton>       
         </Tabs>  
       </Box>
-      <TabPanel value={value} index={0}>
-        <Tasks></Tasks>
+      <TabPanel value={tabValue} index={0}>
+        <Tasks taskChipData={props.taskChipData}></Tasks>
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Tasks></Tasks>
+      <TabPanel value={tabValue} index={1}>
+        <Tasks taskChipData={props.taskChipData}></Tasks>
       </TabPanel>
     </Box>
   );
