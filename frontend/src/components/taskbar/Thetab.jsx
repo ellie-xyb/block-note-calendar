@@ -70,7 +70,7 @@ export default function Thetab(props) {
             >
             <AddIcon 
               onClick={() => {
-                props.setSelectDateTime({start: new Date(), end: new Date()});
+                props.setSelectDateTime({start: new Date(), end: new Date(new Date().setHours(new Date().getHours() + 1))});
                 props.handleDialogOpen();
               }}
               size='large' 
