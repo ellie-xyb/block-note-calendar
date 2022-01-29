@@ -17,7 +17,10 @@ export default function Taskbar(props) {
     <div style={taskbarStyle}>
       <DemoCalendar setPickedDate={props.setPickedDate} />
       {/* <AddNewTask handleDialogOpen={props.handleDialogOpen} /> */}
-      <Thetab handleDialogOpen={props.handleDialogOpen}/>
+      <Thetab 
+        handleDialogOpen={props.handleDialogOpen}
+        setSelectDateTime={props.setSelectDateTime}
+      />
     </div>
   );
 }

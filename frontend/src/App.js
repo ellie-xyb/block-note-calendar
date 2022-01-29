@@ -79,6 +79,7 @@ function App() {
         <Taskbar 
           setPickedDate={setPickedDate}
           handleDialogOpen={handleDialogOpen}
+          setSelectDateTime={setSelectDateTime}
         >
         </Taskbar>
         <div style={insideMainCalendarStyle}>
@@ -88,6 +89,7 @@ function App() {
             <OverlayDivs 
               pickedDate={pickedDate}
               handleDialogOpen={handleDialogOpen}
+              setSelectDateTime={setSelectDateTime}
             />
           </div>
         </div>  

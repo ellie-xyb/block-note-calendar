@@ -135,6 +135,7 @@ export default function Overlaydivs(props) {
         const newEndDateTime = newTaskDatetime(startDate, endTime);
         console.log(`Start: ${newStartDateTime}`);
         console.log(`End: ${newEndDateTime}`);
+        props.setSelectDateTime({...props.selectDateTime, start: newStartDateTime, end: newEndDateTime});
         props.handleDialogOpen();
     }, [mouseUpX, mouseUpY]);
 
