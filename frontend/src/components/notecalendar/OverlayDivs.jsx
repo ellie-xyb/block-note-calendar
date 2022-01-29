@@ -8,8 +8,6 @@ const LongEachDayDiv = (props) => {
         <div style={{
             width: 'calc(100% / 7)',
             height: '1465px',
-            backgroundColor: 'pink',
-            opacity: '0.2',
         }}
         onClick = {props.onClick}
         onMouseDown = {props.onMouseDown}
@@ -133,8 +131,8 @@ export default function Overlaydivs(props) {
         const {startTime, endTime} = fromYGetTime(mouseDownY , mouseUpY);
         const newStartDateTime = newTaskDatetime(startDate, startTime);
         const newEndDateTime = newTaskDatetime(startDate, endTime);
-        console.log(`Start: ${newStartDateTime}`);
-        console.log(`End: ${newEndDateTime}`);
+        // console.log(`Start: ${newStartDateTime}`);
+        // console.log(`End: ${newEndDateTime}`);
         props.setSelectDateTime({...props.selectDateTime, start: newStartDateTime, end: newEndDateTime});
         props.handleDialogOpen();
     }, [mouseUpX, mouseUpY]);

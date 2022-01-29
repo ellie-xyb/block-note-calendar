@@ -1,13 +1,11 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import endOfWeek from 'date-fns/endOfWeek';
-import startOfWeek from 'date-fns/startOfWeek';
+
 
 const columns = [
     { id: '1', label: '', width: '120px', minWidth: '75px', first: 'true' },
@@ -76,12 +74,6 @@ export default function BgCalendar() {
                     {columns.map((column) => {
                         return (
                         <TableCell 
-                            // onClick={props.handleDialogOpen}
-                            // onClick={
-                            //     function(e){
-                            //         console.log(e);
-                            //     }
-                            // }
                             key={column.id} 
                             style={{
                             width: column.width,
