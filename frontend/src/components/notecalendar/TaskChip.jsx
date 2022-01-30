@@ -9,7 +9,7 @@ function turnTimeToTopNum(time) {
 export default function TaskChip(props) {
   const positionTop = 120;
   return (
-    <div>
+    <>
       {props.cells.filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data) => {
         let positionTop = turnTimeToTopNum(data.datetime.getHours());
         return (
@@ -17,14 +17,15 @@ export default function TaskChip(props) {
             style={{
             width: '90%',
             maxHeight: '53px',
-            overflowY: 'scroll',
-            display: 'flex',
-            flexWrap: 'wrap',
+            // overflowY: 'scroll',
+            // display: 'flex',
+            // flexWrap: 'wrap',
+            // gap: '2.5px',
             zIndex: 700,
-            gap: '2.5px',
             position: 'relative',
             left: 0,
             top: `${positionTop}px`,
+            marginBottom: '-25px',
             }} 
           >
             <Chip
@@ -43,6 +44,6 @@ export default function TaskChip(props) {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }
