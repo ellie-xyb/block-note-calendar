@@ -2,24 +2,25 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 
-const ListItem = styled('li')(({ theme }) => ({
-  margin: theme.spacing(0.5),
-}));
+// const [cells, setCells] = React.useState([
+//   {id: 0, taskId: 0, datetime: new Date('2022-02-01T08:00:00+0900')},
+//   {id: 1, taskId: 1, datetime: new Date('2022-01-29T06:00:00+0900')},
+//   {id: 2, taskId: 2, datetime: new Date('2022-02-02T09:00:00+0900')},
+//   {id: 3, taskId: 3, datetime: new Date('2022-02-03T10:00:00+0900')},
+//   {id: 4, taskId: 3, datetime: new Date('2022-02-04T10:00:00+0900')},
+// ]);
 
 const chipListDivStyle = {
-    width: '100px',
+    width: '90%',
+    maxHeight: '53px',
+    overflowY: 'scroll',
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
     flexWrap: 'wrap',
-    listStyle: 'none',
-    zIndex: 10,
-    cursor: 'pointer',
-    p: 0.5,
-    m: 0,
+    zIndex: 700,
+    gap: '2.5px',
     position: 'relative',
-    top: '800px',
-    left: '300px',
+    left: '0px',
+    top: '120px',
 };
 
 export default function TaskChip(props) {
@@ -27,20 +28,23 @@ export default function TaskChip(props) {
   return (
     <div
       style={chipListDivStyle} 
-      component="ul"
     >
       {props.taskChipData.map((data) => {
         let icon;
-
         return (
-          <ListItem key={data.id}>
-            <Chip
-              icon={icon}
-              label={data.title}
-              color='info'
-              onDelete={props.handleDeleteTaskChip(data)}
-            />
-          </ListItem>
+          <Chip
+            sx={{
+              height: '25px',
+              width: '100%',
+              borderRadius: '5px',
+              backgroundColor: '#4284F3',
+              cursor: 'ns-resize',
+            }}
+            icon={icon}
+            label={data.title}
+            color='info'
+            // onDelete={props.handleDeleteTaskChip(data)}
+          />
         );
       })}
     </div>

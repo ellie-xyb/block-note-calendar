@@ -9,7 +9,6 @@ const taskbarStyle = {
     width: '380px',
     minWidth: '380px',
     overflow: 'scroll',
-    zIndex: 0,
   };
 
 export default function Taskbar(props) {

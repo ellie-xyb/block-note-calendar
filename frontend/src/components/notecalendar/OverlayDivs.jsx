@@ -2,6 +2,7 @@ import * as React from 'react';
 import endOfWeek from 'date-fns/endOfWeek';
 import startOfWeek from 'date-fns/startOfWeek';
 import {TimeRows} from "./TimeRows";
+import TaskChip from './TaskChip';
 
 const LongEachDayDiv = (props) => {
     return (
@@ -161,6 +162,10 @@ export default function Overlaydivs(props) {
                             dayName={column.dayName} 
                             dayNumber={column.date.getDate()}
                         />
+                        <TaskChip 
+                            taskChipData={props.taskChipData}
+                            // handleDeleteTaskChip={props.handleDeleteTaskChip}
+                        />              
                     </LongEachDayDiv>  
                 );
             })}        

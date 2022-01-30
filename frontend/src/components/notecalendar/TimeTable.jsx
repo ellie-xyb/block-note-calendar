@@ -15,7 +15,7 @@ export default function TimeTable() {
     return (  
         <TableContainer
         style={{
-          zIndex: 800,
+          zIndex: 500,
         }}>  
         <Table>
             <TableHead>  

@@ -4,7 +4,6 @@ import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
 import NewTaskDialog from './components/taskbar/AddTaskDialog';
-import ReactCursorPosition from 'react-cursor-position';
 import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
@@ -28,14 +27,14 @@ function App() {
     {id: 4, taskId: 3, datetime: new Date('2022-02-04T10:00:00+0900')},
   ]);
 
+  // const handleDeleteTaskChip = (taskChipToDelete) => () => {
+  //   setTaskChipData((chips) => chips.filter((chip) => chip.id != taskChipToDelete.id));
+  // };
+
   const [selectDateTime, setSelectDateTime] = React.useState({
     start: new Date(),
     end: new Date(),
   });
-
-  const handleDeleteTaskChip = (taskChipToDelete) => () => {
-    setTaskChipData((chips) => chips.filter((chip) => chip.id != taskChipToDelete.id));
-  };
 
   const handleDialogOpen = () => {
     setDialogOpen(true);
@@ -99,6 +98,9 @@ function App() {
               pickedDate={pickedDate}
               handleDialogOpen={handleDialogOpen}
               setSelectDateTime={setSelectDateTime}
+              taskChipData={taskChipData}
+              cells={cells}
+              // handleDeleteTaskChip={handleDeleteTaskChip}
             />
           </div>
         </div>  
