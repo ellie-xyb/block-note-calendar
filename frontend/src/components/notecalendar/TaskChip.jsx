@@ -33,6 +33,7 @@ export default function TaskChip(props) {
         let icon;
         return (
           <Chip
+            onMouseUp={(e) => e.stopPropagation()}
             sx={{
               height: '25px',
               width: '100%',
