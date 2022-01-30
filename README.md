@@ -1,5 +1,5 @@
 # Note Block Calendar
-### A website allow user to create tasks, and arrange them into weekly calendar, help them to make weekly plan.
+### It is a website that allows users to create tasks, and arrange them into a weekly calendar, to help them to make a weekly plan.
 
 |---|---|---|---|---|
 |---|---|---|---|---|
