@@ -30,6 +30,7 @@ export default function TimeTable() {
                     padding: 0,
                     verticalAlign: 'bottom',
                     paddingBottom: '10px',
+                    boxSizing: 'border-box',
                   }}
                 >
                   {column.label}
@@ -51,6 +52,7 @@ export default function TimeTable() {
                             color: '#6F7E8C',
                             padding: 0,
                             textAlign: 'center',
+                            boxSizing: 'border-box',
                             }}
                         >
                           {value}

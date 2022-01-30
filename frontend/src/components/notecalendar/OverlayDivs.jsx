@@ -105,8 +105,8 @@ export default function Overlaydivs(props) {
     };
 
     const fromYGetTime = (downY, upY) => {
-        let start = Math.max(Math.ceil((downY - 120.500) / 56), 1);
-        let end = Math.max(Math.ceil((upY - 120.500) / 56), 1);
+        let start = Math.max(Math.ceil((downY - 120.500) / 55), 1);
+        let end = Math.max(Math.ceil((upY - 120.500) / 55), 1);
         let startTime = TimeRows[start - 1].time;
         let endTime = TimeRows[end - 1].time;
         return {startTime, endTime};
