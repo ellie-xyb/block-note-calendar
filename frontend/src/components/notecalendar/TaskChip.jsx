@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Chip from '@mui/material/Chip';
 
 // const [cells, setCells] = React.useState([
@@ -29,7 +28,7 @@ export default function TaskChip(props) {
     <div
       style={chipListDivStyle} 
     >
-      {props.taskChipData.map((data) => {
+      {props.cells.filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data) => {
         let icon;
         return (
           <Chip
@@ -39,10 +38,10 @@ export default function TaskChip(props) {
               width: '100%',
               borderRadius: '5px',
               backgroundColor: '#4284F3',
-              cursor: 'ns-resize',
+              cursor: 'pointer',
             }}
             icon={icon}
-            label={data.title}
+            label={data.taskId} //TODO: Look up the task title
             color='info'
             // onDelete={props.handleDeleteTaskChip(data)}
           />

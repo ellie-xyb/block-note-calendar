@@ -62,6 +62,7 @@ export default function BgCalendar() {
                     style={{
                         height: '120px',
                         padding: 0,
+                        boxSizing: 'border-box',
                     }}
                 >
                 </TableCell>
@@ -85,6 +86,7 @@ export default function BgCalendar() {
                             fontSize: '1em',
                             color: '#77838E',
                             padding: 0,
+                            boxSizing: 'border-box',
                             }}
                         >
                         </TableCell>
