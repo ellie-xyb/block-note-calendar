@@ -41,7 +41,7 @@ export default function TaskChip(props) {
               cursor: 'pointer',
             }}
             icon={icon}
-            label={data.taskId} //TODO: Look up the task title
+            label={props.taskChipData[data.taskId].title} 
             color='info'
             // onDelete={props.handleDeleteTaskChip(data)}
           />
