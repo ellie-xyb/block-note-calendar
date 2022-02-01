@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Topbar() {
     const topbarStyle = {
         backgroundColor: '#282c34',
@@ -28,11 +30,11 @@ function Topbar() {
   return (
     <div style={topbarStyle}>
         <div style={insideBoxStyle}>
-            <h3>Note Block Calendar</h3>
-            <div>
-                <a href="#" target="_blank" rel="sign in" style={linkStyle}>sign in</a>
-                <a href="#" target="_blank" rel="register" style={linkStyle}>register</a>
-            </div>     
+          <h3>Note Block Calendar</h3> 
+          <div>
+            <Link to='/signin' style={linkStyle}>Sign in</Link>
+            <a href="#" target="_blank" rel="register" style={linkStyle}>Register</a>  
+          </div>
         </div>
     </div>  
     

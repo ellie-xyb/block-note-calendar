@@ -37,7 +37,6 @@ export default function TaskChip(props) {
           chipWidth = '90%';
         }}
         chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours() - 1) * 55 + 45;
-        console.log(chipHeight);
         return (
           <div
             style={{
