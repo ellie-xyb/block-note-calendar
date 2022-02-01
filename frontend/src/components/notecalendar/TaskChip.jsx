@@ -6,21 +6,34 @@ function turnTimeToTopNum(time) {
   return gap * 55 + 120;
 };
 
+function compareDateTime( a, b ) {
+  if ( a.datetime.getTime() < b.datetime.getTime() ){
+    return -1;
+  }
+  if ( a.datetime.getTime() > b.datetime.getTime() ){
+    return 1;
+  }
+  return 0;
+}
+
 export default function TaskChip(props) {
   const positionTop = 120;
   return (
     <>
-      {props.cells.filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data) => {
+      {props.cells.sort(compareDateTime).filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data) => {
+        console.log('----------');
+        console.log(data);
+        console.log('----------');
         let positionTop = turnTimeToTopNum(data.datetime.getHours());
         return (
           <div
             style={{
             width: '90%',
             maxHeight: '53px',
-            // overflowY: 'scroll',
-            // display: 'flex',
-            // flexWrap: 'wrap',
-            // gap: '2.5px',
+            overflowY: 'scroll',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '2.5px',
             zIndex: 700,
             position: 'relative',
             left: 0,
