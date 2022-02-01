@@ -39,7 +39,7 @@ function App() {
     {id: 16, taskId: 3, start_datetime: new Date('2022-02-02T14:00:00+0900'), end_datetime: new Date('2022-02-02T11:15:00+0900') },
     {id: 17, taskId: 1, start_datetime: new Date('2022-02-01T12:00:00+0900'), end_datetime: new Date('2022-02-01T13:00:00+0900') },
     {id: 18, taskId: 1, start_datetime: new Date('2022-02-01T08:00:00+0900'), end_datetime: new Date('2022-02-01T09:00:00+0900') },
-    {id: 19, taskId: 2, start_datetime: new Date('2022-02-01T11:00:00+0900'), end_datetime: new Date('2022-02-01T12:00:00+0900') },
+    {id: 19, taskId: 2, start_datetime: new Date('2022-02-01T13:00:00+0900'), end_datetime: new Date('2022-02-01T16:00:00+0900') },
   ]);
 
   // const handleDeleteTaskChip = (taskChipToDelete) => () => {
