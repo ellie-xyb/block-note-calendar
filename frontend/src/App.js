@@ -35,7 +35,8 @@ function App() {
     {id: 12, taskId: 2, datetime: new Date('2022-02-02T09:00:00+0900')},
     {id: 13, taskId: 0, datetime: new Date('2022-02-02T09:00:00+0900')},
     {id: 14, taskId: 3, datetime: new Date('2022-02-02T09:00:00+0900')},
-    {id: 15, taskId: 3, datetime: new Date('2022-02-02T10:00:00+0900')},
+    {id: 15, taskId: 1, datetime: new Date('2022-02-02T09:00:00+0900')},
+    {id: 16, taskId: 3, datetime: new Date('2022-02-02T10:00:00+0900')},
   ]);
 
   // const handleDeleteTaskChip = (taskChipToDelete) => () => {

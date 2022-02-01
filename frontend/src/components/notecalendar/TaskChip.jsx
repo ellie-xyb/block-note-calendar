@@ -20,23 +20,26 @@ export default function TaskChip(props) {
   let positionTop = 120;
   let positionLeft = 0;
   let chipBorder = 'none';
+  let ChipWidth = '90%';
   return (
     <>
       {props.cells.sort(compareDateTime).filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
         positionTop = turnTimeToTopNum(data.datetime.getHours());
         {if(index > 0 && dataArray[index - 1].datetime.getTime() === data.datetime.getTime()){
-          positionLeft += 8;
+          positionLeft += 10;
           positionTop += 1;
           chipBorder = 'thin solid white';
+          ChipWidth = `calc(90% - ${positionLeft}px)`;
         }else{
           positionLeft = 0;
           chipBorder = 'none';
+          ChipWidth = '90%';
         }}
         return (
           <div
             style={{
-            width: '90%',
             zIndex: 700,
+            width: ChipWidth,
             position: 'relative',
             left: `${positionLeft}px`,
             top: `${positionTop}px`,
