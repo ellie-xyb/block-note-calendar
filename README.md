@@ -8,6 +8,7 @@
 | cell | id | start_datetime | end_datetime | task_id |
 
 <br>
+<img width="1440" alt="18" src="https://user-images.githubusercontent.com/47287801/151985205-34595076-130c-4b11-9897-ced06e52c0e6.png">
+<img width="1440" alt="19" src="https://user-images.githubusercontent.com/47287801/151985236-2f38ace6-7422-4ac4-a357-cbf0bb99909d.png">
 
-![(17)1:31](https://user-images.githubusercontent.com/47287801/151709403-8dada798-7bdb-4dbd-af41-a4f3d61b3b9d.gif)
-
+![20](https://user-images.githubusercontent.com/47287801/151985021-748367d7-04a6-4fb0-b488-fdc99cc0e084.gif)
