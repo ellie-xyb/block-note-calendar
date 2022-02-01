@@ -17,38 +17,41 @@ function compareDateTime( a, b ) {
 }
 
 export default function TaskChip(props) {
-  const positionTop = 120;
+  let positionTop = 120;
+  let positionLeft = 0;
+  let chipBorder = 'none';
   return (
     <>
-      {props.cells.sort(compareDateTime).filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data) => {
-        console.log('----------');
-        console.log(data);
-        console.log('----------');
-        let positionTop = turnTimeToTopNum(data.datetime.getHours());
+      {props.cells.sort(compareDateTime).filter((c) => c.datetime.toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
+        positionTop = turnTimeToTopNum(data.datetime.getHours());
+        {if(index > 0 && dataArray[index - 1].datetime.getTime() === data.datetime.getTime()){
+          positionLeft += 8;
+          positionTop += 1;
+          chipBorder = 'thin solid white';
+        }else{
+          positionLeft = 0;
+          chipBorder = 'none';
+        }}
         return (
           <div
             style={{
             width: '90%',
-            maxHeight: '53px',
-            overflowY: 'scroll',
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '2.5px',
             zIndex: 700,
             position: 'relative',
-            left: 0,
+            left: `${positionLeft}px`,
             top: `${positionTop}px`,
-            marginBottom: '-25px',
+            marginBottom: '-45px',
             }} 
           >
             <Chip
               onMouseUp={(e) => e.stopPropagation()}
               sx={{
-                height: '25px',
+                height: '45px',
                 width: '100%',
                 borderRadius: '5px',
                 backgroundColor: '#4284F3',
                 cursor: 'pointer',
+                border: chipBorder,
               }}
               label={props.taskChipData[data.taskId].title} 
               color='info'

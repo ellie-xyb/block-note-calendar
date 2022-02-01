@@ -21,22 +21,21 @@ function App() {
 
   const [cells, setCells] = React.useState([
     {id: 0, taskId: 0, datetime: new Date('2022-02-01T08:00:00+0900')},
-    {id: 1, taskId: 1, datetime: new Date('2022-01-29T09:00:00+0900')},
-    {id: 2, taskId: 1, datetime: new Date('2022-01-24T09:00:00+0900')},
-    {id: 3, taskId: 1, datetime: new Date('2022-01-25T09:00:00+0900')},
-    {id: 4, taskId: 1, datetime: new Date('2022-01-26T09:00:00+0900')},
-    {id: 5, taskId: 1, datetime: new Date('2022-01-28T09:00:00+0900')},
-    {id: 6, taskId: 0, datetime: new Date('2022-01-24T12:00:00+0900')},
-    {id: 7, taskId: 0, datetime: new Date('2022-01-27T14:00:00+0900')},
-    {id: 8, taskId: 1, datetime: new Date('2022-01-25T13:00:00+0900')},
-    {id: 9, taskId: 3, datetime: new Date('2022-01-24T19:00:00+0900')},
-    {id: 10, taskId: 2, datetime: new Date('2022-02-02T12:00:00+0900')},
+    {id: 1, taskId: 1, datetime: new Date('2022-02-07T09:00:00+0900')},
+    {id: 2, taskId: 1, datetime: new Date('2022-02-08T09:00:00+0900')},
+    {id: 3, taskId: 1, datetime: new Date('2022-02-09T09:00:00+0900')},
+    {id: 4, taskId: 1, datetime: new Date('2022-02-10T09:00:00+0900')},
+    {id: 5, taskId: 1, datetime: new Date('2022-02-12T09:00:00+0900')},
+    {id: 6, taskId: 0, datetime: new Date('2022-02-06T12:00:00+0900')},
+    {id: 7, taskId: 0, datetime: new Date('2022-02-08T14:00:00+0900')},
+    {id: 8, taskId: 1, datetime: new Date('2022-02-09T13:00:00+0900')},
+    {id: 9, taskId: 3, datetime: new Date('2022-02-02T12:00:00+0900')},
+    {id: 10, taskId: 2, datetime: new Date('2022-02-02T10:00:00+0900')},
     {id: 11, taskId: 2, datetime: new Date('2022-02-02T10:00:00+0900')},
-
     {id: 12, taskId: 2, datetime: new Date('2022-02-02T09:00:00+0900')},
     {id: 13, taskId: 0, datetime: new Date('2022-02-02T09:00:00+0900')},
-    {id: 14, taskId: 3, datetime: new Date('2022-02-03T21:00:00+0900')},
-    {id: 15, taskId: 3, datetime: new Date('2022-02-04T10:00:00+0900')},
+    {id: 14, taskId: 3, datetime: new Date('2022-02-02T09:00:00+0900')},
+    {id: 15, taskId: 3, datetime: new Date('2022-02-02T10:00:00+0900')},
   ]);
 
   // const handleDeleteTaskChip = (taskChipToDelete) => () => {
