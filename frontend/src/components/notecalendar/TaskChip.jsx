@@ -33,7 +33,7 @@ export default function TaskChip(props) {
           chipWidth = `calc(90% - ${positionLeft}px + 8px)`;
         }else{
           positionLeft = 0;
-          chipBorder = 'none';
+          chipBorder = 'thin solid lightgrey';
           chipWidth = '90%';
         }}
         chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours() - 1) * 55 + 45;
