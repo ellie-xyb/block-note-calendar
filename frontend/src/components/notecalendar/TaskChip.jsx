@@ -20,8 +20,8 @@ export default function TaskChip(props) {
   let positionTop = 120;
   let positionLeft = 0;
   let chipBorder = 'none';
-  let ChipWidth = '90%';
-  // let chipHeight = '45';
+  let chipWidth = '90%';
+  let chipHeight = '45';
   return (
     <>
       {props.cells.sort(compareDateTime).filter((c) => c.start_datetime.toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
@@ -30,28 +30,29 @@ export default function TaskChip(props) {
           positionLeft += 10;
           positionTop += 1;
           chipBorder = 'thin solid white';
-          ChipWidth = `calc(90% - ${positionLeft}px + 8px)`;
+          chipWidth = `calc(90% - ${positionLeft}px + 8px)`;
         }else{
           positionLeft = 0;
           chipBorder = 'none';
-          ChipWidth = '90%';
+          chipWidth = '90%';
         }}
-        // chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours()) * 45;
+        chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours() - 1) * 55 + 45;
+        console.log(chipHeight);
         return (
           <div
             style={{
             zIndex: 700,
-            width: ChipWidth,
+            width: chipWidth,
             position: 'relative',
             left: `${positionLeft}px`,
             top: `${positionTop}px`,
-            marginBottom: '-45px',
+            marginBottom: `-${chipHeight}px`,
             }} 
           >
             <Chip
               onMouseUp={(e) => e.stopPropagation()}
               sx={{
-                height: '45px',
+                height: `${chipHeight}px`,
                 width: '100%',
                 borderRadius: '5px',
                 backgroundColor: '#4284F3',
