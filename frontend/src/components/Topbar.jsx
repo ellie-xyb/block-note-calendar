@@ -33,7 +33,7 @@ function Topbar() {
           <h3>Note Block Calendar</h3> 
           <div>
             <Link to='/signin' style={linkStyle}>Sign in</Link>
-            <a href="#" target="_blank" rel="register" style={linkStyle}>Register</a>  
+            <Link to='/signup' style={linkStyle}>Sign up</Link>  
           </div>
         </div>
     </div>  

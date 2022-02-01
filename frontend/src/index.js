@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignInSide from './components/SignInSide';
+import SignInSide from './components/signinandup/SignInSide';
+import SignUpSide from './components/signinandup/SignUpSide';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,6 +12,7 @@ ReactDOM.render(
     <Routes>
       <Route exact path="/" element={<App />} /> 
       <Route path="/signin" element={<SignInSide />} />
+      <Route path="/signup" element={<SignUpSide />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')
