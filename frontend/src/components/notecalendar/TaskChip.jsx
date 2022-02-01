@@ -29,7 +29,7 @@ export default function TaskChip(props) {
           positionLeft += 10;
           positionTop += 1;
           chipBorder = 'thin solid white';
-          ChipWidth = `calc(90% - ${positionLeft}px)`;
+          ChipWidth = `calc(90% - ${positionLeft}px + 8px)`;
         }else{
           positionLeft = 0;
           chipBorder = 'none';
