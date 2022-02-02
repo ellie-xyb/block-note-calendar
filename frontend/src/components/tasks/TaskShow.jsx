@@ -31,7 +31,7 @@ export default function TaskShow(props) {
             <IconButton aria-label="delete-task" size="medium">
                 <DeleteOutlinedIcon />
             </IconButton>
-            <IconButton aria-label="close-task" size="medium">
+            <IconButton aria-label="close-task" size="medium" onClick={props.handleCellClose}>
                 <CloseOutlinedIcon />
             </IconButton>
         </Box>
