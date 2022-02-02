@@ -39,7 +39,7 @@ function App() {
     {id: 13, taskId: 0, start_datetime: new Date('2022-02-03T09:00:00+0900'), end_datetime: new Date('2022-02-03T10:00:00+0900') },
     {id: 14, taskId: 3, start_datetime: new Date('2022-01-30T09:00:00+0900'), end_datetime: new Date('2022-01-30T10:00:00+0900') },
     {id: 15, taskId: 1, start_datetime: new Date('2022-01-30T09:00:00+0900'), end_datetime: new Date('2022-01-30T10:00:00+0900') },
-    {id: 16, taskId: 3, start_datetime: new Date('2022-02-02T14:00:00+0900'), end_datetime: new Date('2022-02-02T11:15:00+0900') },
+    {id: 16, taskId: 3, start_datetime: new Date('2022-02-02T14:00:00+0900'), end_datetime: new Date('2022-02-02T15:00:00+0900') },
     {id: 17, taskId: 1, start_datetime: new Date('2022-02-01T12:00:00+0900'), end_datetime: new Date('2022-02-01T13:00:00+0900') },
     {id: 18, taskId: 1, start_datetime: new Date('2022-02-01T08:00:00+0900'), end_datetime: new Date('2022-02-01T09:00:00+0900') },
     {id: 19, taskId: 2, start_datetime: new Date('2022-02-01T13:00:00+0900'), end_datetime: new Date('2022-02-01T16:00:00+0900') },
@@ -144,6 +144,7 @@ function App() {
         handleCellClose={handleCellClose}
         pickedCellId={pickedCellId}
         cells={cells}
+        taskChipData={taskChipData}
       />
 
       {/* <header className="App-header">
