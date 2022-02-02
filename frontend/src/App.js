@@ -7,10 +7,12 @@ import NewTaskDialog from './components/taskbar/AddTaskDialog';
 import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
+import TaskShow from './components/tasks/TaskShow';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [taskOpen, setTaskOpen] = React.useState(false);
 
   const [taskChipData, setTaskChipData] = React.useState([
     {id: 0, title: 'gym', content: ''},
@@ -58,6 +60,14 @@ function App() {
   const handleDialogClose = () => {
     setDialogOpen(false);
   }; 
+
+  const handleTaskOpen = () => {
+    setTaskOpen(true);
+  };
+
+  const handleTaskClose = () => {
+    setTaskOpen(false);
+  };
 
   const mainContentStyle = {
     display: 'flex',
@@ -112,6 +122,7 @@ function App() {
             <OverlayDivs 
               pickedDate={pickedDate}
               handleDialogOpen={handleDialogOpen}
+              handleTaskOpen={handleTaskOpen}
               setSelectDateTime={setSelectDateTime}
               taskChipData={taskChipData}
               cells={cells}
@@ -122,10 +133,15 @@ function App() {
       </div>
       <NewTaskDialog 
         dialogOpen={dialogOpen} 
+        handleDialogClose={handleDialogClose} 
         selectDateTime={selectDateTime}
         setSelectDateTime={setSelectDateTime}
-        handleDialogClose={handleDialogClose} 
       />
+      <TaskShow
+        taskOpen={taskOpen}
+        handleTaskClose={handleTaskClose}
+      />
+
       {/* <header className="App-header">
 
         <img src={logo} className="App-logo" alt="logo" />

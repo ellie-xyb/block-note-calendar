@@ -60,6 +60,7 @@ export default function TaskChip(props) {
               }}
               label={props.taskChipData[data.taskId].title} 
               color='info'
+              onClick={props.handleTaskOpen}
               // onDelete={props.handleDeleteTaskChip(data)}
             />
           </div>
