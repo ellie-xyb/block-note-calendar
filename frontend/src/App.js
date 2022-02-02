@@ -12,7 +12,8 @@ import TaskShow from './components/tasks/TaskShow';
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [dialogOpen, setDialogOpen] = React.useState(false);
-  const [taskOpen, setTaskOpen] = React.useState(false);
+  const [cellOpen, setCellOpen] = React.useState(false);
+  const [pickedCellId, setPickedCellId] = React.useState(0);
 
   const [taskChipData, setTaskChipData] = React.useState([
     {id: 0, title: 'gym', content: ''},
@@ -61,12 +62,13 @@ function App() {
     setDialogOpen(false);
   }; 
 
-  const handleTaskOpen = () => {
-    setTaskOpen(true);
+  const handleCellOpen = (id) => {
+    setCellOpen(true);
+    setPickedCellId(id);
   };
 
-  const handleTaskClose = () => {
-    setTaskOpen(false);
+  const handleCellClose = () => {
+    setCellOpen(false);
   };
 
   const mainContentStyle = {
@@ -122,7 +124,7 @@ function App() {
             <OverlayDivs 
               pickedDate={pickedDate}
               handleDialogOpen={handleDialogOpen}
-              handleTaskOpen={handleTaskOpen}
+              handleCellOpen={handleCellOpen}
               setSelectDateTime={setSelectDateTime}
               taskChipData={taskChipData}
               cells={cells}
@@ -138,8 +140,10 @@ function App() {
         setSelectDateTime={setSelectDateTime}
       />
       <TaskShow
-        taskOpen={taskOpen}
-        handleTaskClose={handleTaskClose}
+        cellOpen={cellOpen}
+        handleCellClose={handleCellClose}
+        pickedCellId={pickedCellId}
+        cells={cells}
       />
 
       {/* <header className="App-header">

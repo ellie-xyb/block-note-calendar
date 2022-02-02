@@ -7,11 +7,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function TaskShow(props) {
+  const currentCellId = props.pickedCellId;
   return (
       <Dialog
         hideBackdrop={true}
-        open={props.taskOpen}
-        onClose={props.handleTaskClose}
+        open={props.cellOpen}
+        onClose={props.handleCellClose}
         aria-labelledby="task-detail"
         aria-describedby="task-detail"
         style={{
@@ -19,7 +20,7 @@ export default function TaskShow(props) {
         }}
       >
         <DialogTitle id="task-title">
-          {"task title"}
+            {currentCellId}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="task-detail">
@@ -27,8 +28,8 @@ export default function TaskShow(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleTaskClose}>Disagree</Button>
-          <Button onClick={props.handleTaskClose} autoFocus>
+          <Button onClick={props.handleCellClose}>Disagree</Button>
+          <Button onClick={props.handleCellClose} autoFocus>
             Agree
           </Button>
         </DialogActions>

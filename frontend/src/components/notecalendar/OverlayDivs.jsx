@@ -166,7 +166,7 @@ export default function Overlaydivs(props) {
                             taskChipData={props.taskChipData}
                             cells={props.cells}
                             columnDate={column.date}
-                            handleTaskOpen={props.handleTaskOpen}
+                            handleCellOpen={props.handleCellOpen}
                             // handleDeleteTaskChip={props.handleDeleteTaskChip}
                         />              
                     </LongEachDayDiv>  
