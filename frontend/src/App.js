@@ -16,10 +16,10 @@ function App() {
   const [pickedCellId, setPickedCellId] = React.useState(0);
 
   const [taskChipData, setTaskChipData] = React.useState([
-    {id: 0, title: 'gym', content: ''},
-    {id: 1, title: 'coding', content: ''},
-    {id: 2, title: 'cooking', content: ''},
-    {id: 3, title: 'movie', content: ''},
+    {id: 0, title: 'gym', content: 'I love gym'},
+    {id: 1, title: 'coding', content: 'I love coding'},
+    {id: 2, title: 'cooking', content: 'I love cooking'},
+    {id: 3, title: 'movie', content: 'I love movie'},
   ]);
 
   const [cells, setCells] = React.useState([
@@ -43,6 +43,7 @@ function App() {
     {id: 17, taskId: 1, start_datetime: new Date('2022-02-01T12:00:00+0900'), end_datetime: new Date('2022-02-01T13:00:00+0900') },
     {id: 18, taskId: 1, start_datetime: new Date('2022-02-01T08:00:00+0900'), end_datetime: new Date('2022-02-01T09:00:00+0900') },
     {id: 19, taskId: 2, start_datetime: new Date('2022-02-01T13:00:00+0900'), end_datetime: new Date('2022-02-01T16:00:00+0900') },
+    {id: 19, taskId: 3, start_datetime: new Date('2022-02-08T02:00:00+0900'), end_datetime: new Date('2022-02-08T04:00:00+0900') },
   ]);
 
   // const handleDeleteTaskChip = (taskChipToDelete) => () => {

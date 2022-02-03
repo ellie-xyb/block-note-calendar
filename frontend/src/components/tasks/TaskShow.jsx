@@ -6,11 +6,13 @@ import IconButton from '@mui/material/IconButton';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import NotesIcon from '@mui/icons-material/Notes';
+import EventIcon from '@mui/icons-material/Event';
 
 export default function TaskShow(props) {
     // find the current cell by the cell id
     let cell = props.cells.find(x => x.id === props.pickedCellId);
-    let task = props.taskChipData[cell.taskId];
+    let task = props.taskChipData.find(x => x.id === cell.taskId);
     let options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
     
     return (
@@ -24,7 +26,8 @@ export default function TaskShow(props) {
             boxShadow: '0px 1px 9px -7px rgb(0 0 0 / 20%), 0px 9px 20px 3px rgb(0 0 0 / 14%), 0px 0px 46px 8px rgb(0 0 0 / 12%)',
         }}
       >
-        <Box sx={{display: 'flex', justifyContent: 'flex-end', mt: 1, mr:1, color: '#5f6368'}} >
+      <Box sx={{ width: '480px' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1, mr:1, color: '#5f6368' }} >
             <IconButton aria-label="edit-task" size="medium">
                 <ModeEditOutlineOutlinedIcon />
             </IconButton>
@@ -35,7 +38,7 @@ export default function TaskShow(props) {
                 <CloseOutlinedIcon />
             </IconButton>
         </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'column', m: 3, mb: 9, width: '400px' }}>
+        <Box sx={{ m: 2, ml: 10, mb:3 }}>
             <Typography 
               component="div" 
               sx={{color: '#3c4043',
@@ -57,6 +60,31 @@ export default function TaskShow(props) {
                 {cell.end_datetime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} 
             </Typography> 
         </Box>  
+        <Box sx={{ m: 2 }}>
+            <Typography 
+              component="div" 
+              sx={{color: '#3c4043',
+              fontSize: '15px',
+              fontWeight: '400',
+              letterSpacing: '.2px',
+            }}>
+                <NotesIcon sx={{color: '#5f6368', fontSize: '20px'}} />
+                {task.content}
+            </Typography>
+        </Box>
+        <Box sx={{ m: 2 }}>
+            <Typography 
+              component="div" 
+              sx={{color: '#3c4043',
+              fontSize: '15px',
+              fontWeight: '400',
+              letterSpacing: '.2px',
+            }}>
+                <EventIcon sx={{color: '#5f6368', fontSize: '20px'}} />
+                Ellie
+            </Typography>
+        </Box>
+       </Box>  
       </Dialog>
   );
 }
