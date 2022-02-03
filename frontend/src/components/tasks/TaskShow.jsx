@@ -38,7 +38,7 @@ export default function TaskShow(props) {
                 <CloseOutlinedIcon />
             </IconButton>
         </Box>
-        <Box sx={{ m: 2, ml: 10, mb:3 }}>
+        <Box sx={{ m: 2, ml: 9, mb:3 }}>
             <Typography 
               component="div" 
               sx={{color: '#3c4043',
@@ -60,7 +60,8 @@ export default function TaskShow(props) {
                 {cell.end_datetime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} 
             </Typography> 
         </Box>  
-        <Box sx={{ m: 2 }}>
+        <Box sx={{ mx: 2, my: 1, display: 'flex' }}>
+            <NotesIcon sx={{ color: '#5f6368', fontSize: '20px', pl: 2.5, pr: 2 }} />
             <Typography 
               component="div" 
               sx={{color: '#3c4043',
@@ -68,11 +69,11 @@ export default function TaskShow(props) {
               fontWeight: '400',
               letterSpacing: '.2px',
             }}>
-                <NotesIcon sx={{color: '#5f6368', fontSize: '20px'}} />
                 {task.content}
             </Typography>
         </Box>
-        <Box sx={{ m: 2 }}>
+        <Box sx={{ mx: 2, mb: 4, display: 'flex' }}>
+            <EventIcon sx={{ color: '#5f6368', fontSize: '20px', pl: 2.5, pr: 2 }} />
             <Typography 
               component="div" 
               sx={{color: '#3c4043',
@@ -80,7 +81,6 @@ export default function TaskShow(props) {
               fontWeight: '400',
               letterSpacing: '.2px',
             }}>
-                <EventIcon sx={{color: '#5f6368', fontSize: '20px'}} />
                 Ellie
             </Typography>
         </Box>
