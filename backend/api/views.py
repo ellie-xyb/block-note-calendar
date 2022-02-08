@@ -34,6 +34,9 @@ class CellViewSet(viewsets.ModelViewSet):
 class UserTasksList(APIView):
     def get(self, request, user_id):
         tasks = Task.objects.filter(user=user_id)
+        # another way to get the same query set
+        # user = User.objects.get(id=user_id)
+        # tasks = user.task_set.all()
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
 

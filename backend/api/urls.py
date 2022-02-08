@@ -11,5 +11,4 @@ router.register('cells', CellViewSet, basename='cells')
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/users/<int:user_id>/tasks/', UserTasksList.as_view())
-    # path('users/<int:user_id>/tasks/<int:task_id>', UserTaskDetail.as_view())
 ]
