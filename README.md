@@ -1,12 +1,6 @@
 # Note Block Calendar
 ### It is a website that allows users to create tasks, and arrange them into a weekly calendar, to help them to make a weekly plan.
 
-|---|---|---|---|---|
-|---|---|---|---|---|
-| user | id | email | password |  |
-| task | id | title | content | user_id |
-| cell | id | start_datetime | end_datetime | task_id |
-
 <br>
 
 ## Languages & Libraries
@@ -16,6 +10,14 @@
  - Database: Sqlite3
  - UI library: [@mui/material](https://mui.com/)
  - Toolkit: [Django REST framework](https://www.django-rest-framework.org/) 
+
+## Database structure
+
+|---|---|---|---|---|
+|---|---|---|---|---|
+| user | id | email | password |  |
+| task | id | title | content | user_id |
+| cell | id | start_datetime | end_datetime | task_id |
 
 <br>
 
