@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Task
+from .models import Task, Cell
 from rest_framework.authtoken.views import Token
 
 
@@ -24,3 +24,9 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ('id', 'title', 'content', 'user')
+
+
+class CellSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cell
+        fields = ('id', 'start_datetime', 'end_datetime', 'task')

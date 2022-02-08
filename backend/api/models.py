@@ -9,3 +9,9 @@ class Task(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
+class Cell(models.Model):
+    start_datetime = models.DateTimeField()
+    end_datetime = models.DateTimeField()
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)

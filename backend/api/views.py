@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
-from .models import Task
-from .serializers import TaskSerializer, UserSerializer
+from .models import Task, Cell
+from .serializers import UserSerializer, TaskSerializer, CellSerializer
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -16,5 +16,12 @@ class UserViewSet(viewsets.ModelViewSet):
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    # permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+
+
+class CellViewSet(viewsets.ModelViewSet):
+    queryset = Cell.objects.all()
+    serializer_class = CellSerializer
     # permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
