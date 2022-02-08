@@ -9,10 +9,12 @@ from rest_framework.permissions import IsAuthenticated
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
 
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
-    serialize_class = TaskSerializer
+    serializer_class = TaskSerializer
+    # permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
