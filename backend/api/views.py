@@ -1,6 +1,10 @@
 from django.contrib.auth.models import User
 from .models import Task, Cell
 from .serializers import UserSerializer, TaskSerializer, CellSerializer
+from rest_framework.decorators import APIView
+from rest_framework.response import Response
+from rest_framework.parsers import JSONParser
+from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -25,3 +29,18 @@ class CellViewSet(viewsets.ModelViewSet):
     serializer_class = CellSerializer
     # permission_classes = [IsAuthenticated]
     authentication_classes = (TokenAuthentication,)
+
+
+class UserTasksList(APIView):
+    def get(self, request, user_id):
+        tasks = Task.objects.filter(user=user_id)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, user_id):
+        request.data["user"] = user_id
+        serializer = TaskSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
