@@ -3,9 +3,19 @@
 
 |---|---|---|---|---|
 |---|---|---|---|---|
-| user | id | email | password1 | password2 |
+| user | id | email | password |  |
 | task | id | title | content | user_id |
 | cell | id | start_datetime | end_datetime | task_id |
+
+<br>
+
+## Languages & Libraries
+
+ - Backend: Python3 & Django
+ - Frontend: React
+ - Database: Sqlite3
+ - UI library: [@mui/material](https://mui.com/)
+ - Toolkit: [Django REST framework](https://www.django-rest-framework.org/) 
 
 <br>
 
