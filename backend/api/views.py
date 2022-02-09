@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from datetime import datetime, timedelta
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -57,8 +58,14 @@ class WeekCellsList(APIView):
     authentication_classes = (TokenAuthentication,)
 
     def get(self, request, user_id, year, month, day):
-        start_day = '2022-2-10 00:00'
-        end_day = '2022-2-15 23:59:59'
+        request_day_str = f'{year}/{month}/{day}'
+        request_day = datetime.strptime(request_day_str, "%Y/%m/%d")
+        # weekday() will yield start and end of week (from Monday to Sunday), our calendar is from Sunday to Saturday
+        gap = request_day.weekday() + 1 if request_day.weekday() < 6 else 0
+        start_day = request_day - timedelta(days=gap)
+        end_day = (start_day + timedelta(days=6)
+                   ).replace(hour=23, minute=59, second=59)
+
         all_cells = Cell.objects.filter(task__user=user_id)
         week_cells = all_cells.filter(
             start_datetime__gt=start_day,
