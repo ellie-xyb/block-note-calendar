@@ -50,3 +50,11 @@ class UserTasksList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class WeekCellsList(APIView):
+    # permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication,)
+
+    def get(self, request, user_id, year, month, day):
+        pass
