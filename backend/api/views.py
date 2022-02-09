@@ -57,4 +57,11 @@ class WeekCellsList(APIView):
     authentication_classes = (TokenAuthentication,)
 
     def get(self, request, user_id, year, month, day):
-        pass
+        start_day = '2022-2-10 00:00'
+        end_day = '2022-2-15 23:59:59'
+        all_cells = Cell.objects.filter(task__user=user_id)
+        week_cells = all_cells.filter(
+            start_datetime__gt=start_day,
+            start_datetime__lte=end_day)
+        serializer = CellSerializer(week_cells, many=True)
+        return Response(serializer.data)

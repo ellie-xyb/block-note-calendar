@@ -11,7 +11,7 @@ class Task(models.Model):
         unique_together = ['title', 'user']
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title} by user: {self.user.username}'
 
 
 class Cell(models.Model):
