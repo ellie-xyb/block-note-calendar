@@ -22,10 +22,12 @@ export default function TaskChip(props) {
   let chipBorder = 'none';
   let chipWidth = '90%';
   let chipHeight = '45';
+  
   return (
     <>
       {props.cells.sort(compareDateTime).filter((c) => c.start_datetime.toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
         positionTop = turnTimeToTopNum(data.start_datetime.getHours());
+        let chip = props.taskChipData[data.taskId];
         {if(index > 0 && dataArray[index - 1].start_datetime.getTime() === data.start_datetime.getTime()){
           positionLeft += 10;
           positionTop += 1;
@@ -38,32 +40,36 @@ export default function TaskChip(props) {
         }}
         chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours() - 1) * 55 + 45;
         return (
-          <div
-            style={{
-            zIndex: 700,
-            width: chipWidth,
-            position: 'relative',
-            left: `${positionLeft}px`,
-            top: `${positionTop}px`,
-            marginBottom: `-${chipHeight}px`,
-            }} 
-          >
-            <Chip
-              onMouseUp={(e) => e.stopPropagation()}
-              sx={{
-                height: `${chipHeight}px`,
-                width: '100%',
-                borderRadius: '5px',
-                backgroundColor: '#4284F3',
-                cursor: 'pointer',
-                border: chipBorder,
-              }}
-              label={props.taskChipData[data.taskId].title} 
-              color='info'
-              onClick={()=>props.handleCellOpen(data.id)}
-              // onDelete={props.handleDeleteTaskChip(data)}
-            />
-          </div>
+          <>
+            {chip && 
+              <div
+                style={{
+                zIndex: 700,
+                width: chipWidth,
+                position: 'relative',
+                left: `${positionLeft}px`,
+                top: `${positionTop}px`,
+                marginBottom: `-${chipHeight}px`,
+                }} 
+              >
+                <Chip
+                  onMouseUp={(e) => e.stopPropagation()}
+                  sx={{
+                    height: `${chipHeight}px`,
+                    width: '100%',
+                    borderRadius: '5px',
+                    backgroundColor: '#4284F3',
+                    cursor: 'pointer',
+                    border: chipBorder,
+                  }}
+                  label={chip.title} 
+                  color='info'
+                  onClick={()=>props.handleCellOpen(data.id)}
+                  // onDelete={props.handleDeleteTaskChip(data)}
+                />
+              </div>
+            }
+          </>
         );
       })}
     </>

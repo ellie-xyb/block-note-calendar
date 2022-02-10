@@ -13,13 +13,26 @@ function App() {
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [cellOpen, setCellOpen] = React.useState(false);
   const [pickedCellId, setPickedCellId] = React.useState(0);
+  const [taskChipData, setTaskChipData] = React.useState([]);
 
-  const [taskChipData, setTaskChipData] = React.useState([
-    {id: 0, title: 'gym', content: 'I love gym'},
-    {id: 1, title: 'coding', content: 'I love coding'},
-    {id: 2, title: 'cooking', content: 'I love cooking'},
-    {id: 3, title: 'movie', content: 'I love movie'},
-  ]);
+  React.useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/users/21/tasks/', {
+      'method': 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token fd46d474a1c50e86f67b7cc969d1351edb63f47c'
+      }
+    })
+      .then(resp => resp.json())
+      .then(resp => setTaskChipData(resp))
+      .catch(error => console.log(`------------------- ${error} ------------------`))
+  }, []);
+
+    // {id: 0, title: 'gym', content: 'I love gym'},
+    // {id: 1, title: 'coding', content: 'I love coding'},
+    // {id: 2, title: 'cooking', content: 'I love cooking'},
+    // {id: 3, title: 'movie', content: 'I love movie'},
+  // ]);
 
   const [cells, setCells] = React.useState([
     {id: 0, taskId: 0, start_datetime: new Date('2022-02-01T08:00:00+0900'), end_datetime: new Date('2022-02-01T11:00:00+0900') },
@@ -28,21 +41,21 @@ function App() {
     {id: 3, taskId: 1, start_datetime: new Date('2022-02-09T09:00:00+0900'), end_datetime: new Date('2022-02-09T14:00:00+0900') },
     {id: 4, taskId: 1, start_datetime: new Date('2022-02-10T09:00:00+0900'), end_datetime: new Date('2022-02-10T14:00:00+0900') },
     {id: 5, taskId: 1, start_datetime: new Date('2022-02-12T09:00:00+0900'), end_datetime: new Date('2022-02-12T10:00:00+0900') },
-    {id: 6, taskId: 0, start_datetime: new Date('2022-02-06T12:00:00+0900'), end_datetime: new Date('2022-02-06T13:00:00+0900') },
-    {id: 7, taskId: 0, start_datetime: new Date('2022-02-08T14:00:00+0900'), end_datetime: new Date('2022-02-08T15:00:00+0900') },
-    {id: 8, taskId: 2, start_datetime: new Date('2022-02-09T13:00:00+0900'), end_datetime: new Date('2022-02-09T14:00:00+0900') },
-    {id: 9, taskId: 3, start_datetime: new Date('2022-01-30T12:00:00+0900'), end_datetime: new Date('2022-01-30T13:00:00+0900') },
-    {id: 10, taskId: 2, start_datetime: new Date('2022-02-04T10:00:00+0900'), end_datetime: new Date('2022-02-04T11:00:00+0900') },
-    {id: 11, taskId: 2, start_datetime: new Date('2022-02-05T10:00:00+0900'), end_datetime: new Date('2022-02-05T11:00:00+0900') },
-    {id: 12, taskId: 2, start_datetime: new Date('2022-02-07T09:00:00+0900'), end_datetime: new Date('2022-02-07T10:00:00+0900') },
-    {id: 13, taskId: 0, start_datetime: new Date('2022-02-03T09:00:00+0900'), end_datetime: new Date('2022-02-03T10:00:00+0900') },
-    {id: 14, taskId: 3, start_datetime: new Date('2022-01-30T09:00:00+0900'), end_datetime: new Date('2022-01-30T10:00:00+0900') },
+    {id: 6, taskId: 1, start_datetime: new Date('2022-02-06T12:00:00+0900'), end_datetime: new Date('2022-02-06T13:00:00+0900') },
+    {id: 7, taskId: 1, start_datetime: new Date('2022-02-08T14:00:00+0900'), end_datetime: new Date('2022-02-08T15:00:00+0900') },
+    {id: 8, taskId: 1, start_datetime: new Date('2022-02-09T13:00:00+0900'), end_datetime: new Date('2022-02-09T14:00:00+0900') },
+    {id: 9, taskId: 1, start_datetime: new Date('2022-01-30T12:00:00+0900'), end_datetime: new Date('2022-01-30T13:00:00+0900') },
+    {id: 10, taskId: 1, start_datetime: new Date('2022-02-04T10:00:00+0900'), end_datetime: new Date('2022-02-04T11:00:00+0900') },
+    {id: 11, taskId: 1, start_datetime: new Date('2022-02-05T10:00:00+0900'), end_datetime: new Date('2022-02-05T11:00:00+0900') },
+    {id: 12, taskId: 1, start_datetime: new Date('2022-02-07T09:00:00+0900'), end_datetime: new Date('2022-02-07T10:00:00+0900') },
+    {id: 13, taskId: 1, start_datetime: new Date('2022-02-03T09:00:00+0900'), end_datetime: new Date('2022-02-03T10:00:00+0900') },
+    {id: 14, taskId: 1, start_datetime: new Date('2022-01-30T09:00:00+0900'), end_datetime: new Date('2022-01-30T10:00:00+0900') },
     {id: 15, taskId: 1, start_datetime: new Date('2022-01-30T09:00:00+0900'), end_datetime: new Date('2022-01-30T10:00:00+0900') },
-    {id: 16, taskId: 3, start_datetime: new Date('2022-02-02T14:00:00+0900'), end_datetime: new Date('2022-02-02T15:00:00+0900') },
+    {id: 16, taskId: 1, start_datetime: new Date('2022-02-02T14:00:00+0900'), end_datetime: new Date('2022-02-02T15:00:00+0900') },
     {id: 17, taskId: 1, start_datetime: new Date('2022-02-01T12:00:00+0900'), end_datetime: new Date('2022-02-01T13:00:00+0900') },
     {id: 18, taskId: 1, start_datetime: new Date('2022-02-01T08:00:00+0900'), end_datetime: new Date('2022-02-01T09:00:00+0900') },
-    {id: 19, taskId: 2, start_datetime: new Date('2022-02-01T13:00:00+0900'), end_datetime: new Date('2022-02-01T16:00:00+0900') },
-    {id: 19, taskId: 3, start_datetime: new Date('2022-02-08T02:00:00+0900'), end_datetime: new Date('2022-02-08T04:00:00+0900') },
+    {id: 19, taskId: 1, start_datetime: new Date('2022-02-01T13:00:00+0900'), end_datetime: new Date('2022-02-01T16:00:00+0900') },
+    {id: 19, taskId: 1, start_datetime: new Date('2022-02-08T02:00:00+0900'), end_datetime: new Date('2022-02-08T04:00:00+0900') },
   ]);
 
   // const handleDeleteTaskChip = (taskChipToDelete) => () => {
