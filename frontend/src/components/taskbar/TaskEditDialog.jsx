@@ -10,6 +10,8 @@ import Draggable from 'react-draggable';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function PaperComponent(props) {
     return (
@@ -48,6 +50,9 @@ export default function TaskEditDialog(props) {
                     backgroundColor: '#f1f3f4',
                   }} 
                 >
+                    <IconButton aria-label="delete-current-task" size="medium">
+                        <DeleteIcon sx={{ color: '#F4511E' }}/>
+                    </IconButton>
                     <IconButton aria-label="close-task-edit-form" size="medium" onClick={props.handleTaskEditDialogClose}>
                         <CloseOutlinedIcon />
                     </IconButton>

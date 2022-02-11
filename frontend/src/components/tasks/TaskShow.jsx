@@ -30,13 +30,13 @@ export default function TaskShow(props) {
         >
           <Box sx={{ width: '480px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1, mr:1, color: '#5f6368' }} >
-                <IconButton aria-label="edit-task" size="medium">
+                <IconButton aria-label="edit-cell" size="medium">
                     <ModeEditOutlineOutlinedIcon />
                 </IconButton>
-                <IconButton aria-label="delete-task" size="medium">
+                <IconButton aria-label="delete-cell" size="medium">
                     <DeleteOutlinedIcon />
                 </IconButton>
-                <IconButton aria-label="close-task" size="medium" onClick={props.handleCellClose}>
+                <IconButton aria-label="close-cell" size="medium" onClick={props.handleCellClose}>
                     <CloseOutlinedIcon />
                 </IconButton>
             </Box>
