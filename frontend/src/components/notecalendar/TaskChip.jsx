@@ -22,15 +22,13 @@ export default function TaskChip(props) {
   let chipBorder = 'none';
   let chipWidth = '90%';
   let chipHeight = '45';
-
-  console.log(props.cells)
   
   return (
     <>
       {props.cells && 
         props.cells.sort(compareDateTime).filter((c) => c.start_datetime.toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
           positionTop = turnTimeToTopNum(data.start_datetime.getHours());
-          let chip = data.task;
+          let chip = props.taskChipData && props.taskChipData.find(x => x.id === data.task);
           {if(index > 0 && dataArray[index - 1].start_datetime.getTime() === data.start_datetime.getTime()){
             positionLeft += 10;
             positionTop += 1;

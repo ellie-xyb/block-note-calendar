@@ -27,7 +27,7 @@ function App() {
     })
       .then(resp => resp.json())
       .then(resp => setTaskChipData(resp))
-      .catch(error => console.log(`-1- ${error} --`))
+      .catch(error => console.log(`-1- ${error} -1-`))
 
     fetch('http://127.0.0.1:8000/api/users/1/2022/2/11/', {
       'method': 'GET',
@@ -42,7 +42,7 @@ function App() {
           c.end_datetime = new Date(c.end_datetime)
           return c
         })))
-        .catch(error => console.log(`-2-${error}--`))
+        .catch(error => console.log(`-2-${error}-2-`))
 
   }, []);
 
