@@ -28,7 +28,7 @@ export default function NewCellDialog(props) {
             aria-labelledby="draggable-dialog-title"
             >
             <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-                Create task
+                Set date & time
             </DialogTitle>
             <DialogContent>
                 <CellForm 

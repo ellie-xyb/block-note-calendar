@@ -2,11 +2,16 @@ import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-// import TaskDateTimePicker from './TaskDateTimePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
+import Autocomplete from '@mui/material/Autocomplete';
+
+const top100Films = [
+  { label: 'The Shawshank Redemption', year: 1994 },
+  { label: 'The Godfather', year: 1972 },
+]  
 
 export default function CellForm(props) {
   return (
@@ -17,13 +22,14 @@ export default function CellForm(props) {
       }}
     >
         <FormControl>
-          <TextField
+          <Autocomplete
             autoFocus
-            margin="dense"
-            id="taskTitle"
-            label="Add title"
+            id="selected-task"
+            options={top100Films}
             fullWidth
-            variant="standard"
+            disableClearable
+            sx={{ mb: 3 }}
+            renderInput={(params) => <TextField {...params} label="Choose task"  autoFocus margin="dense" variant="standard"/>}
           />
 
           <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -94,13 +100,6 @@ export default function CellForm(props) {
                 />  
             </Box>    
           </LocalizationProvider>
-
-          <TextField
-            label="Add description"
-            variant="filled"
-            multiline
-            rows={6}
-          />
         </FormControl>
     </Box>
   );
