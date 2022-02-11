@@ -12,7 +12,7 @@ import EventIcon from '@mui/icons-material/Event';
 export default function TaskShow(props) {
   // find the current cell by the cell id
   let cell = props.cells.find(x => x.id === props.pickedCellId);
-  let task = props.taskChipData.find(x => x.id === cell.taskId);
+  let task = cell && props.taskChipData.find(x => x.id === cell.task);
   let options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
   
   return (
