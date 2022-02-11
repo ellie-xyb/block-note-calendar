@@ -7,6 +7,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TaskForm from './TaskForm';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 function PaperComponent(props) {
     return (
@@ -27,15 +30,34 @@ export default function NewTaskDialog(props) {
             PaperComponent={PaperComponent}
             aria-labelledby="draggable-dialog-title"
             >
-            <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-                Create task
+            <DialogTitle 
+              sx={{
+                p: 0,
+                m: 0,
+              }}
+              style={{ cursor: 'move' }} 
+              id="draggable-dialog-title"
+            >
+                <Box
+                  sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'flex-end', 
+                    p: 0,
+                    mb: 3,
+                    color: '#5f6368',
+                    backgroundColor: '#f1f3f4',
+                  }} 
+                >
+                    <IconButton aria-label="close-task" size="medium" onClick={props.handleTaskDialogClose}>
+                        <CloseOutlinedIcon />
+                    </IconButton>
+                </Box>
             </DialogTitle>
             <DialogContent>
                 <TaskForm />
             </DialogContent>
-            <DialogActions>
-                <Button onClick={props.handleTaskDialogClose}>Cancel</Button>
-                <Button onClick={props.handleTaskDialogClose}>Save</Button>
+            <DialogActions sx={{ m: 3, mt: 0 }}>
+                <Button variant="contained" onClick={props.handleTaskDialogClose}>Save</Button>
             </DialogActions>
         </Dialog>
     );    

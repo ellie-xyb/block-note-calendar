@@ -7,6 +7,9 @@ import DialogTitle from '@mui/material/DialogTitle';
 import CellForm from './CellForm';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 function PaperComponent(props) {
     return (
@@ -27,8 +30,28 @@ export default function NewCellDialog(props) {
             PaperComponent={PaperComponent}
             aria-labelledby="draggable-dialog-title"
             >
-            <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-                Set date & time
+            <DialogTitle 
+              sx={{
+                p: 0,
+                m: 0,
+              }}
+              style={{ cursor: 'move' }} 
+              id="draggable-dialog-title"
+            >
+                <Box
+                  sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'flex-end', 
+                    p: 0,
+                    mb: 3, 
+                    color: '#5f6368',
+                    backgroundColor: '#f1f3f4',
+                  }} 
+                >
+                    <IconButton aria-label="close-task" size="medium" onClick={props.handleCellDialogClose}>
+                        <CloseOutlinedIcon />
+                    </IconButton>
+                </Box>
             </DialogTitle>
             <DialogContent>
                 <CellForm 
@@ -36,9 +59,8 @@ export default function NewCellDialog(props) {
                     setSelectDateTime={props.setSelectDateTime}
                 />
             </DialogContent>
-            <DialogActions>
-                <Button onClick={props.handleCellDialogClose}>Cancel</Button>
-                <Button onClick={props.handleCellDialogClose}>Save</Button>
+            <DialogActions sx={{ m: 3 }}>
+                <Button variant="contained" onClick={props.handleCellDialogClose}>Save</Button>
             </DialogActions>
         </Dialog>
     );    
