@@ -8,7 +8,7 @@ export default function TaskForm(props) {
   return (
     <Box
       component="form"
-      sx={{
+      sx={{ 
        '& .MuiTextField-root': { m: 2, width: '40ch' },
       }}
     >

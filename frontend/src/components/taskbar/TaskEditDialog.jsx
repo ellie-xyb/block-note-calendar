@@ -10,8 +10,8 @@ import Draggable from 'react-draggable';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
+import APIService from '../APIService';
 
 function PaperComponent(props) {
     return (
@@ -25,6 +25,15 @@ function PaperComponent(props) {
 }
 
 export default function TaskEditDialog(props) {
+    console.log(props.selectedTaskTitle);
+    console.log(props.selectedTaskContent);
+
+    
+    const updateTask = () => {
+        APIService.updateTask(props.selectedTaskId, {"title": props.selectedTaskTitle, "content": props.selectedTaskContent})
+        .then(resp => console.log(resp))
+    }
+    
     return (
         <Dialog
             open={props.taskEditDialogOpen}
@@ -62,10 +71,12 @@ export default function TaskEditDialog(props) {
                 <TaskEditForm 
                   selectedTaskTitle={props.selectedTaskTitle} 
                   selectedTaskContent={props.selectedTaskContent} 
+                  setSelectedTaskTitle={props.setSelectedTaskTitle} 
+                  setSelectedTaskContent={props.setSelectedTaskContent} 
                 />
             </DialogContent>
             <DialogActions sx={{ m: 3, mt: 0 }}>
-                <Button variant="contained">Save</Button>
+                <Button variant="contained" onClick={updateTask}>Save</Button>
             </DialogActions>
         </Dialog>
     );    

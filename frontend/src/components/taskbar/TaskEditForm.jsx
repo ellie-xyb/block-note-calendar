@@ -5,7 +5,8 @@ import Box from '@mui/material/Box';
 import NotesIcon from '@mui/icons-material/Notes';
 
 
-export default function TaskEditForm(props) {
+export default function 
+TaskEditForm(props) {
   return (
     <Box
       component="form"
@@ -21,6 +22,7 @@ export default function TaskEditForm(props) {
             fullWidth
             variant="standard"
             defaultValue={props.selectedTaskTitle}
+            onChange = {e => props.setSelectedTaskTitle(e.target.value)}
           /> 
           <div style={{ display: 'flex', alignItems: 'flex-start', width: '94%', marginTop: '10px' }} >
             <NotesIcon sx={{ color: '#5f6368', fontSize: '20px', ml: 2, mt: 2 }} />
@@ -30,6 +32,7 @@ export default function TaskEditForm(props) {
                 variant="filled"
                 multiline
                 rows={6}
+                onChange = {e => props.setSelectedTaskContent(e.target.value)}
             />
           </div>   
         </FormControl>
