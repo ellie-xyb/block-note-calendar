@@ -57,7 +57,7 @@ export default function NewTaskDialog(props) {
                 <TaskForm />
             </DialogContent>
             <DialogActions sx={{ m: 3, mt: 0 }}>
-                <Button variant="contained" onClick={props.handleTaskDialogClose}>Save</Button>
+                <Button variant="contained" onClick={props.handleTaskDialogClose}>Create</Button>
             </DialogActions>
         </Dialog>
     );    
