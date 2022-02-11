@@ -17,7 +17,7 @@ export default function TaskForm(props) {
             autoFocus
             margin="dense"
             id="taskTitle"
-            label="Add title"
+            label="Add task title"
             fullWidth
             variant="standard"
           />

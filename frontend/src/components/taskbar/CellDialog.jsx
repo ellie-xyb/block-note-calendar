@@ -57,6 +57,7 @@ export default function NewCellDialog(props) {
                 <CellForm 
                     selectDateTime={props.selectDateTime} 
                     setSelectDateTime={props.setSelectDateTime}
+                    taskChipData={props.taskChipData}
                 />
             </DialogContent>
             <DialogActions sx={{ m: 3 }}>

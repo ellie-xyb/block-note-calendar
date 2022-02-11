@@ -8,11 +8,6 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
 import Autocomplete from '@mui/material/Autocomplete';
 
-const top100Films = [
-  { label: 'The Shawshank Redemption', year: 1994 },
-  { label: 'The Godfather', year: 1972 },
-]  
-
 export default function CellForm(props) {
   return (
     <Box
@@ -25,7 +20,7 @@ export default function CellForm(props) {
           <Autocomplete
             autoFocus
             id="selected-task"
-            options={top100Films}
+            options={props.taskChipData ? props.taskChipData.map(task => task.title) : [] }
             fullWidth
             disableClearable
             sx={{ mb: 3 }}

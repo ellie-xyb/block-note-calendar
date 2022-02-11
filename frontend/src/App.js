@@ -147,6 +147,7 @@ function App() {
         handleCellDialogClose={handleCellDialogClose} 
         selectDateTime={selectDateTime}
         setSelectDateTime={setSelectDateTime}
+        taskChipData={taskChipData}
       />
       <TaskShow
         cellOpen={cellOpen}
