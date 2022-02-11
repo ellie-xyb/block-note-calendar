@@ -2,6 +2,7 @@ import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import NotesIcon from '@mui/icons-material/Notes';
 
 
 export default function TaskEditForm(props) {
@@ -14,19 +15,23 @@ export default function TaskEditForm(props) {
     >
         <FormControl>
           <TextField
-            // autoFocus
+            hiddenLabel
             margin="dense"
             id="current-task-Title"
-            label={props.selectedTaskTitle}
             fullWidth
             variant="standard"
-          />
-          <TextField
-            label={props.selectedTaskContent}
-            variant="filled"
-            multiline
-            rows={6}
-          />
+            defaultValue={props.selectedTaskTitle}
+          /> 
+          <div style={{ display: 'flex', alignItems: 'flex-start', width: '94%', marginTop: '10px' }} >
+            <NotesIcon sx={{ color: '#5f6368', fontSize: '20px', ml: 2, mt: 2 }} />
+            <TextField
+                hiddenLabel
+                defaultValue={props.selectedTaskContent}
+                variant="filled"
+                multiline
+                rows={6}
+            />
+          </div>   
         </FormControl>
     </Box>
   );
