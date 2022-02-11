@@ -18,7 +18,7 @@ export default function CellForm(props) {
     >
         <FormControl>
           <TextField
-            // autoFocus
+            autoFocus
             margin="dense"
             id="taskTitle"
             label="Add title"

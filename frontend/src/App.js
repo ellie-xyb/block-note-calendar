@@ -3,6 +3,7 @@ import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
 import NewCellDialog from './components/taskbar/CellDialog';
+import NewTaskDialog from './components/taskbar/TaskDialog';
 import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
@@ -11,6 +12,7 @@ import TaskShow from './components/tasks/TaskShow';
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [cellDialogOpen, setCellDialogOpen] = React.useState(false);
+  const [taskDialogOpen, setTaskDialogOpen] = React.useState(false);
   const [cellOpen, setCellOpen] = React.useState(false);
   const [pickedCellId, setPickedCellId] = React.useState(0);
   const [taskChipData, setTaskChipData] = React.useState([]);
@@ -57,6 +59,14 @@ function App() {
 
   const handleCellDialogClose = () => {
     setCellDialogOpen(false);
+  }; 
+
+  const handleTaskDialogOpen = () => {
+    setTaskDialogOpen(true);
+  };
+
+  const handleTaskDialogClose = () => {
+    setTaskDialogOpen(false);
   }; 
 
   const handleCellOpen = (id) => {
@@ -109,8 +119,7 @@ function App() {
       <div style={mainContentStyle}>
         <Taskbar 
           setPickedDate={setPickedDate}
-          handleCellDialogOpen={handleCellDialogOpen}
-          setSelectDateTime={setSelectDateTime}
+          handleTaskDialogOpen={handleTaskDialogOpen}
           taskChipData={taskChipData}
         >
         </Taskbar>
@@ -129,6 +138,10 @@ function App() {
           </div>
         </div>  
       </div>
+      <NewTaskDialog 
+        taskDialogOpen={taskDialogOpen} 
+        handleTaskDialogClose={handleTaskDialogClose} 
+      />
       <NewCellDialog 
         cellDialogOpen={cellDialogOpen} 
         handleCellDialogClose={handleCellDialogClose} 
