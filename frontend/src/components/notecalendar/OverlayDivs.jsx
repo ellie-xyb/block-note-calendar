@@ -138,7 +138,7 @@ export default function Overlaydivs(props) {
             new Date(newEndDateTime.setHours( newEndDateTime.getHours() + 1 ));
         }
         props.setSelectDateTime({...props.selectDateTime, start: newStartDateTime, end: newEndDateTime});
-        props.handleDialogOpen();
+        props.handleCellDialogOpen();
     }, [mouseUpX, mouseUpY]);
 
     return (  

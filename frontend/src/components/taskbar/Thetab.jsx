@@ -71,7 +71,7 @@ export default function Thetab(props) {
             <AddIcon 
               onClick={() => {
                 props.setSelectDateTime({start: new Date(), end: new Date(new Date().setHours(new Date().getHours() + 1))});
-                props.handleDialogOpen();
+                props.handleCellDialogOpen();
               }}
               size='large' 
             />
@@ -82,7 +82,7 @@ export default function Thetab(props) {
         <Tasks taskChipData={props.taskChipData}></Tasks>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        <Tasks taskChipData={props.taskChipData}></Tasks>
+        None
       </TabPanel>
     </Box>
   );

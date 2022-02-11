@@ -8,7 +8,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
 
-export default function TaskForm(props) {
+export default function CellForm(props) {
   return (
     <Box
       component="form"

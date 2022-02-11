@@ -2,7 +2,7 @@ import * as React from 'react';
 import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
-import NewTaskDialog from './components/taskbar/AddTaskDialog';
+import NewCellDialog from './components/taskbar/CellDialog';
 import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
@@ -10,7 +10,7 @@ import TaskShow from './components/tasks/TaskShow';
 
 function App() {
   const [pickedDate, setPickedDate] = React.useState(new Date());
-  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [cellDialogOpen, setCellDialogOpen] = React.useState(false);
   const [cellOpen, setCellOpen] = React.useState(false);
   const [pickedCellId, setPickedCellId] = React.useState(0);
   const [taskChipData, setTaskChipData] = React.useState([]);
@@ -51,12 +51,12 @@ function App() {
     end: new Date(),
   });
 
-  const handleDialogOpen = () => {
-    setDialogOpen(true);
+  const handleCellDialogOpen = () => {
+    setCellDialogOpen(true);
   };
 
-  const handleDialogClose = () => {
-    setDialogOpen(false);
+  const handleCellDialogClose = () => {
+    setCellDialogOpen(false);
   }; 
 
   const handleCellOpen = (id) => {
@@ -109,7 +109,7 @@ function App() {
       <div style={mainContentStyle}>
         <Taskbar 
           setPickedDate={setPickedDate}
-          handleDialogOpen={handleDialogOpen}
+          handleCellDialogOpen={handleCellDialogOpen}
           setSelectDateTime={setSelectDateTime}
           taskChipData={taskChipData}
         >
@@ -120,7 +120,7 @@ function App() {
           <div style={OverlayDivsStyle}>
             <OverlayDivs 
               pickedDate={pickedDate}
-              handleDialogOpen={handleDialogOpen}
+              handleCellDialogOpen={handleCellDialogOpen}
               handleCellOpen={handleCellOpen}
               setSelectDateTime={setSelectDateTime}
               taskChipData={taskChipData}
@@ -129,9 +129,9 @@ function App() {
           </div>
         </div>  
       </div>
-      <NewTaskDialog 
-        dialogOpen={dialogOpen} 
-        handleDialogClose={handleDialogClose} 
+      <NewCellDialog 
+        cellDialogOpen={cellDialogOpen} 
+        handleCellDialogClose={handleCellDialogClose} 
         selectDateTime={selectDateTime}
         setSelectDateTime={setSelectDateTime}
       />
