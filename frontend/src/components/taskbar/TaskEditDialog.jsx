@@ -4,7 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import TaskForm from './TaskForm';
+import TaskEditForm from './TaskEditForm';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import Box from '@mui/material/Box';
@@ -22,13 +22,13 @@ function PaperComponent(props) {
     );
 }
 
-export default function NewTaskDialog(props) {
+export default function TaskEditDialog(props) {
     return (
         <Dialog
-            open={props.taskDialogOpen}
-            onClose={props.handleTaskDialogClose}
+            open={props.taskEditDialogOpen}
+            onClose={props.handleTaskEditDialogClose}
             PaperComponent={PaperComponent}
-            aria-labelledby="draggable-new-task-create-dialog"
+            aria-labelledby="draggable-task-edit-dialog"
             >
             <DialogTitle 
               sx={{
@@ -36,7 +36,7 @@ export default function NewTaskDialog(props) {
                 m: 0,
               }}
               style={{ cursor: 'move' }} 
-              id="draggable-new-task-create-dialog"
+              id="draggable-task-edit-dialog"
             >
                 <Box
                   sx={{ 
@@ -48,16 +48,16 @@ export default function NewTaskDialog(props) {
                     backgroundColor: '#f1f3f4',
                   }} 
                 >
-                    <IconButton aria-label="close-task-form" size="medium" onClick={props.handleTaskDialogClose}>
+                    <IconButton aria-label="close-task-edit-form" size="medium" onClick={props.handleTaskEditDialogClose}>
                         <CloseOutlinedIcon />
                     </IconButton>
                 </Box>
             </DialogTitle>
             <DialogContent>
-                <TaskForm />
+                <TaskEditForm />
             </DialogContent>
             <DialogActions sx={{ m: 3, mt: 0 }}>
-                <Button variant="contained" onClick={props.handleTaskDialogClose}>Create</Button>
+                <Button variant="contained" onClick={props.handleTaskDialogClose}>Save</Button>
             </DialogActions>
         </Dialog>
     );    

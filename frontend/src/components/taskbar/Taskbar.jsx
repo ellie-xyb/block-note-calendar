@@ -16,6 +16,7 @@ export default function Taskbar(props) {
       <DemoCalendar setPickedDate={props.setPickedDate} />
       <Thetab 
         handleTaskDialogOpen={props.handleTaskDialogOpen}
+        handleTaskEditDialogOpen={props.handleTaskEditDialogOpen}
         taskChipData={props.taskChipData}
       />
     </div>

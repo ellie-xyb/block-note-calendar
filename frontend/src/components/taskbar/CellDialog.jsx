@@ -28,7 +28,7 @@ export default function NewCellDialog(props) {
             open={props.cellDialogOpen}
             onClose={props.handleCellDialogClose}
             PaperComponent={PaperComponent}
-            aria-labelledby="draggable-dialog-title"
+            aria-labelledby="draggable-new-cell-create-dialog"
             >
             <DialogTitle 
               sx={{
@@ -36,7 +36,7 @@ export default function NewCellDialog(props) {
                 m: 0,
               }}
               style={{ cursor: 'move' }} 
-              id="draggable-dialog-title"
+              id="draggable-new-cell-create-dialog"
             >
                 <Box
                   sx={{ 
@@ -48,7 +48,7 @@ export default function NewCellDialog(props) {
                     backgroundColor: '#f1f3f4',
                   }} 
                 >
-                    <IconButton aria-label="close-task" size="medium" onClick={props.handleCellDialogClose}>
+                    <IconButton aria-label="close-cell-form" size="medium" onClick={props.handleCellDialogClose}>
                         <CloseOutlinedIcon />
                     </IconButton>
                 </Box>

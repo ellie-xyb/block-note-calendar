@@ -78,7 +78,7 @@ export default function Thetab(props) {
         </Tabs>  
       </Box>
       <TabPanel value={tabValue} index={0}>
-        <Tasks taskChipData={props.taskChipData}></Tasks>
+        <Tasks taskChipData={props.taskChipData} handleTaskEditDialogOpen={props.handleTaskEditDialogOpen}></Tasks>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         None
