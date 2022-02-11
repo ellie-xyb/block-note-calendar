@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 #     ]
 # }
 
+AUTH_USER_MODEL = 'api.User'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'sundial.middleware.TimezoneMiddleware',
 ]
 
 CORS_ORIGIN_WHITELIST = (

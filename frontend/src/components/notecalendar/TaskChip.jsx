@@ -7,10 +7,10 @@ function turnTimeToTopNum(time) {
 };
 
 function compareDateTime( a, b ) {
-  if ( new Date(a.start_datetime).getTime() < new Date(b.start_datetime).getTime() ){
+  if ( a.start_datetime.getTime() < b.start_datetime.getTime() ){
     return -1;
   }
-  if ( new Date(a.start_datetime).getTime() > new Date(b.start_datetime).getTime() ){
+  if ( a.start_datetime.getTime() > b.start_datetime.getTime() ){
     return 1;
   }
   return 0;
@@ -28,10 +28,10 @@ export default function TaskChip(props) {
   return (
     <>
       {props.cells && 
-        props.cells.sort(compareDateTime).filter((c) => new Date(c.start_datetime).toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
-          positionTop = turnTimeToTopNum(new Date(data.start_datetime).getHours());
+        props.cells.sort(compareDateTime).filter((c) => c.start_datetime.toDateString() === props.columnDate.toDateString()).map((data, index, dataArray) => {
+          positionTop = turnTimeToTopNum(data.start_datetime.getHours());
           let chip = data.task;
-          {if(index > 0 && new Date(dataArray[index - 1].start_datetime).getTime() === new Date(data.start_datetime).getTime()){
+          {if(index > 0 && dataArray[index - 1].start_datetime.getTime() === data.start_datetime.getTime()){
             positionLeft += 10;
             positionTop += 1;
             chipBorder = 'thin solid white';
@@ -41,7 +41,7 @@ export default function TaskChip(props) {
             chipBorder = 'thin solid lightgrey';
             chipWidth = '90%';
           }}
-          chipHeight = (new Date(data.end_datetime).getHours() - new Date(data.start_datetime).getHours() - 1) * 55 + 45;
+          chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours() - 1) * 55 + 45;
           return (
             <>
               {chip && 

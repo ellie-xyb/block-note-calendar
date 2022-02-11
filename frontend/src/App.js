@@ -18,26 +18,30 @@ function App() {
 
   React.useEffect(() => {
     
-    fetch('http://127.0.0.1:8000/api/users/21/tasks/', {
+    fetch('http://127.0.0.1:8000/api/users/1/tasks/', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Token fd46d474a1c50e86f67b7cc969d1351edb63f47c'
+        'Authorization': 'Token e9eab7e0ce3b07946e73e1b434f2d229774b9a4b'
       }
     })
       .then(resp => resp.json())
       .then(resp => setTaskChipData(resp))
       .catch(error => console.log(`-1- ${error} --`))
 
-    fetch('http://127.0.0.1:8000/api/users/21/2022/2/11/', {
+    fetch('http://127.0.0.1:8000/api/users/1/2022/2/11/', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Token fd46d474a1c50e86f67b7cc969d1351edb63f47c'
+        'Authorization': 'Token e9eab7e0ce3b07946e73e1b434f2d229774b9a4b'
       }
     })   
         .then(resp => resp.json())
-        .then(resp => setCells(resp))
+        .then(resp => setCells(resp.map(c => {
+          c.start_datetime = new Date(c.start_datetime)
+          c.end_datetime = new Date(c.end_datetime)
+          return c
+        })))
         .catch(error => console.log(`-2-${error}--`))
 
   }, []);

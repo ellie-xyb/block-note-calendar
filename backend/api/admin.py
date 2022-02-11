@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Task, Cell
+from .models import Task, Cell, User
+
+
+@admin.register(User)
+class UserModel(admin.ModelAdmin):
+    list_display = ('id', 'username', 'password')
 
 
 @admin.register(Task)
