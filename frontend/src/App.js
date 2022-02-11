@@ -19,6 +19,8 @@ function App() {
   const [pickedCellId, setPickedCellId] = React.useState(0);
   const [taskChipData, setTaskChipData] = React.useState([]);
   const [cells, setCells] = React.useState([]);
+  const [selectedTaskTitle, setSelectedTaskTitle] = React.useState('')
+  const [selectedTaskContent, setSelectedTaskContent] = React.useState('')
 
   React.useEffect(() => {
     
@@ -71,7 +73,9 @@ function App() {
     setTaskDialogOpen(false);
   }; 
 
-  const handleTaskEditDialogOpen = () => {
+  const handleTaskEditDialogOpen = (title='', content='') => {
+    setSelectedTaskTitle(title);
+    setSelectedTaskContent(content);
     setTaskEditDialogOpen(true);
   };
 
@@ -156,6 +160,8 @@ function App() {
       <TaskEditDialog 
         taskEditDialogOpen={taskEditDialogOpen} 
         handleTaskEditDialogClose={handleTaskEditDialogClose} 
+        selectedTaskTitle={selectedTaskTitle} 
+        selectedTaskContent={selectedTaskContent} 
       />
       <NewCellDialog 
         cellDialogOpen={cellDialogOpen} 

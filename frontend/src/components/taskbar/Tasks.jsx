@@ -31,7 +31,7 @@ export default function Tasks(props) {
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="edit task"
-                      onClick={props.handleTaskEditDialogOpen}
+                      onClick={() => {props.handleTaskEditDialogOpen(taskChip.title, taskChip.content)}}
                       edge="end"
                     >
                       <ModeEditOutlineOutlinedIcon />

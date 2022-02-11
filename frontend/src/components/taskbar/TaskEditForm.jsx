@@ -14,15 +14,15 @@ export default function TaskEditForm(props) {
     >
         <FormControl>
           <TextField
-            autoFocus
+            // autoFocus
             margin="dense"
             id="current-task-Title"
-            label="current title"
+            label={props.selectedTaskTitle}
             fullWidth
             variant="standard"
           />
           <TextField
-            label="current description"
+            label={props.selectedTaskContent}
             variant="filled"
             multiline
             rows={6}

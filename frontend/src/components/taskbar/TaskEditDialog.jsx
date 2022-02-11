@@ -54,10 +54,13 @@ export default function TaskEditDialog(props) {
                 </Box>
             </DialogTitle>
             <DialogContent>
-                <TaskEditForm />
+                <TaskEditForm 
+                  selectedTaskTitle={props.selectedTaskTitle} 
+                  selectedTaskContent={props.selectedTaskContent} 
+                />
             </DialogContent>
             <DialogActions sx={{ m: 3, mt: 0 }}>
-                <Button variant="contained" onClick={props.handleTaskDialogClose}>Save</Button>
+                <Button variant="contained">Save</Button>
             </DialogActions>
         </Dialog>
     );    
