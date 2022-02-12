@@ -1,6 +1,8 @@
 export default class APIService {
     
     static UpdateTask(task_id, body) {
+
+        // need rewrite this fetch to different endpoint later 
         return fetch(`http://127.0.0.1:8000/api/tasks/${task_id}/`, {
             'method': 'PATCH',
             headers: {
@@ -12,7 +14,7 @@ export default class APIService {
     }
 
     static InsertTask(body) {
-        return  fetch('http://127.0.0.1:8000/api/tasks/', {
+        return  fetch('http://127.0.0.1:8000/api/user/tasks/', {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',

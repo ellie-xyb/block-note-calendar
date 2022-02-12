@@ -24,10 +24,16 @@ function PaperComponent(props) {
 }
 
 export default function NewTaskDialog(props) {
-    
+  const [newTitle, setNewTitle] = React.useState('');
+  const [newContent, setNewContent] = React.useState('');
+
   const insertTask = () => {
-    // APIService.InsertTask(user, title, description)
-    // .then(resp => console.log(resp))
+    APIService.InsertTask({"title": newTitle, "content": newContent})
+    .then(() => {
+      props.updateTasks()
+      props.handleTaskDialogClose()
+    })
+    .catch(error => console.log(`-4- ${error} -4-`))
   }
 
   return (
@@ -61,7 +67,7 @@ export default function NewTaskDialog(props) {
             </Box>
         </DialogTitle>
         <DialogContent>
-            <TaskForm />
+            <TaskForm setNewTitle={setNewTitle} setNewContent={setNewContent} />
         </DialogContent>
         <DialogActions sx={{ m: 3, mt: 0 }}>
             <Button variant="contained" onClick={insertTask}>Create</Button>

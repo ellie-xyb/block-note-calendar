@@ -163,6 +163,7 @@ function App() {
       <NewTaskDialog 
         taskDialogOpen={taskDialogOpen} 
         handleTaskDialogClose={handleTaskDialogClose} 
+        updateTasks={updateTasks}
       />
       <TaskEditDialog 
         taskEditDialogOpen={taskEditDialogOpen} 

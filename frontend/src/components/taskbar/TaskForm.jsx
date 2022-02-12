@@ -20,12 +20,14 @@ export default function TaskForm(props) {
             label="Add task title"
             fullWidth
             variant="standard"
+            onChange = {e => props.setNewTitle(e.target.value) }
           />
           <TextField
             label="Add description"
             variant="filled"
             multiline
             rows={6}
+            onChange = {e => props.setNewContent(e.target.value) }
           />
         </FormControl>
     </Box>
