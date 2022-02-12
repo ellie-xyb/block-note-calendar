@@ -67,11 +67,11 @@ export default function Thetab(props) {
             color="secondary" 
             aria-label="create task"
             sx={{width: '45px', height: '45px'}}
+            onClick={() => {
+              props.handleTaskDialogOpen();
+            }}
             >
-            <AddIcon 
-              onClick={() => {
-                props.handleTaskDialogOpen();
-              }}
+            <AddIcon   
               size='large' 
             />
           </IconButton>       

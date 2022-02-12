@@ -25,10 +25,6 @@ function PaperComponent(props) {
 }
 
 export default function TaskEditDialog(props) {
-    console.log(props.selectedTaskTitle);
-    console.log(props.selectedTaskContent);
-
-    
     const updateTask = () => {
         APIService.UpdateTask(props.selectedTaskId, {"title": props.selectedTaskTitle, "content": props.selectedTaskContent})
         .then(() => {
