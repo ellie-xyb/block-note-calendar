@@ -28,7 +28,8 @@ function App() {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Token e9eab7e0ce3b07946e73e1b434f2d229774b9a4b'
+        // need change this token and fetch to hide it later
+        'Authorization': 'Token 58b70ca287628f1e09d5eddb873c09a3323a78af'
       }
     })
       .then(resp => resp.json())
@@ -41,7 +42,8 @@ function App() {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Token e9eab7e0ce3b07946e73e1b434f2d229774b9a4b'
+        // need change this token and fetch to hide it later
+        'Authorization': 'Token 58b70ca287628f1e09d5eddb873c09a3323a78af'
       }
     })   
         .then(resp => resp.json())
