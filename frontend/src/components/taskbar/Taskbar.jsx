@@ -13,7 +13,9 @@ const taskbarStyle = {
 export default function Taskbar(props) {
   return (
     <div style={taskbarStyle}>
-      <DemoCalendar setPickedDate={props.setPickedDate} />
+      <div style={{ maxHeight: '300px', overflow: 'hidden' }}>
+        <DemoCalendar setPickedDate={props.setPickedDate} />
+      </div>
       <Thetab 
         handleTaskDialogOpen={props.handleTaskDialogOpen}
         handleTaskEditDialogOpen={props.handleTaskEditDialogOpen}

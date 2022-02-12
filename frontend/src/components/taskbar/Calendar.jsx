@@ -1,6 +1,5 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import isWeekend from 'date-fns/isWeekend';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
@@ -61,7 +60,9 @@ export default function DemoCalendar(props) {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider 
+      dateAdapter={AdapterDateFns}
+    >
       <StaticDatePicker
         displayStaticWrapperAs="desktop"
         openTo="day"
