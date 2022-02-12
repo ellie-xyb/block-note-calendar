@@ -16,7 +16,7 @@ import APIService from '../APIService';
 function PaperComponent(props) {
     return (
       <Draggable
-        handle="#draggable-dialog-title"
+        handle="#draggable-task-edit-dialog"
         cancel={'[class*="MuiDialogContent-root"]'}
       >
         <Paper {...props} />

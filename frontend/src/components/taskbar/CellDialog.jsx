@@ -14,7 +14,7 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 function PaperComponent(props) {
     return (
       <Draggable
-        handle="#draggable-dialog-title"
+        handle="#draggable-new-cell-create-dialog"
         cancel={'[class*="MuiDialogContent-root"]'}
       >
         <Paper {...props} />

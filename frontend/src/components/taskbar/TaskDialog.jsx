@@ -15,7 +15,7 @@ import APIService from '../APIService';
 function PaperComponent(props) {
     return (
       <Draggable
-        handle="#draggable-dialog-title"
+        handle="#draggable-new-task-create-dialog"
         cancel={'[class*="MuiDialogContent-root"]'}
       >
         <Paper {...props} />
@@ -51,20 +51,20 @@ export default function NewTaskDialog(props) {
           style={{ cursor: 'move' }} 
           id="draggable-new-task-create-dialog"
         >
-            <Box
-              sx={{ 
-                display: 'flex', 
-                justifyContent: 'flex-end', 
-                p: 0,
-                mb: 3,
-                color: '#5f6368',
-                backgroundColor: '#f1f3f4',
-              }} 
-            >
-                <IconButton aria-label="close-task-form" size="medium" onClick={props.handleTaskDialogClose}>
-                    <CloseOutlinedIcon />
-                </IconButton>
-            </Box>
+          <Box
+            sx={{ 
+              display: 'flex', 
+              justifyContent: 'flex-end', 
+              p: 0,
+              mb: 3,
+              color: '#5f6368',
+              backgroundColor: '#f1f3f4',
+            }} 
+          >
+              <IconButton aria-label="close-task-form" size="medium" onClick={props.handleTaskDialogClose}>
+                  <CloseOutlinedIcon />
+              </IconButton>
+          </Box>
         </DialogTitle>
         <DialogContent>
             <TaskForm setNewTitle={setNewTitle} setNewContent={setNewContent} />
