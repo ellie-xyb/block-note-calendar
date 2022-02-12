@@ -7,7 +7,8 @@ export default class APIService {
             'method': 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Token e9eab7e0ce3b07946e73e1b434f2d229774b9a4b'
+                // need change this token and fetch to hide it later
+                'Authorization': 'Token 58b70ca287628f1e09d5eddb873c09a3323a78af'
             },
             body: JSON.stringify(body)
         }).then(resp => resp.json());
@@ -18,7 +19,8 @@ export default class APIService {
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Token e9eab7e0ce3b07946e73e1b434f2d229774b9a4b'
+                // need change this token and fetch to hide it later
+                'Authorization': 'Token 58b70ca287628f1e09d5eddb873c09a3323a78af'
             },
             body: JSON.stringify(body)
         }).then(resp => resp.json())
