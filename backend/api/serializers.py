@@ -23,10 +23,11 @@ class UserSerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ('id', 'title', 'content', 'user')
+        fields = '__all__'
+        read_only_fields = ('user',)
 
 
 class CellSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cell
-        fields = ('id', 'start_datetime', 'end_datetime', 'task')
+        fields = '__all__'

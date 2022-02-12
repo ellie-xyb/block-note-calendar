@@ -30,7 +30,7 @@ export default function TaskEditDialog(props) {
 
     
     const updateTask = () => {
-        APIService.updateTask(props.selectedTaskId, {"title": props.selectedTaskTitle, "content": props.selectedTaskContent})
+        APIService.UpdateTask(props.selectedTaskId, {"title": props.selectedTaskTitle, "content": props.selectedTaskContent})
         .then(resp => console.log(resp))
     }
     
