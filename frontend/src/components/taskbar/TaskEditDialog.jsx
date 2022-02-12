@@ -33,6 +33,14 @@ export default function TaskEditDialog(props) {
         })
         .catch(error => console.log(`-3- ${error} -3-`))
     }
+
+    const deleteTask = (id) => {
+        APIService.DeleteTask(id)
+        .then(() => {
+            props.updateTasks()
+            props.handleTaskEditDialogClose()
+        })
+    }
     
     return (
         <Dialog
@@ -59,7 +67,7 @@ export default function TaskEditDialog(props) {
                     backgroundColor: '#f1f3f4',
                   }} 
                 >
-                    <IconButton aria-label="delete-current-task" size="medium">
+                    <IconButton aria-label="delete-current-task" size="medium" onClick={() => deleteTask(props.selectedTaskId)}>
                         <DeleteIcon sx={{ color: '#F4511E' }}/>
                     </IconButton>
                     <IconButton aria-label="close-task-edit-form" size="medium" onClick={props.handleTaskEditDialogClose}>

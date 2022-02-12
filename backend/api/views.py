@@ -1,4 +1,5 @@
 # from django.contrib.auth.models import User
+from ast import Delete
 from .models import Task, Cell, User
 from .serializers import UserSerializer, TaskSerializer, CellSerializer
 from rest_framework.decorators import APIView
@@ -78,6 +79,13 @@ class UserTaskDetail(APIView):
                 serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, id):
+        task = self.get_object(id)
+        if task.user.id == request.user.pk:
+            task.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class WeekCellsList(APIView):
