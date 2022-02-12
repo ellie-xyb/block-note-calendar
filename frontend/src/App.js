@@ -23,8 +23,7 @@ function App() {
   const [selectedTaskTitle, setSelectedTaskTitle] = React.useState('')
   const [selectedTaskContent, setSelectedTaskContent] = React.useState('')
 
-  React.useEffect(() => {
-    
+  function updateTasks() {
     fetch('http://127.0.0.1:8000/api/users/1/tasks/', {
       'method': 'GET',
       headers: {
@@ -35,7 +34,9 @@ function App() {
       .then(resp => resp.json())
       .then(resp => setTaskChipData(resp))
       .catch(error => console.log(`-1- ${error} -1-`))
+  }
 
+  function updateCells() {
     fetch('http://127.0.0.1:8000/api/users/1/2022/2/11/', {
       'method': 'GET',
       headers: {
@@ -50,7 +51,11 @@ function App() {
           return c
         })))
         .catch(error => console.log(`-2-${error}-2-`))
+  }
 
+  React.useEffect(() => {
+    updateTasks();
+    updateCells();
   }, []);
 
   const [selectDateTime, setSelectDateTime] = React.useState({
@@ -166,7 +171,8 @@ function App() {
         selectedTaskTitle={selectedTaskTitle} 
         selectedTaskContent={selectedTaskContent} 
         setSelectedTaskTitle={setSelectedTaskTitle} 
-        setSelectedTaskContent={setSelectedTaskContent} 
+        setSelectedTaskContent={setSelectedTaskContent}
+        updateTasks={updateTasks}
       />
       <NewCellDialog 
         cellDialogOpen={cellDialogOpen} 

@@ -24,7 +24,7 @@ export default function Tasks(props) {
             <Grid item xs={6} key={taskChip.id}>
               <OutlinedInput
                 id="filled-size-small"
-                defaultValue={taskChip.title}
+                value={taskChip.title}
                 variant="filled"
                 size="small"
                 endAdornment={
