@@ -8,6 +8,7 @@ from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from datetime import datetime, timedelta
+from django.http import Http404
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -49,6 +50,25 @@ class UserTasksList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserTaskDetail(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication, SessionAuthentication,)
+
+    def get_object(self, id):
+        try:
+            return Task.objects.get(id=id)
+        except Task.DoesNotExist:
+            raise Http404
+
+    def get(self, request, id, format=None):
+        print(request.user.pk)
+        task = self.get_object(id)
+        serializer = TaskSerializer(task)
+        if task.user.id == request.user.pk:
+            return Response(serializer.data)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class WeekCellsList(APIView):
