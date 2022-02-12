@@ -10,7 +10,7 @@ router.register('cells', CellViewSet, basename='cells')
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('api/users/<int:user_id>/tasks/', UserTasksList.as_view()),
-    path('api/users/<int:user_id>/<int:year>/<int:month>/<int:day>/',
-         WeekCellsList.as_view())
+    path('api/user/tasks/', UserTasksList.as_view()),
+    path('api/user/<int:year>/<int:month>/<int:day>/',
+         WeekCellsList.as_view()),
 ]

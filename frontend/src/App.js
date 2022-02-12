@@ -24,7 +24,7 @@ function App() {
   const [selectedTaskContent, setSelectedTaskContent] = React.useState('')
 
   function updateTasks() {
-    fetch('http://127.0.0.1:8000/api/users/1/tasks/', {
+    fetch('http://127.0.0.1:8000/api/user/tasks/', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ function App() {
   }
 
   function updateCells() {
-    fetch('http://127.0.0.1:8000/api/users/1/2022/2/11/', {
+    fetch('http://127.0.0.1:8000/api/user/2022/2/11/', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
