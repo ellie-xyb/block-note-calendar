@@ -10,6 +10,9 @@
  - Database: Sqlite3
  - UI library: [@mui/material](https://mui.com/)
  - Toolkit: [Django REST framework](https://www.django-rest-framework.org/) 
+ - Packaging: Docker
+ - Server: AWS
+ - CDN: Cloudflare
 
 ## Database structure
 
