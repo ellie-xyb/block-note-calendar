@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import APIService from '../APIService';
 
 function Copyright(props) {
   return (
@@ -29,14 +30,13 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
+  const handleSignInSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    APIService.SignInUser({
+      "username": data.get('username'),
+      "password": data.get('password')
+    })
   };
 
   return (
@@ -73,16 +73,17 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+            <Box component="form" noValidate onSubmit={handleSignInSubmit} sx={{ mt: 3 }}>
               <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
+              margin="normal"
+              fullWidth
+              required
+              id="username"
+              label="User name"
+              name="username"
+              autoComplete='username'
+              autoFocus
+              type = "text"
               />
               <TextField
                 margin="normal"
@@ -92,7 +93,7 @@ export default function SignInSide() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                autoComplete="password"
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
