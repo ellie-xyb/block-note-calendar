@@ -6,15 +6,18 @@ import SignUpSide from './components/signinandup/SignUpSide';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {CookiesProvider} from 'react-cookie';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route exact path="/" element={<App />} /> 
-      <Route path="/signin" element={<SignInSide />} />
-      <Route path="/signup" element={<SignUpSide />} />
-    </Routes>
-  </BrowserRouter>,
+  <CookiesProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<App />} /> 
+        <Route path="/signin" element={<SignInSide />} />
+        <Route path="/signup" element={<SignUpSide />} />
+      </Routes>
+    </BrowserRouter>
+  </CookiesProvider>,
   document.getElementById('root')
 );
 

@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import APIService from '../APIService';
+import {useCookies} from 'react-cookie';
 
 function Copyright(props) {
   return (
@@ -30,6 +31,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
+  const [token, setToken] = useCookies(["mytoken"])
   const handleSignInSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -37,6 +39,8 @@ export default function SignInSide() {
       "username": data.get('username'),
       "password": data.get('password')
     })
+    .then(resp => setToken('mytoken', resp.token))
+    .catch(error => console.log(error))
   };
 
   return (
