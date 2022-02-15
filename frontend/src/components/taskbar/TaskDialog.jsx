@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import APIService from '../APIService';
+import {useCookies} from 'react-cookie';
 
 function PaperComponent(props) {
     return (
@@ -26,9 +27,10 @@ function PaperComponent(props) {
 export default function NewTaskDialog(props) {
   const [newTitle, setNewTitle] = React.useState('');
   const [newContent, setNewContent] = React.useState('');
+  const [token] = useCookies(['mytoken']);
 
   const insertTask = () => {
-    APIService.InsertTask({"title": newTitle, "content": newContent})
+    APIService.InsertTask({"title": newTitle, "content": newContent}, token['mytoken'])
     .then(() => {
       props.updateTasks()
       props.handleTaskDialogClose()

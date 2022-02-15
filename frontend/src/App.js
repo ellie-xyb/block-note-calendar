@@ -9,8 +9,11 @@ import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
 import TaskShow from './components/tasks/TaskShow';
+import {useCookies} from 'react-cookie';
+
 
 function App() {
+  const [token] = useCookies(['mytoken']);
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [cellDialogOpen, setCellDialogOpen] = React.useState(false);
   const [taskDialogOpen, setTaskDialogOpen] = React.useState(false);
@@ -28,8 +31,7 @@ function App() {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        // need change this token and fetch to hide it later
-        'Authorization': 'Token 58b70ca287628f1e09d5eddb873c09a3323a78af'
+        'Authorization': `Token ${token['mytoken']}`
       }
     })
       .then(resp => resp.json())
@@ -42,8 +44,7 @@ function App() {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        // need change this token and fetch to hide it later
-        'Authorization': 'Token 58b70ca287628f1e09d5eddb873c09a3323a78af'
+        'Authorization': `Token ${token['mytoken']}`
       }
     })   
         .then(resp => resp.json())

@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import DeleteIcon from '@mui/icons-material/Delete';
 import APIService from '../APIService';
+import {useCookies} from 'react-cookie'
 
 function PaperComponent(props) {
     return (
@@ -25,8 +26,10 @@ function PaperComponent(props) {
 }
 
 export default function TaskEditDialog(props) {
-    const updateTask = () => {
-        APIService.UpdateTask(props.selectedTaskId, {"title": props.selectedTaskTitle, "content": props.selectedTaskContent})
+  const [token] = useCookies(['mytoken']) 
+  
+  const updateTask = () => {
+        APIService.UpdateTask(props.selectedTaskId, {"title": props.selectedTaskTitle, "content": props.selectedTaskContent}, token['mytoken'])
         .then(() => {
             props.updateTasks()
             props.handleTaskEditDialogClose()
@@ -35,7 +38,7 @@ export default function TaskEditDialog(props) {
     }
 
     const deleteTask = (id) => {
-        APIService.DeleteTask(id)
+        APIService.DeleteTask(id, token['mytoken'])
         .then(() => {
             props.updateTasks()
             props.handleTaskEditDialogClose()
