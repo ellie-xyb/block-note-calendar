@@ -117,7 +117,7 @@ def auth_signin(request):
 
     user = User.objects.get(username=username)
     max_age = 30 * 24 * 60 * 60
-    expires = datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age)
+    expires = datetime.utcnow() + timedelta(seconds=max_age)
     expires = expires.strftime("%a, %d-%b-%Y %H:%M:%S UTC")
 
     if user.check_password(password):
@@ -133,7 +133,8 @@ def auth_signin(request):
 @api_view(('POST',))
 def auth_signout(request):
     response = Response()
-    expires = datetime.datetime.utcfromtimestamp(0)
+    # UNIX Epoch is time 0, 1970-01-01 00:00:00
+    expires = datetime.utcfromtimestamp(0)
     expires = expires.strftime("%a, %d-%b-%Y %H:%M:%S UTC")
     response.set_cookie(key='stoken', value="", httponly=True, expires=expires)
     return response
