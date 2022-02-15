@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import APIService from '../APIService';
 import {useCookies} from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -32,6 +33,14 @@ const theme = createTheme();
 
 export default function SignInSide() {
   const [token, setToken] = useCookies(["mytoken"])
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if(token['mytoken']) {
+      navigate('/')
+    }
+  }, [token])
+
   const handleSignInSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
