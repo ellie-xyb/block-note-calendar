@@ -2,8 +2,9 @@
 from ast import Delete
 from .models import Task, Cell, User
 from .serializers import UserSerializer, TaskSerializer, CellSerializer
-from rest_framework.decorators import APIView
+from rest_framework.decorators import APIView, api_view
 from rest_framework.response import Response
+from rest_framework.authtoken.views import Token
 from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
@@ -107,3 +108,32 @@ class WeekCellsList(APIView):
             start_datetime__lte=end_day)
         serializer = CellSerializer(week_cells, many=True)
         return Response(serializer.data)
+
+
+@api_view(('POST',))
+def auth_signin(request):
+    username = request.data["username"]
+    password = request.data["password"]
+
+    user = User.objects.get(username=username)
+    max_age = 30 * 24 * 60 * 60
+    expires = datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age)
+    expires = expires.strftime("%a, %d-%b-%Y %H:%M:%S UTC")
+
+    if user.check_password(password):
+        encoded_token = Token.objects.get_or_create(user=user)
+        response = Response()
+        response.set_cookie(
+            key='stoken', value=encoded_token[0], httponly=True, expires=expires)
+        return response
+    else:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(('POST',))
+def auth_signout(request):
+    response = Response()
+    expires = datetime.datetime.utcfromtimestamp(0)
+    expires = expires.strftime("%a, %d-%b-%Y %H:%M:%S UTC")
+    response.set_cookie(key='stoken', value="", httponly=True, expires=expires)
+    return response
