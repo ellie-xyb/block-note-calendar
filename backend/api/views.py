@@ -110,6 +110,8 @@ class WeekCellsList(APIView):
         return Response(serializer.data)
 
 
+# work on saving token safely in cookie later
+"""
 @api_view(('POST',))
 def auth_signin(request):
     username = request.data["username"]
@@ -138,3 +140,4 @@ def auth_signout(request):
     expires = expires.strftime("%a, %d-%b-%Y %H:%M:%S UTC")
     response.set_cookie(key='stoken', value="", httponly=True, expires=expires)
     return response
+"""

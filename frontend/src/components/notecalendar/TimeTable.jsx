@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';

@@ -134,7 +134,7 @@ export default function Overlaydivs(props) {
         const newEndDateTime = newTaskDatetime(startDate, endTime);
         // console.log(`Start: ${newStartDateTime}`);
         // console.log(`End: ${newEndDateTime}`);
-        if (newEndDateTime.getTime() == newStartDateTime.getTime()) {
+        if (newEndDateTime.getTime() === newStartDateTime.getTime()) {
             new Date(newEndDateTime.setHours( newEndDateTime.getHours() + 1 ));
         }
         props.setSelectDateTime({...props.selectDateTime, start: newStartDateTime, end: newEndDateTime});
