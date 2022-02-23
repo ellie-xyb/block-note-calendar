@@ -33,7 +33,7 @@ const theme = createTheme();
 
 export default function SignInSide() {
   const [token, setToken] = useCookies(["mytoken"])
-  // const [isSignin, setSignin] = React.useState(true);
+  // const [isSignIn, setSignIn] = React.useState(true);
   const navigate = useNavigate();
 
   React.useEffect(() => {
