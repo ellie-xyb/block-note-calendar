@@ -10,14 +10,14 @@ import {CookiesProvider} from 'react-cookie';
 import {useCookies} from 'react-cookie';
 
 function Site() {
-  const [isSignIn, setSignIn] = React.useState(false);
+  const [isSignIn, setSignIn] = React.useState(true);
   const [token, setToken, removeToken] = useCookies(["mytoken"])
 
   return (
     <CookiesProvider>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<App isSignIn={isSignIn} setSignIn={setSignIn} token={token} removeToken={removeToken} />} /> 
+          <Route exact path="/" element={<App isSignIn={isSignIn} setSignIn={setSignIn} token={token} removeToken={removeToken} />} />
           <Route path="/signin" element={<SignInSide setSignIn={setSignIn} token={token} setToken={setToken} />} />
           <Route path="/signup" element={<SignUpSide />} />
         </Routes>

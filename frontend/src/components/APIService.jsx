@@ -49,7 +49,7 @@ export default class APIService {
     static SignUpUser(body) {
         // need rewrite this fetch to different endpoint later 
         // return fetch(`http://127.0.0.1:8000/auth/signin`, {
-        return fetch(`http://127.0.0.1:8000/auth/`, {    
+        return fetch(`http://127.0.0.1:8000/api/users`, {    
             'method': 'POST',
             headers: {
                 'Content-Type': 'application/json',

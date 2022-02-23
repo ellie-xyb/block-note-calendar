@@ -58,8 +58,9 @@ function App(props) {
 
   React.useEffect(() => {
     if(!props.token['mytoken']) {
+      console.log("AAAAAA")
       navigate('/signin/')
-    } 
+    }
 
     updateTasks();
     updateCells();

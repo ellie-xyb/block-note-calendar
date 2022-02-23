@@ -52,13 +52,13 @@ function Topbar(props) {
         <div style={insideBoxStyle}>
           <h3>Note Block Calendar</h3> 
           <div>
-            { props.isSignIn && 
+            { !props.isSignIn && 
               <>
                 <Link to='/signin' style={linkStyle}>Sign in</Link>
                 <Link to='/signup' style={linkStyle}>Sign up</Link>  
               </>              
             }
-            { !props.isSignIn && 
+            { props.isSignIn && 
               // <button style={signOutBtnStyle}>Sign out</button>
               <Button variant="text" sx={{color: 'white'}} onClick={handleSignOut}>Sign out</Button>
             }
