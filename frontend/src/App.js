@@ -12,7 +12,7 @@ import TaskShow from './components/tasks/TaskShow';
 import {useCookies} from 'react-cookie';
 
 
-function App() {
+function App(props) {
   const [token] = useCookies(['mytoken']);
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [cellDialogOpen, setCellDialogOpen] = React.useState(false);
@@ -25,7 +25,6 @@ function App() {
   const [selectedTaskId, setSelectedTaskId] = React.useState('')
   const [selectedTaskTitle, setSelectedTaskTitle] = React.useState('')
   const [selectedTaskContent, setSelectedTaskContent] = React.useState('')
-  const [isSignIn, setSignIn] = React.useState(false);
 
   function updateTasks() {
     fetch('http://127.0.0.1:8000/api/user/tasks/', {
@@ -140,7 +139,7 @@ function App() {
 
   return (
     <div className="App">
-      <Topbar isSignIn={isSignIn}></Topbar>
+      <Topbar isSignIn={props.isSignIn}></Topbar>
       <div style={mainContentStyle}>
         <Taskbar 
           setPickedDate={setPickedDate}

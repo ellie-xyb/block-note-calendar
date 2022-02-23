@@ -8,16 +8,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {CookiesProvider} from 'react-cookie';
 
+function Site() {
+  const [isSignIn, setSignIn] = React.useState(false);
+
+  return (
+    <CookiesProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<App isSignIn={isSignIn} />} /> 
+          <Route path="/signin" element={<SignInSide isSignIn={isSignIn} setSignIn={setSignIn} />} />
+          <Route path="/signup" element={<SignUpSide isSignIn={isSignIn} setSignIn={setSignIn} />} />
+        </Routes>
+      </BrowserRouter>
+    </CookiesProvider>
+  )
+}
+
 ReactDOM.render(
-  <CookiesProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<App />} /> 
-        <Route path="/signin" element={<SignInSide />} />
-        <Route path="/signup" element={<SignUpSide />} />
-      </Routes>
-    </BrowserRouter>
-  </CookiesProvider>,
+  <Site />,
   document.getElementById('root')
 );
 

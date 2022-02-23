@@ -31,15 +31,14 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
+export default function SignInSide(props) {
   const [token, setToken] = useCookies(["mytoken"])
-  // const [isSignIn, setSignIn] = React.useState(true);
   const navigate = useNavigate();
 
   React.useEffect(() => {
     if(token['mytoken']) {
       navigate('/')
-    }
+    } 
   }, [token])
 
   const handleSignInSubmit = (event) => {
@@ -49,7 +48,10 @@ export default function SignInSide() {
       "username": data.get('username'),
       "password": data.get('password')
     })
-    .then(resp => setToken('mytoken', resp.token))
+    .then(resp => {
+      setToken('mytoken', resp.token)
+      props.setSignIn(true)
+    })
     .catch(error => console.log(error))
   };
 

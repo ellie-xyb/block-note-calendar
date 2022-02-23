@@ -2,6 +2,12 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 function Topbar(props) {
+   
+    // const handleSignOut = () => {
+    //   removeToken(['mytoken'])
+    //   navigate('/signin/')
+    // };
+
     const topbarStyle = {
         backgroundColor: '#282c34',
         color: '#61dafb',
@@ -40,7 +46,7 @@ function Topbar(props) {
               </>              
             }
             { !props.isSignIn && 
-              <Link to='/signout' style={linkStyle}>Sign out</Link>
+              <Link to='/signin' style={linkStyle}>Sign out</Link>
             }
           </div>
         </div>
