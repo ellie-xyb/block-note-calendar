@@ -9,6 +9,7 @@ import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
 import TaskShow from './components/tasks/TaskShow';
+import { useNavigate } from 'react-router-dom';
 
 
 function App(props) {
@@ -23,6 +24,7 @@ function App(props) {
   const [selectedTaskId, setSelectedTaskId] = React.useState('')
   const [selectedTaskTitle, setSelectedTaskTitle] = React.useState('')
   const [selectedTaskContent, setSelectedTaskContent] = React.useState('')
+  const navigate = useNavigate();
 
   function updateTasks() {
     fetch('http://127.0.0.1:8000/api/user/tasks/', {
@@ -49,12 +51,16 @@ function App(props) {
         .then(resp => setCells(resp.map(c => {
           c.start_datetime = new Date(c.start_datetime)
           c.end_datetime = new Date(c.end_datetime)
-          return c
+          return
         })))
         .catch(error => console.log(`-2-${error}-2-`))
   }
 
   React.useEffect(() => {
+    if(!props.token['mytoken']) {
+      navigate('/signin/')
+    } 
+
     updateTasks();
     updateCells();
   }, []);
