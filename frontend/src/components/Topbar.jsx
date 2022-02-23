@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-function Topbar() {
+function Topbar(props) {
     const topbarStyle = {
         backgroundColor: '#282c34',
         color: '#61dafb',
@@ -33,8 +33,15 @@ function Topbar() {
         <div style={insideBoxStyle}>
           <h3>Note Block Calendar</h3> 
           <div>
-            <Link to='/signin' style={linkStyle}>Sign in</Link>
-            <Link to='/signup' style={linkStyle}>Sign up</Link>  
+            { props.isSignIn && 
+              <>
+                <Link to='/signin' style={linkStyle}>Sign in</Link>
+                <Link to='/signup' style={linkStyle}>Sign up</Link>  
+              </>              
+            }
+            { !props.isSignIn && 
+              <Link to='/signout' style={linkStyle}>Sign out</Link>
+            }
           </div>
         </div>
     </div>  
