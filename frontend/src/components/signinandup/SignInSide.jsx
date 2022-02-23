@@ -13,7 +13,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import APIService from '../APIService';
-import {useCookies} from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
@@ -32,14 +31,13 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide(props) {
-  const [token, setToken] = useCookies(["mytoken"])
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if(token['mytoken']) {
+    if(props.token['mytoken']) {
       navigate('/')
     } 
-  }, [token])
+  }, [props.token])
 
   const handleSignInSubmit = (event) => {
     event.preventDefault();
@@ -49,7 +47,7 @@ export default function SignInSide(props) {
       "password": data.get('password')
     })
     .then(resp => {
-      setToken('mytoken', resp.token)
+      props.setToken('mytoken', resp.token)
       props.setSignIn(true)
     })
     .catch(error => console.log(error))

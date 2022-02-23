@@ -7,17 +7,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {CookiesProvider} from 'react-cookie';
+import {useCookies} from 'react-cookie';
 
 function Site() {
   const [isSignIn, setSignIn] = React.useState(false);
+  const [token, setToken, removeToken] = useCookies(["mytoken"])
 
   return (
     <CookiesProvider>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<App isSignIn={isSignIn} />} /> 
-          <Route path="/signin" element={<SignInSide isSignIn={isSignIn} setSignIn={setSignIn} />} />
-          <Route path="/signup" element={<SignUpSide isSignIn={isSignIn} setSignIn={setSignIn} />} />
+          <Route exact path="/" element={<App isSignIn={isSignIn} setSignIn={setSignIn} token={token} removeToken={removeToken} />} /> 
+          <Route path="/signin" element={<SignInSide setSignIn={setSignIn} token={token} setToken={setToken} />} />
+          <Route path="/signup" element={<SignUpSide />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>

@@ -9,11 +9,9 @@ import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
 import TaskShow from './components/tasks/TaskShow';
-import {useCookies} from 'react-cookie';
 
 
 function App(props) {
-  const [token] = useCookies(['mytoken']);
   const [pickedDate, setPickedDate] = React.useState(new Date());
   const [cellDialogOpen, setCellDialogOpen] = React.useState(false);
   const [taskDialogOpen, setTaskDialogOpen] = React.useState(false);
@@ -31,7 +29,7 @@ function App(props) {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Token ${token['mytoken']}`
+        'Authorization': `Token ${props.token['mytoken']}`
       }
     })
       .then(resp => resp.json())
@@ -44,7 +42,7 @@ function App(props) {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Token ${token['mytoken']}`
+        'Authorization': `Token ${props.token['mytoken']}`
       }
     })   
         .then(resp => resp.json())
@@ -139,7 +137,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <Topbar isSignIn={props.isSignIn}></Topbar>
+      <Topbar isSignIn={props.isSignIn} setSignIn={props.setSignIn} removeToken={props.removeToken}></Topbar>
       <div style={mainContentStyle}>
         <Taskbar 
           setPickedDate={setPickedDate}
