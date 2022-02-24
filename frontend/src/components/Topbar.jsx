@@ -60,7 +60,7 @@ function Topbar(props) {
             }
             { props.isSignIn && 
               // <button style={signOutBtnStyle}>Sign out</button>
-              <Button variant="text" sx={{color: 'white'}} onClick={handleSignOut}>Sign out</Button>
+              <Link to='/signin'><Button variant="text" sx={{color: 'white'}} onClick={handleSignOut}>Sign out</Button></Link>
             }
           </div>
         </div>

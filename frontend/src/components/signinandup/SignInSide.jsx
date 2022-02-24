@@ -34,10 +34,10 @@ export default function SignInSide(props) {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if(props.token['mytoken']) {
+    if(props.token['mytoken'] && props.token['mytoken'] !== 'undefined') {
       navigate('/')
-    } 
-  }, [props.token])
+    }
+  }, [props.token['mytoken']]);
 
   const handleSignInSubmit = (event) => {
     event.preventDefault();
@@ -49,8 +49,15 @@ export default function SignInSide(props) {
     .then(resp => {
       props.setToken('mytoken', resp.token)
       props.setSignIn(true)
+      if(props.token['mytoken'] && props.token['mytoken'] !== 'undefined') {
+        navigate('/');
+      } 
+      else {
+        // navigate('/signin/');
+        window.location.reload(false);
+      }
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(error)) 
   };
 
   return (

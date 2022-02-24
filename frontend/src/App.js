@@ -57,10 +57,9 @@ function App(props) {
   }
 
   React.useEffect(() => {
-    if(!props.token['mytoken']) {
-      console.log("AAAAAA")
+    if(!props.token['mytoken'] || props.token['mytoken'] === 'undefined') {
       navigate('/signin/')
-    }
+    } 
 
     updateTasks();
     updateCells();

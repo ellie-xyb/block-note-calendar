@@ -17,7 +17,7 @@ function Site() {
     <CookiesProvider>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<App isSignIn={isSignIn} setSignIn={setSignIn} token={token} removeToken={removeToken} />} />
+          <Route path="/" element={<App isSignIn={isSignIn} setSignIn={setSignIn} token={token} removeToken={removeToken} />} />
           <Route path="/signin" element={<SignInSide setSignIn={setSignIn} token={token} setToken={setToken} />} />
           <Route path="/signup" element={<SignUpSide />} />
         </Routes>
