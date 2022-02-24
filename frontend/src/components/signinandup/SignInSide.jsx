@@ -49,13 +49,9 @@ export default function SignInSide(props) {
     .then(resp => {
       props.setToken('mytoken', resp.token)
       props.setSignIn(true)
-      if(props.token['mytoken'] && props.token['mytoken'] !== 'undefined') {
-        navigate('/');
-      } 
-      else {
-        // navigate('/signin/');
+      if(!props.token['mytoken'] || props.token['mytoken'] === 'undefined') {
         window.location.reload(false);
-      }
+      } 
     })
     .catch(error => console.log(error)) 
   };
