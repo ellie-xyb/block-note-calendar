@@ -34,6 +34,17 @@ export default class APIService {
         })
     }
 
+    static InsertCell(body, token) {
+        return  fetch('http://127.0.0.1:8000/api/user/cells/', {
+            'method': 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`
+            },
+            body: JSON.stringify(body)
+        }).then(resp => resp.json())
+    }
+
     static SignInUser(body) {
         // need rewrite this fetch to different endpoint later 
         // return fetch(`http://127.0.0.1:8000/auth/signin`, {

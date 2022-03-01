@@ -40,7 +40,7 @@ function App(props) {
   }
 
   function updateCells() {
-    fetch('http://127.0.0.1:8000/api/user/2022/2/11/', {
+    fetch('http://127.0.0.1:8000/api/user/2022/3/5/', {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
