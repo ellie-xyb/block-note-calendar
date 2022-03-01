@@ -51,7 +51,8 @@ function App(props) {
         .then(resp => setCells(resp.map(c => {
           c.start_datetime = new Date(c.start_datetime)
           c.end_datetime = new Date(c.end_datetime)
-          return
+          console.log(c.start_datetime, c.end_datetime)
+          return c
         })))
         .catch(error => console.log(`-2-${error}-2-`))
   }

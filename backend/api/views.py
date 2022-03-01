@@ -102,6 +102,7 @@ class WeekCellsList(APIView):
         end_day = (start_day + timedelta(days=6)
                    ).replace(hour=23, minute=59, second=59)
 
+        # a bug need to fix, which is can't find the last & next month's value days
         all_cells = Cell.objects.filter(task__user=request.user.pk)
         week_cells = all_cells.filter(
             start_datetime__gt=start_day,

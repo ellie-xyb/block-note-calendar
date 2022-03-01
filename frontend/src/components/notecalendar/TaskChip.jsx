@@ -39,7 +39,7 @@ export default function TaskChip(props) {
             chipBorder = 'thin solid lightgrey';
             chipWidth = '90%';
           }}
-          chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours() - 1) * 55 + 45;
+          chipHeight = (data.end_datetime.getHours() - data.start_datetime.getHours()) * 55 + 45;
           return (
             <>
               {chip && 
