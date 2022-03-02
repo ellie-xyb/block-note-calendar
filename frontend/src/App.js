@@ -39,8 +39,8 @@ function App(props) {
       .catch(error => console.log(`-1- ${error} -1-`))
   }
 
-  function updateCells() {
-    fetch('http://127.0.0.1:8000/api/user/2022/3/5/', {
+  function updateCells(path) {
+    fetch(`http://127.0.0.1:8000/api/user/${path}`, {
       'method': 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function App(props) {
         .then(resp => setCells(resp.map(c => {
           c.start_datetime = new Date(c.start_datetime)
           c.end_datetime = new Date(c.end_datetime)
-          console.log(c.start_datetime, c.end_datetime)
+          // console.log(c.start_datetime, c.end_datetime)
           return c
         })))
         .catch(error => console.log(`-2-${error}-2-`))
@@ -62,9 +62,16 @@ function App(props) {
       navigate('/signin/')
     } 
 
+    let month = pickedDate.getUTCMonth() + 1;
+    let day = pickedDate.getUTCDate();
+    let year = pickedDate.getUTCFullYear();
+    let path = year + '/' + month + '/' + day + '/';
+    
     updateTasks();
-    updateCells();
-  }, []);
+    updateCells(path);
+    // console.log(pickedDate);
+    // console.log(path);
+  }, [pickedDate]);
 
   const [selectDateTime, setSelectDateTime] = React.useState({
     start: new Date(),
