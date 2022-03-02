@@ -1,5 +1,4 @@
 # from django.contrib.auth.models import User
-from ast import Delete
 from .models import Task, Cell, User
 from .serializers import UserSerializer, TaskSerializer, CellSerializer
 from rest_framework.decorators import APIView, api_view
@@ -108,6 +107,23 @@ class WeekCellsList(APIView):
             start_datetime__lte=end_day)
         serializer = CellSerializer(week_cells, many=True)
         return Response(serializer.data)
+
+
+class UserCellsList(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication, SessionAuthentication,)
+
+    def post(self, request):
+        task_id = request.data["task"]
+        task = Task.objects.get(id=task_id)
+        print(task.user)
+        if task.user != request.user:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = CellSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 # work on saving token safely in cookie later
