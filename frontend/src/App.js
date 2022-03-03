@@ -179,6 +179,7 @@ function App(props) {
         taskDialogOpen={taskDialogOpen} 
         handleTaskDialogClose={handleTaskDialogClose} 
         updateTasks={updateTasks}
+        token={props.token}
       />
       <TaskEditDialog 
         taskEditDialogOpen={taskEditDialogOpen} 
@@ -189,6 +190,7 @@ function App(props) {
         setSelectedTaskTitle={setSelectedTaskTitle} 
         setSelectedTaskContent={setSelectedTaskContent}
         updateTasks={updateTasks}
+        token={props.token}
       />
       <NewCellDialog 
         cellDialogOpen={cellDialogOpen} 
