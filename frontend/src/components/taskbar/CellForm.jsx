@@ -7,8 +7,13 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
 import Autocomplete from '@mui/material/Autocomplete';
+import TaskEditDialog from './TaskEditDialog';
 
 export default function CellForm(props) {
+  // setCellDate={setCellDate}
+  // setCellStartTime={setCellStartTime}
+  // setCellEndTime={setCellEndTime}
+  // setCellTask={setCellTask}
   return (
     <Box
       component="form"
@@ -20,11 +25,13 @@ export default function CellForm(props) {
           <Autocomplete
             autoFocus
             id="selected-task"
-            options={props.taskChipData ? props.taskChipData.map(task => task.title) : [] }
+            options={props.taskChipData ? props.taskChipData.map(task => Object.assign({label: task.title}, task)) : [] }
+            // options={props.taskChipData ? props.taskChipData.map(task => { return {label: task.title, ...task}}) : [] }
             fullWidth
             disableClearable
             sx={{ mb: 3 }}
             renderInput={(params) => <TextField {...params} label="Choose task"  autoFocus margin="dense" variant="standard"/>}
+            onChange={(event, value) => console.log(value)}
           />
 
           <LocalizationProvider dateAdapter={AdapterDateFns}>

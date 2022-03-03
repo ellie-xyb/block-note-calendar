@@ -198,6 +198,7 @@ function App(props) {
         selectDateTime={selectDateTime}
         setSelectDateTime={setSelectDateTime}
         taskChipData={taskChipData}
+        token={props.token}
       />
       <TaskShow
         cellOpen={cellOpen}
@@ -205,6 +206,7 @@ function App(props) {
         pickedCellId={pickedCellId}
         cells={cells}
         taskChipData={taskChipData}
+        token={props.token}
       />
     </div>
   );

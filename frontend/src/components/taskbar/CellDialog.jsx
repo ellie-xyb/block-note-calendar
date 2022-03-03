@@ -23,6 +23,20 @@ function PaperComponent(props) {
 }
 
 export default function NewCellDialog(props) {
+    const [cellDate, setCellDate] = React.useState('');
+    const [cellStartTime, setCellStartTime] = React.useState('');
+    const [cellEndTime, setCellEndTime] = React.useState('');
+    const [cellTask, setCellTask] = React.useState();
+
+    // const insertTask = () => {
+    //   APIService.InsertTask({"title": newTitle, "content": newContent}, props.token['mytoken'])
+    //   .then(() => {
+    //     props.updateTasks()
+    //     props.handleTaskDialogClose()
+    //   })
+    //   .catch(error => console.log(`-4- ${error} -4-`))
+    // }
+
     return (
         <Dialog
             open={props.cellDialogOpen}
@@ -58,6 +72,10 @@ export default function NewCellDialog(props) {
                     selectDateTime={props.selectDateTime} 
                     setSelectDateTime={props.setSelectDateTime}
                     taskChipData={props.taskChipData}
+                    setCellDate={setCellDate}
+                    setCellStartTime={setCellStartTime}
+                    setCellEndTime={setCellEndTime}
+                    setCellTask={setCellTask}
                 />
             </DialogContent>
             <DialogActions sx={{ m: 3 }}>
