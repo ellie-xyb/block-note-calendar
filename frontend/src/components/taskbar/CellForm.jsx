@@ -13,7 +13,7 @@ export default function CellForm(props) {
   // setCellDate={setCellDate}
   // setCellStartTime={setCellStartTime}
   // setCellEndTime={setCellEndTime}
-  // setCellTask={setCellTask}
+  // setCellTaskId={setCellTaskId}
   return (
     <Box
       component="form"
@@ -31,7 +31,7 @@ export default function CellForm(props) {
             disableClearable
             sx={{ mb: 3 }}
             renderInput={(params) => <TextField {...params} label="Choose task"  autoFocus margin="dense" variant="standard"/>}
-            onChange={(event, value) => console.log(value)}
+            onChange={(event, value) => props.setCellTaskId(value.id)}
           />
 
           <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -40,7 +40,12 @@ export default function CellForm(props) {
               value={props.selectDateTime.start}
               minDate={new Date('2022-01-01')}
               onChange={(newValue) => {
-                props.setSelectDateTime({...props.selectDateTime, start: newValue});
+                let newEnd = props.selectDateTime.end
+                newEnd.setYear(newValue.getFullYear())
+                newEnd.setMonth(newValue.getMonth())
+                newEnd.setDate(newValue.getDate())
+                props.setSelectDateTime({...props.selectDateTime, start: newValue, end: newEnd});
+                console.log(newValue)
               }}
             //   renderInput={(params) => <TextField {...params} />}
               renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -67,7 +72,8 @@ export default function CellForm(props) {
                 label="Start at"
                 value={props.selectDateTime.start}
                 onChange={(newValue) => {
-                    props.setSelectDateTime({...props.selectDateTime, start: newValue});
+                  props.setSelectDateTime({...props.selectDateTime, start: newValue});
+                  console.log(newValue)  
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -86,7 +92,8 @@ export default function CellForm(props) {
                 label="End at"
                 value={props.selectDateTime.end}
                 onChange={(newValue) => {
-                    props.setSelectDateTime({...props.selectDateTime, end: newValue});
+                  props.setSelectDateTime({...props.selectDateTime, end: newValue});
+                  console.log(newValue)
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (

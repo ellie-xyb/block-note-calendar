@@ -26,7 +26,7 @@ export default function NewCellDialog(props) {
     const [cellDate, setCellDate] = React.useState('');
     const [cellStartTime, setCellStartTime] = React.useState('');
     const [cellEndTime, setCellEndTime] = React.useState('');
-    const [cellTask, setCellTask] = React.useState();
+    const [cellTaskId, setCellTaskId] = React.useState();
 
     // const insertTask = () => {
     //   APIService.InsertTask({"title": newTitle, "content": newContent}, props.token['mytoken'])
@@ -75,7 +75,7 @@ export default function NewCellDialog(props) {
                     setCellDate={setCellDate}
                     setCellStartTime={setCellStartTime}
                     setCellEndTime={setCellEndTime}
-                    setCellTask={setCellTask}
+                    setCellTaskId={setCellTaskId}
                 />
             </DialogContent>
             <DialogActions sx={{ m: 3 }}>
