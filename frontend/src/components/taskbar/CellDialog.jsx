@@ -10,6 +10,7 @@ import Draggable from 'react-draggable';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import APIService from '../APIService';
 
 function PaperComponent(props) {
     return (
@@ -23,19 +24,21 @@ function PaperComponent(props) {
 }
 
 export default function NewCellDialog(props) {
-    const [cellDate, setCellDate] = React.useState('');
-    const [cellStartTime, setCellStartTime] = React.useState('');
-    const [cellEndTime, setCellEndTime] = React.useState('');
     const [cellTaskId, setCellTaskId] = React.useState();
 
-    // const insertTask = () => {
-    //   APIService.InsertTask({"title": newTitle, "content": newContent}, props.token['mytoken'])
-    //   .then(() => {
-    //     props.updateTasks()
-    //     props.handleTaskDialogClose()
-    //   })
-    //   .catch(error => console.log(`-4- ${error} -4-`))
-    // }
+    const insertCell = () => {
+      APIService.InsertCell({"start_datetime": props.selectDateTime.start, "end_datetime": props.selectDateTime.end, "task": cellTaskId}, props.token['mytoken'])
+      .then(() => {
+        let month = props.selectDateTime.start.getMonth() + 1;
+        let day = props.selectDateTime.start.getDate();
+        let year = props.selectDateTime.start.getFullYear();
+        let path = year + '/' + month + '/' + day + '/'; 
+        props.updateCells(path)
+        props.handleCellDialogClose()
+        console.log(path)
+      })
+      .catch(error => console.log(`-5cell- ${error} -5cell-`))
+    }
 
     return (
         <Dialog
@@ -72,14 +75,11 @@ export default function NewCellDialog(props) {
                     selectDateTime={props.selectDateTime} 
                     setSelectDateTime={props.setSelectDateTime}
                     taskChipData={props.taskChipData}
-                    setCellDate={setCellDate}
-                    setCellStartTime={setCellStartTime}
-                    setCellEndTime={setCellEndTime}
                     setCellTaskId={setCellTaskId}
                 />
             </DialogContent>
             <DialogActions sx={{ m: 3 }}>
-                <Button variant="contained" onClick={props.handleCellDialogClose}>Save</Button>
+                <Button variant="contained" onClick={insertCell}>Save</Button>
             </DialogActions>
         </Dialog>
     );    

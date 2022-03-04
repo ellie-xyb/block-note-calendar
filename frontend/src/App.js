@@ -62,9 +62,9 @@ function App(props) {
       navigate('/signin/')
     } 
 
-    let month = pickedDate.getUTCMonth() + 1;
-    let day = pickedDate.getUTCDate();
-    let year = pickedDate.getUTCFullYear();
+    let month = pickedDate.getMonth() + 1;
+    let day = pickedDate.getDate();
+    let year = pickedDate.getFullYear();
     let path = year + '/' + month + '/' + day + '/';
     
     updateTasks();
@@ -178,8 +178,8 @@ function App(props) {
       <NewTaskDialog 
         taskDialogOpen={taskDialogOpen} 
         handleTaskDialogClose={handleTaskDialogClose} 
-        updateTasks={updateTasks}
         token={props.token}
+        updateTasks={updateTasks}
       />
       <TaskEditDialog 
         taskEditDialogOpen={taskEditDialogOpen} 
@@ -189,8 +189,8 @@ function App(props) {
         selectedTaskContent={selectedTaskContent} 
         setSelectedTaskTitle={setSelectedTaskTitle} 
         setSelectedTaskContent={setSelectedTaskContent}
-        updateTasks={updateTasks}
         token={props.token}
+        updateTasks={updateTasks}
       />
       <NewCellDialog 
         cellDialogOpen={cellDialogOpen} 
@@ -199,6 +199,7 @@ function App(props) {
         setSelectDateTime={setSelectDateTime}
         taskChipData={taskChipData}
         token={props.token}
+        updateCells={updateCells}
       />
       <TaskShow
         cellOpen={cellOpen}

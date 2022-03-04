@@ -7,13 +7,8 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TimePicker from '@mui/lab/TimePicker';
 import Autocomplete from '@mui/material/Autocomplete';
-import TaskEditDialog from './TaskEditDialog';
 
 export default function CellForm(props) {
-  // setCellDate={setCellDate}
-  // setCellStartTime={setCellStartTime}
-  // setCellEndTime={setCellEndTime}
-  // setCellTaskId={setCellTaskId}
   return (
     <Box
       component="form"
@@ -45,7 +40,6 @@ export default function CellForm(props) {
                 newEnd.setMonth(newValue.getMonth())
                 newEnd.setDate(newValue.getDate())
                 props.setSelectDateTime({...props.selectDateTime, start: newValue, end: newEnd});
-                console.log(newValue)
               }}
             //   renderInput={(params) => <TextField {...params} />}
               renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -72,8 +66,7 @@ export default function CellForm(props) {
                 label="Start at"
                 value={props.selectDateTime.start}
                 onChange={(newValue) => {
-                  props.setSelectDateTime({...props.selectDateTime, start: newValue});
-                  console.log(newValue)  
+                  props.setSelectDateTime({...props.selectDateTime, start: newValue})
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
@@ -93,7 +86,6 @@ export default function CellForm(props) {
                 value={props.selectDateTime.end}
                 onChange={(newValue) => {
                   props.setSelectDateTime({...props.selectDateTime, end: newValue});
-                  console.log(newValue)
                 }}
                 // renderInput={(params) => <TextField {...params} />}
                 renderInput={({ inputRef, inputProps, InputProps }) => (
