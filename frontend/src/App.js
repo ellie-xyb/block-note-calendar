@@ -70,7 +70,7 @@ function App(props) {
     updateTasks();
     updateCells(path);
     // console.log(pickedDate);
-    // console.log(path);
+    // console.log(path); 
   }, [pickedDate]);
 
   const [selectDateTime, setSelectDateTime] = React.useState({
@@ -208,6 +208,7 @@ function App(props) {
         cells={cells}
         taskChipData={taskChipData}
         token={props.token}
+        updateCells={updateCells}
       />
     </div>
   );

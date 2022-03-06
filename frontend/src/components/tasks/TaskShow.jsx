@@ -8,6 +8,7 @@ import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutl
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import NotesIcon from '@mui/icons-material/Notes';
 import EventIcon from '@mui/icons-material/Event';
+import APIService from '../APIService';
 
 export default function TaskShow(props) {
   // find the current cell by the cell id
@@ -15,6 +16,14 @@ export default function TaskShow(props) {
   let task = cell && props.taskChipData.find(x => x.id === cell.task);
   let options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
   
+  const deleteCell = (id) => {
+    APIService.DeleteCell(id, props.token['mytoken'])
+    .then(() => {
+        props.updateCells()
+        props.handleCellClose()
+    })
+  }
+
   return (
     <>
       { cell && task && 
@@ -33,7 +42,7 @@ export default function TaskShow(props) {
                 <IconButton aria-label="edit-cell" size="medium">
                     <ModeEditOutlineOutlinedIcon />
                 </IconButton>
-                <IconButton aria-label="delete-cell" size="medium">
+                <IconButton aria-label="delete-cell" size="medium" onClick={() => {deleteCell(cell.id)}}>
                     <DeleteOutlinedIcon />
                 </IconButton>
                 <IconButton aria-label="close-cell" size="medium" onClick={props.handleCellClose}>

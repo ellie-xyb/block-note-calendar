@@ -45,6 +45,16 @@ export default class APIService {
         }).then(resp => resp.json())
     }
 
+    static DeleteCell(cell_id, token) {
+        return  fetch(`http://127.0.0.1:8000/api/user/cells/${cell_id}/`, {
+            'method': 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`
+            },
+        })
+    }
+
     static SignInUser(body) {
         // need rewrite this fetch to different endpoint later 
         // return fetch(`http://127.0.0.1:8000/auth/signin`, {
