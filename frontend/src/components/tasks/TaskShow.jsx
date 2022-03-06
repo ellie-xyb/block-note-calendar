@@ -16,11 +16,16 @@ export default function TaskShow(props) {
   let task = cell && props.taskChipData.find(x => x.id === cell.task);
   let options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
   
-  const deleteCell = (id) => {
+  const deleteCell = (id, start_datetime) => {
     APIService.DeleteCell(id, props.token['mytoken'])
     .then(() => {
-        props.updateCells()
-        props.handleCellClose()
+      let month = start_datetime.getMonth() + 1;
+      let day = start_datetime.getDate();
+      let year = start_datetime.getFullYear();
+      let path = year + '/' + month + '/' + day + '/'; 
+      console.log(path)
+      props.updateCells(path)
+      props.handleCellClose()
     })
   }
 
@@ -42,7 +47,7 @@ export default function TaskShow(props) {
                 <IconButton aria-label="edit-cell" size="medium">
                     <ModeEditOutlineOutlinedIcon />
                 </IconButton>
-                <IconButton aria-label="delete-cell" size="medium" onClick={() => {deleteCell(cell.id)}}>
+                <IconButton aria-label="delete-cell" size="medium" onClick={() => {deleteCell(cell.id, cell.start_datetime)}}>
                     <DeleteOutlinedIcon />
                 </IconButton>
                 <IconButton aria-label="close-cell" size="medium" onClick={props.handleCellClose}>
