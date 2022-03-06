@@ -85,7 +85,7 @@ class UserTaskDetail(APIView):
         if task.user.id == request.user.pk:
             task.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response(status=status.HTTP_400_BAD_REQUEST)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 class WeekCellsList(APIView):
@@ -124,6 +124,33 @@ class UserCellsList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserCellDetail(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = (TokenAuthentication, SessionAuthentication,)
+
+    def get_object(self, id):
+        try:
+            return Cell.objects.get(id=id)
+        except Cell.DoesNotExist:
+            raise Http404
+
+    def get(self, request, id):
+        cell = self.get_object(id)
+        task = Task.objects.get(id=cell.task.id)
+        if task.user != request.user:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        serializer = CellSerializer(cell)
+        return Response(serializer.data)
+
+    def delete(self, request, id):
+        cell = self.get_object(id)
+        task = Task.objects.get(id=cell.task.id)
+        if task.user == request.user:
+            cell.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 # work on saving token safely in cookie later
