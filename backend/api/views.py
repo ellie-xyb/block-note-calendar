@@ -147,7 +147,15 @@ class UserCellDetail(APIView):
     def put(self, request, id):
         cell = self.get_object(id)
         task = Task.objects.get(id=cell.task.id)
+
         if task.user == request.user:
+            if not request.data.__contains__("start_datetime"):
+                request.data["start_datetime"] = cell.start_datetime
+            if not request.data.__contains__("end_datetime"):
+                request.data["end_datetime"] = cell.end_datetime
+            if not request.data.__contains__("task"):
+                request.data["task"] = cell.task
+
             serializer = CellSerializer(cell, data=request.data)
             if serializer.is_valid():
                 serializer.save()
