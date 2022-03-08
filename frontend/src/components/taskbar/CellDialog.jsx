@@ -35,7 +35,7 @@ export default function NewCellDialog(props) {
         let path = year + '/' + month + '/' + day + '/'; 
         props.updateCells(path)
         props.handleCellDialogClose()
-        console.log(path)
+        // console.log(path)
       })
       .catch(error => console.log(`-5cell- ${error} -5cell-`))
     }
