@@ -201,8 +201,10 @@ function App(props) {
         token={props.token}
         updateCells={updateCells}
       />
+      {/* taskshow is each cell detail */}
       <TaskShow
         cellOpen={cellOpen}
+        handleCellDialogOpen={handleCellDialogOpen} 
         handleCellClose={handleCellClose}
         pickedCellId={pickedCellId}
         cells={cells}

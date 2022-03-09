@@ -29,6 +29,11 @@ export default function TaskShow(props) {
     })
   }
 
+  const handelCellEditOpen = () => {
+    props.handleCellClose()
+    props.handleCellDialogOpen()
+  }
+
   return (
     <>
       { cell && task && 
@@ -44,7 +49,7 @@ export default function TaskShow(props) {
         >
           <Box sx={{ width: '480px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1, mr:1, color: '#5f6368' }} >
-                <IconButton aria-label="edit-cell" size="medium">
+                <IconButton aria-label="edit-cell" size="medium" onClick={handelCellEditOpen}>
                     <ModeEditOutlineOutlinedIcon />
                 </IconButton>
                 <IconButton aria-label="delete-cell" size="medium" onClick={() => {deleteCell(cell.id, cell.start_datetime)}}>
