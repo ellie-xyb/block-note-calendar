@@ -31,6 +31,10 @@ export default function TaskShow(props) {
 
   const handelCellEditOpen = () => {
     props.handleCellClose()
+    props.setSelectDateTime({
+      start: cell.start_datetime,
+      end: cell.end_datetime,
+    });
     props.handleCellDialogOpen()
   }
 

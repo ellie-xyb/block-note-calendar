@@ -76,6 +76,7 @@ export default function NewCellDialog(props) {
                     setSelectDateTime={props.setSelectDateTime}
                     taskChipData={props.taskChipData}
                     setCellTaskId={setCellTaskId}
+                    existCell={props.existCell}
                 />
             </DialogContent>
             <DialogActions sx={{ m: 3 }}>

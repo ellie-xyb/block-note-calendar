@@ -211,6 +211,7 @@ function App(props) {
         taskChipData={taskChipData}
         token={props.token}
         updateCells={updateCells}
+        setSelectDateTime={setSelectDateTime}
       />
     </div>
   );
