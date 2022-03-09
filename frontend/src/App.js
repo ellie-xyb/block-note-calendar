@@ -2,13 +2,13 @@ import * as React from 'react';
 import './App.css';
 import Topbar from './components/Topbar';
 import Taskbar from './components/taskbar/Taskbar';
-import NewCellDialog from './components/taskbar/CellDialog';
+import NewCellDialog from './components/cells/CellDialog';
 import NewTaskDialog from './components/taskbar/TaskDialog';
 import TaskEditDialog from './components/taskbar/TaskEditDialog'
 import BgCalendar from './components/notecalendar/BgCalendar';
 import TimeTable from './components/notecalendar/TimeTable';
 import OverlayDivs from './components/notecalendar/OverlayDivs';
-import TaskShow from './components/tasks/TaskShow';
+import CellShow from './components/cells/CellShow';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -201,8 +201,7 @@ function App(props) {
         token={props.token}
         updateCells={updateCells}
       />
-      {/* taskshow is each cell detail */}
-      <TaskShow
+      <CellShow
         cellOpen={cellOpen}
         handleCellDialogOpen={handleCellDialogOpen} 
         handleCellClose={handleCellClose}

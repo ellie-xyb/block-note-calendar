@@ -10,7 +10,7 @@ import NotesIcon from '@mui/icons-material/Notes';
 import EventIcon from '@mui/icons-material/Event';
 import APIService from '../APIService';
 
-export default function TaskShow(props) {
+export default function CellShow(props) {
   // find the current cell by the cell id
   let cell = props.cells.find(x => x.id === props.pickedCellId);
   let task = cell && props.taskChipData.find(x => x.id === cell.task);
