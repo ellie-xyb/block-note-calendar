@@ -40,6 +40,20 @@ export default function NewCellDialog(props) {
       .catch(error => console.log(`-5cell- ${error} -5cell-`))
     }
 
+    const updateCell = () => {
+      APIService.UpdateCell({"start_datetime": props.selectDateTime.start, "end_datetime": props.selectDateTime.end, "task": cellTaskId}, props.token['mytoken'])
+      .then(() => {
+        let month = props.selectDateTime.start.getMonth() + 1;
+        let day = props.selectDateTime.start.getDate();
+        let year = props.selectDateTime.start.getFullYear();
+        let path = year + '/' + month + '/' + day + '/'; 
+        props.updateCells(path)
+        props.handleCellDialogClose()
+        // console.log(path)
+      })
+      .catch(error => console.log(`-6UpdateCell- ${error} -6UpdateCell-`))
+    }
+
     return (
         <Dialog
             open={props.cellDialogOpen}
@@ -81,6 +95,9 @@ export default function NewCellDialog(props) {
             </DialogContent>
             <DialogActions sx={{ m: 3 }}>
                 <Button variant="contained" onClick={insertCell}>Save</Button>
+            </DialogActions>
+            <DialogActions sx={{ m: 3 }}>
+                <Button variant="contained" onClick={updateCell}>Update</Button>
             </DialogActions>
         </Dialog>
     );    

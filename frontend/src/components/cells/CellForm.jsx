@@ -26,6 +26,7 @@ export default function CellForm(props) {
             disableClearable
             sx={{ mb: 3 }}
             renderInput={(params) => <TextField {...params} label="Choose task"  autoFocus margin="dense" variant="standard"/>}
+            // defaultValue="movie"
             onChange={(event, value) => props.setCellTaskId(value.id)}
           />
 
