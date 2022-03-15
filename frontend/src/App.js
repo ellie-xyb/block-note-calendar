@@ -22,6 +22,7 @@ function App(props) {
   const [taskChipData, setTaskChipData] = React.useState([]);
   const [cells, setCells] = React.useState([]);
   const [selectedTaskId, setSelectedTaskId] = React.useState('')
+  const [selectedCellId, setSelectedCellId] = React.useState(null)
   const [selectedTaskTitle, setSelectedTaskTitle] = React.useState('')
   const [selectedTaskContent, setSelectedTaskContent] = React.useState('')
   const navigate = useNavigate();
@@ -200,6 +201,7 @@ function App(props) {
         taskChipData={taskChipData}
         token={props.token}
         updateCells={updateCells}
+        selectedCellId={selectedCellId}
       />
       <CellShow
         cellOpen={cellOpen}

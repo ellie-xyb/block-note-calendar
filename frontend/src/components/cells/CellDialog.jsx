@@ -93,12 +93,16 @@ export default function NewCellDialog(props) {
                     existCell={props.existCell}
                 />
             </DialogContent>
-            <DialogActions sx={{ m: 3 }}>
-                <Button variant="contained" onClick={insertCell}>Save</Button>
-            </DialogActions>
-            <DialogActions sx={{ m: 3 }}>
-                <Button variant="contained" onClick={updateCell}>Update</Button>
-            </DialogActions>
+            { props.selectedCellId == null && 
+              <DialogActions sx={{ m: 3 }}>
+                  <Button variant="contained" onClick={insertCell}>Save</Button>
+              </DialogActions>
+            }  
+            { props.selectedCellId != null &&
+              <DialogActions sx={{ m: 3 }}>
+                  <Button variant="contained" onClick={updateCell}>Update</Button>
+              </DialogActions>
+            }
         </Dialog>
     );    
 }    
