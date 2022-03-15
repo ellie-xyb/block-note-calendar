@@ -202,6 +202,7 @@ function App(props) {
         token={props.token}
         updateCells={updateCells}
         selectedCellId={selectedCellId}
+        setSelectedCellId={setSelectedCellId}
       />
       <CellShow
         cellOpen={cellOpen}
@@ -213,6 +214,7 @@ function App(props) {
         token={props.token}
         updateCells={updateCells}
         setSelectDateTime={setSelectDateTime}
+        setSelectedCellId={setSelectedCellId}
       />
     </div>
   );

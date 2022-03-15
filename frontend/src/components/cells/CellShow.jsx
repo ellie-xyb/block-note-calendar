@@ -30,8 +30,9 @@ export default function CellShow(props) {
   }
 
   // Todo, put button not finish yet
-  const handelCellEditOpen = () => {
+  const handelCellEditOpen = (id) => {
     props.handleCellClose()
+    props.setSelectedCellId(id)
     props.setSelectDateTime({
       start: cell.start_datetime,
       end: cell.end_datetime,
@@ -54,7 +55,7 @@ export default function CellShow(props) {
         >
           <Box sx={{ width: '480px' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 1, mr:1, color: '#5f6368' }} >
-                <IconButton aria-label="edit-cell" size="medium" onClick={handelCellEditOpen}>
+                <IconButton aria-label="edit-cell" size="medium" onClick={() => {handelCellEditOpen(cell.id)}}>
                     <ModeEditOutlineOutlinedIcon />
                 </IconButton>
                 <IconButton aria-label="delete-cell" size="medium" onClick={() => {deleteCell(cell.id, cell.start_datetime)}}>
